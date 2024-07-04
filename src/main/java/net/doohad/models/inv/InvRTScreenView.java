@@ -19,7 +19,8 @@ import net.doohad.utils.Util;
 @Immutable
 @Subselect(
 	"SELECT s.screen_id as id, s.name, s.short_name, s.resolution, s.medium_id, st.region_name, " +
-			"IFNULL(rt.player_ver, '') as player_ver, IFNULL(rt.next_cmd, '') as next_cmd, IFNULL(rt.cmd_failed, false) as cmd_failed, " +
+			"IFNULL(rt.player_ver, '') as player_ver, IFNULL(rt.keeper_ver, '') as keeper_ver, " +
+			"IFNULL(rt.next_cmd, '') as next_cmd, IFNULL(rt.cmd_failed, false) as cmd_failed, " +
 			"ot.date1 as last_file_date, ot.date2 as last_ad_request_date, ot.date3 as last_ad_report_date, ot.date4 as last_info_date, " +
 			"ot.date5 as last_command_date, ot.date6 as last_command_report_date, ot.date7 as last_event_date, " +
 			"rt.gps_time as gps_time " +
@@ -60,8 +61,12 @@ public class InvRTScreenView {
 	
 	// 플레이어 버전
 	@Column(name = "PLAYER_VER")
-	private String playerVer = ""; 
+	private String playerVer = "";
 	
+	// 키퍼 버전
+	@Column(name = "KEEPER_VER")
+	private String keeperVer = "";
+
 	// 다음 명령(다음에 수행될 기기 명령)
 	@Column(name = "NEXT_CMD")
 	private String nextCmd = "";
@@ -354,5 +359,13 @@ public class InvRTScreenView {
 	public void setGpsTime(Date gpsTime) {
 		this.gpsTime = gpsTime;
 	}
-	
+
+	public String getKeeperVer() {
+		return keeperVer;
+	}
+
+	public void setKeeperVer(String keeperVer) {
+		this.keeperVer = keeperVer;
+	}
+
 }

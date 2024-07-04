@@ -105,6 +105,7 @@
 		<kendo:grid-column title="점검 요약" field="checkList" width="250" filterable="false" sortable="false" template="<%= checkListTemplate %>" />
 		<kendo:grid-column title="운영시간(hrs)" field="bizHours" width="120" filterable="false" sortable="false" />
 		<kendo:grid-column title="알림톡 수신" field="subCount" width="120" filterable="false" sortable="false" />
+		<kendo:grid-column title="점검지연(분)" field="delayChkMins" width="120" filterable="false" />
 		<kendo:grid-column title="재알림대기(분)" field="waitMins" width="120" filterable="false" />
 		<kendo:grid-column title="활성화?" field="activeStatus" width="120"
 				template="#=activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />
@@ -133,6 +134,7 @@
 					<kendo:dataSource-schema-model-field name="activeStatus" type="boolean" />
 					<kendo:dataSource-schema-model-field name="bizHours" type="number" />
 					<kendo:dataSource-schema-model-field name="subCount" type="number" />
+					<kendo:dataSource-schema-model-field name="delayChkMins" type="number" />
 				</kendo:dataSource-schema-model-fields>
 			</kendo:dataSource-schema-model>
 		</kendo:dataSource-schema>
@@ -370,7 +372,7 @@ $(document).ready(function() {
 						<div class="lead">
 							<div>
 								1분 주기로 점검하는 동안, 활성 화면수가
-								<input name="scrCount" type="text" maxlength="10" class="form-control form-control-custom-text" text="1">
+								<input name="scrCount" type="text" maxlength="10" class="form-control form-control-custom-text" value="">
 								미만인 상태로
 								<div class="btn-group form-control-custom-dropdown">
 									<a class="btn btn-default dropdown-toggle bg-white custom-font" data-toggle="dropdown" href="\\\\#"><span id="failCount"></span></a>
@@ -384,6 +386,9 @@ $(document).ready(function() {
 								회 연속 확인되면 알림톡을 발송합니다.
 							</div>
 							<div class="mt-3">
+								점검 시작은
+								<input name="delayMins" type="text" maxlength="10" class="form-control form-control-custom-text" value="">
+								분 경과후에 시작하고,
 								알림톡 발송 후,
 								<div class="btn-group form-control-custom-dropdown">
 									<a class="btn btn-default dropdown-toggle bg-white custom-font" data-toggle="dropdown" href="\\\\#"><span id="coolMins"></span></a>
@@ -492,6 +497,8 @@ function initFormActScr(subtitle) {
 	ttDisplayHours("${mediumBizHours}");
 	
 	$("#form-1 input[name='scrCount']").val("${activeScrCnt}");
+	$("#form-1 input[name='delayMins']").val("5");
+
 	$("#failCount").text("5");
 	$("#coolMins").text("30");
 	
@@ -517,10 +524,11 @@ function initFormActScr(subtitle) {
 function saveFormActScr() {
 
 	var scrCount = Number($.trim($("#form-1 input[name='scrCount']").val()));
+	var delayMins = Number($.trim($("#form-1 input[name='delayMins']").val()));
 	var failCount = Number($("#failCount").text());
 	var coolMins = Number($("#coolMins").text());
 	
-	if ($("#form-1").valid() && scrCount > 0) {
+	if ($("#form-1").valid() && scrCount > 0 && delayMins >= 0 && delayMins < 60) {
     	var data = {
     		id: Number($("#form-1").attr("rowid")),
     		shortName: $.trim($("#form-1 input[name='shortName']").val()),
@@ -530,6 +538,7 @@ function saveFormActScr() {
     		scrCount: scrCount,
     		failCount: failCount,
     		coolMins: coolMins,
+    		delayMins: delayMins,
     	};
     	
 		$.ajax({
@@ -571,12 +580,13 @@ function editActScr(id) {
 	ttDisplayHours(dataItem.bizHour);
 	
 	$("#form-1 input[name='scrCount']").val(dataItem.cfStr1);
+	$("#form-1 input[name='delayMins']").val(dataItem.delayChkMins);
 	$("#failCount").text(dataItem.cfStr2);
 	$("#coolMins").text(dataItem.waitMins);
 	
 	console.log(dataItem);
-	
-	
+
+
 	$('#form-modal-1 .modal-dialog').draggable({ handle: '.modal-header' });
 	$("#form-modal-1").modal();
 }

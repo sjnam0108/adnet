@@ -217,7 +217,6 @@
 		busLngs.push(${item.lng});
 		busLatsLngs.push(new naver.maps.LatLng(${item.lat}, ${item.lng}));
 		</c:forEach>
-		console.log(busTitles);
 
 		<c:forEach var="item" items="${FmarkerList}">
 		fuelTitles.push("${item.title}");

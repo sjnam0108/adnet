@@ -33,14 +33,18 @@ public class InvRTScreen {
 	@Column(name = "PLAYER_VER", nullable = false, length = 30)
 	private String playerVer = ""; 
 	
+	// 키퍼 버전
+	@Column(name = "KEEPER_VER", nullable = false, length = 30)
+	private String keeperVer = "";
+
 	// 다음 명령(다음에 수행될 기기 명령)
 	//
 	//   명령				한글					이벤트
 	//   ------------------	-----------------------	-----------------------
 	//   Reboot				기기 재시작(리부팅)		Reboot
 	//   Update				플레이어 업데이트		X(실패 시에만 UpdateError를 따로 등록)
-	//   Restart            플레이어 재시작			X
-	//   Log				로그 업로드				X(실패 시에만 LogError를 따로 등록)
+	//   Restart            플레이어 재시작			Restart
+	//   Log				로그 업로드				X
 	//   ------------------	-----------------------	-----------------------
 	//
 	@Column(name = "NEXT_CMD", nullable = false, length = 30)
@@ -273,5 +277,13 @@ public class InvRTScreen {
 	public void setGpsLng(Double gpsLng) {
 		this.gpsLng = gpsLng;
 	}
-	
+
+	public String getKeeperVer() {
+		return keeperVer;
+	}
+
+	public void setKeeperVer(String keeperVer) {
+		this.keeperVer = keeperVer;
+	}
+
 }

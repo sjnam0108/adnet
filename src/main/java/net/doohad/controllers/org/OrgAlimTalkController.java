@@ -153,7 +153,8 @@ public class OrgAlimTalkController {
     	int scrCount = (int)model.get("scrCount");
     	int failCount = (int)model.get("failCount");
     	int coolMins = (int)model.get("coolMins");
-    	
+    	int delayMins = (int)model.get("delayMins");
+
     	boolean activeStatus = (Boolean)model.get("activeStatus");
     	
     	// 파라미터 검증
@@ -172,6 +173,7 @@ public class OrgAlimTalkController {
     	target.setCfStr1(String.valueOf(scrCount));
     	target.setCfStr2(String.valueOf(failCount));
     	target.setWaitMins(coolMins);
+    	target.setDelayChkMins(delayMins);
 
         saveOrUpdate(target, locale, session);
 
@@ -194,7 +196,8 @@ public class OrgAlimTalkController {
     	int scrCount = (int)model.get("scrCount");
     	int failCount = (int)model.get("failCount");
     	int coolMins = (int)model.get("coolMins");
-    	
+    	int delayMins = (int)model.get("delayMins");
+
     	boolean activeStatus = (Boolean)model.get("activeStatus");
     	
     	// 파라미터 검증
@@ -218,6 +221,7 @@ public class OrgAlimTalkController {
         	target.setCfStr1(String.valueOf(scrCount));
         	target.setCfStr2(String.valueOf(failCount));
         	target.setWaitMins(coolMins);
+        	target.setDelayChkMins(delayMins);
 
             
             target.touchWho(session);

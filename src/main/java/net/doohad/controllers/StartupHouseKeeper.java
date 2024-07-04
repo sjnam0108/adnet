@@ -3237,8 +3237,8 @@ public class StartupHouseKeeper implements ApplicationListener<ContextRefreshedE
 							//
 					    	
 							// 이벤트 운영/점검 시간이 처음 시작되었을 경우, 기기가 준비되지 않았을 수도 있기 때문에
-							// 운영으로 전환되는 첫 분(00분)은 생략한다.
-							if (!SolUtil.isCurrentOpHours(alimTalk.getBizHour(), Util.addMinutes(now, -1))) {
+							// 운영으로 전환되는 시점인 점검 지연 시간을 적용한다.
+							if (!SolUtil.isCurrentOpHours(alimTalk.getBizHour(), Util.addMinutes(now, -1 * alimTalk.getDelayChkMins()))) {
 								continue;
 							}
 							

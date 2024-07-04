@@ -107,6 +107,7 @@
 	String eventDateTemplate = net.doohad.utils.Util.getSmartDate("lastEventDate");
 	
 	String playerVerTemplate = "<small>#= playerVer #</small>";
+	String keeperVerTemplate = "<small>#= keeperVer #</small>";
 	String nextCmdTemplate =
 			"# if (nextCmd) { #" +
 				"<span class='badge badge-outline-#= cmdFailed ? 'danger' : 'secondary' #'><span>#= getFriendlyCmdName(nextCmd) #</span></span>" +
@@ -800,6 +801,7 @@ function refreshSyncPackStat() {
 		<kendo:grid-column title="방송완료보고" field="lastAdReportDate" width="150" template="<%= adReportDateTemplate %>" />
 		<kendo:grid-column title="플레이어시작" field="lastInfoDate" width="150" template="<%= infoDateTemplate %>" />
 		<kendo:grid-column title="이벤트보고" field="lastEventDate" width="150" template="<%= eventDateTemplate %>" />
+		<kendo:grid-column title="키퍼ver" field="keeperVer" width="120" template="<%= keeperVerTemplate %>" />
 		<kendo:grid-column title="시/군/구" field="regionName" width="150" />
 		<kendo:grid-column title="화면 묶음" field="scrPackName" width="150" filterable="false" sortable="false" />
 	</kendo:grid-columns>
@@ -964,19 +966,19 @@ $(document).ready(function() {
 		var cols = [];
 		
 		if ($(this).val() == "M") {
-			cols = [3, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+			cols = [3, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 		} else if ($(this).val() == "T") {
-			cols = [3, 14, 15];
+			cols = [3, 14, 15, 16];
 		} else if ($(this).val() == "E") {
 			cols = [6, 7, 8, 9, 10, 11, 12, 13];
 		}
 		
-		showColumns([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], grid);
+		showColumns([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], grid);
 		hideColumns(cols, grid);
 
 	});
 
-	hideColumns([3, 7, 8, 9, 10, 11, 12, 13, 14, 15], $("#grid-screen").data("kendoGrid"));
+	hideColumns([3, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], $("#grid-screen").data("kendoGrid"));
 	// / 컬럼 조회 유형
 	
 });	

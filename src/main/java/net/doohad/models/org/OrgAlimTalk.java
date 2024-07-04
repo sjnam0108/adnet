@@ -66,6 +66,16 @@ public class OrgAlimTalk {
 	@Column(name = "WAIT_MINS", nullable = false)
 	private int waitMins = 30;
 
+	// 점검을 시작하기 전 지연 시간(분단위)
+	//
+	//   0 이상, 60 미만의 값
+	//
+	//   보통 STB가 켜지면서 정상화되기 전까지의 시간은 점검은 보류되어야 함
+	//
+	@Column(name = "DELAY_CHK_MINS", nullable = false)
+	private int delayChkMins = 5;
+
+
 	// 현재 상태
 	//
 	//   현재 알림톡 항목의 체크 결과
@@ -406,5 +416,13 @@ public class OrgAlimTalk {
 	public void setOpInt1(Integer opInt1) {
 		this.opInt1 = opInt1;
 	}
-	
+
+	public int getDelayChkMins() {
+		return delayChkMins;
+	}
+
+	public void setDelayChkMins(int delayChkMins) {
+		this.delayChkMins = delayChkMins;
+	}
+
 }

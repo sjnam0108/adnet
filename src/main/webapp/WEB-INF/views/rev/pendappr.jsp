@@ -128,8 +128,7 @@
 	</h6>
 </div>
 <kendo:grid name="grid" pageable="true" filterable="true" sortable="true" scrollable="true" 
-		reorderable="true" resizable="true" detailTemplate="template">
-	<kendo:grid-selectable mode="multiple, row" />
+		reorderable="true" resizable="true" selectable="multiple" detailTemplate="template">
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
     <kendo:grid-toolbarTemplate>
@@ -268,8 +267,7 @@
 	</h6>
 </div>
 <kendo:grid name="grid-decn" pageable="true" filterable="true" sortable="true" scrollable="true" 
-		reorderable="true" resizable="true">
-	<kendo:grid-selectable mode="row" />
+		reorderable="true" resizable="true" selectable="single">
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />

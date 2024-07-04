@@ -313,7 +313,7 @@ public class RcvController {
         		boolean isRightEvent = false;
 
         		// 명령에 의해 트리거된 이벤트는 현재 Reboot 하나
-        		if (event.equals("Reboot")) {
+        		if (event.equals("Reboot") || event.equals("Restart")) {
         			reportType = "I";
         			category = "O";
         			isRightEvent = true;
@@ -399,15 +399,7 @@ public class RcvController {
     			reportType = "W";
     			category = "G";
     			isRightEvent = true;
-    			
-    			if (Util.isValid(desc)) {
-    				details = desc;
-    			}
-    		} else if (event.equals("LogError")) {
-    			reportType = "E";
-    			category = "R";
-    			isRightEvent = true;
-    			
+
     			if (Util.isValid(desc)) {
     				details = desc;
     			}
@@ -447,12 +439,23 @@ public class RcvController {
     			rtScreen = invService.getRTScreenByScreenId(screen.getId());
     		}
     		
-    		if (rtScreen != null) {
-    			if (Util.isNotValid(rtScreen.getPlayerVer()) || 
-        				(Util.isValid(rtScreen.getPlayerVer()) && !rtScreen.getPlayerVer().equals(ver))) {
-    				
-    				rtScreen.setPlayerVer(ver);
-    				invService.saveOrUpdate(rtScreen);
+    		if (rtScreen != null && Util.isValid(ver)) {
+    			if (ver.startsWith("keeper ")) {
+        			if (Util.isNotValid(rtScreen.getKeeperVer()) ||
+            				(Util.isValid(rtScreen.getKeeperVer()) && !rtScreen.getKeeperVer().equals(ver))) {
+
+        				if (ver.length() > 7) {
+            				rtScreen.setKeeperVer(ver.substring(7));
+            				invService.saveOrUpdate(rtScreen);
+        				}
+        			}
+    			} else {
+        			if (Util.isNotValid(rtScreen.getPlayerVer()) ||
+            				(Util.isValid(rtScreen.getPlayerVer()) && !rtScreen.getPlayerVer().equals(ver))) {
+
+        				rtScreen.setPlayerVer(ver);
+        				invService.saveOrUpdate(rtScreen);
+        			}
     			}
     		}
     		
