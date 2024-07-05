@@ -1,14 +1,13 @@
-
 /* Vertical Scrollbar 삭제 */
-.k-grid .k-grid-header
-{
-    padding: 0 !important;
-}
-.k-grid .k-grid-content
-{
-    overflow-y: visible;
-    min-height: 0;
-}
+/*.k-grid .k-grid-header*/
+/*{*/
+/*    padding: 0 !important;*/
+/*}*/
+/*.k-grid .k-grid-content*/
+/*{*/
+/*    overflow-y: visible;*/
+/*    min-height: 0;*/
+/*}*/
 
 /* 추가 */
 /* 그리드 행의 높이 지정 */
@@ -52,6 +51,12 @@
 .k-filter-selected-items {
     margin: auto;
 }
+
+.k-child-animation-container {
+    width: min-content !important;
+}
+
+
 .k-filter-menu .k-filter-selected-items,
 .k-filter-menu .k-actions {
     /*margin: auto !important;*/
@@ -77,4 +82,28 @@
 }
 .k-pager-numbers-wrap > .k-dropdown {
     display: none !important;
+}
+.k-pager-sizes > span {
+    display: flex !important;
+}
+.k-pager > span {
+    display: flex !important;
+}
+
+/* 그리드 colum title ... 생기는 문제*/
+.k-grid .k-cell-inner .k-grid-header-menu {
+    width: calc(10px + 1.42857em);
+    margin-inline-end: 0;
+}
+.k-grid .k-grid-header .k-cell-inner > .k-link > .k-sort-icon {
+    margin-inline-start: calc(0.5rem - 1px);
+}
+
+
+/* 광고 광고소재 소재파일 그리드 크기 커짐 */
+.k-grid td {
+    box-sizing: border-box;
+}
+.k-grid {
+    font-size: 0.894rem;
 }

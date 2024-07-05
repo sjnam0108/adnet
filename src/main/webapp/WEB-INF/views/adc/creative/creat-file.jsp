@@ -252,16 +252,7 @@ $(document).ready(function() {
 
 <style>
 
-/* Vertical Scrollbar 삭제 */
-.k-grid .k-grid-header
-{
-   padding: 0 !important;
-}
-.k-grid .k-grid-content
-{
-   overflow-y: visible;
-   min-height: 90px;
-}
+
 
 
 /* 그리드 자료 새로고침 버튼을 우측 정렬  */

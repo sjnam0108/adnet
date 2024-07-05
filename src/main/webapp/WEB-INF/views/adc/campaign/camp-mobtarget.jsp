@@ -303,27 +303,10 @@ $(document).ready(function() {
 
 <style>
 
-/* 선택 체크박스를 포함하는 필터 패널을 보기 좋게 */
-.k-filter-selected-items {
-	font-weight: 500;
-	margin: 0.5em 0;
-}
-.k-filter-menu .k-button {
-	width: 47%;
-	margin: 0.5em 1% 0.25em;
-}
 
 
-/* Vertical Scrollbar 삭제 */
-.k-grid .k-grid-header
-{
-   padding: 0 !important;
-}
-.k-grid .k-grid-content
-{
-   overflow-y: visible;
-   min-height: 90px;
-}
+
+
 
 
 /* 그리드 자료 새로고침 버튼을 우측 정렬  */

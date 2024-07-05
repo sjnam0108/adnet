@@ -124,16 +124,7 @@
 
 <style>
 
-/* Vertical Scrollbar 삭제 */
-.k-grid .k-grid-header
-{
-   padding: 0 !important;
-}
-.k-grid .k-grid-content
-{
-   overflow-y: visible;
-   min-height: 90px;
-}
+
 
 </style>
 
@@ -276,16 +267,7 @@ $(document).ready(function() {
 
 <style>
 
-/* Vertical Scrollbar 삭제 */
-.k-grid .k-grid-header
-{
-   padding: 0 !important;
-}
-.k-grid .k-grid-content
-{
-   overflow-y: visible;
-   min-height: 90px;
-}
+
 
 
 /* 선택 체크박스를 포함하는 필터 패널을 보기 좋게 */

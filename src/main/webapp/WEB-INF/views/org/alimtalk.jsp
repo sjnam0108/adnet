@@ -585,8 +585,6 @@ function editActScr(id) {
 	$("#failCount").text(dataItem.cfStr2);
 	$("#coolMins").text(dataItem.waitMins);
 	
-	console.log(dataItem);
-
 
 	$('#form-modal-1 .modal-dialog').draggable({ handle: '.modal-header' });
 	$("#form-modal-1").modal();

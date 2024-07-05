@@ -184,7 +184,7 @@
     		</div>
     	</div>
 	</kendo:grid-toolbarTemplate>
-	<kendo:grid-filterable extra="false" />
+	<kendo:grid-filterable extra="false"/>
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
@@ -307,27 +307,10 @@
 
 <style>
 
-/* 선택 체크박스를 포함하는 필터 패널을 보기 좋게 */
-.k-filter-selected-items {
-	font-weight: 500;
-	margin: 0.5em 0;
-}
-.k-filter-menu .k-button {
-	width: 47%;
-	margin: 0.5em 1% 0.25em;
-}
 
 
-/* Vertical Scrollbar 삭제 */
-.k-grid .k-grid-header
-{
-   padding: 0 !important;
-}
-.k-grid .k-grid-content
-{
-   overflow-y: visible;
-   min-height: 90px;
-}
+
+
 
 
 /* 라벨 위치의 버튼 크기를 커스텀 */
@@ -2013,6 +1996,38 @@ $(document).ready(function() {
 		});
 	});
 });
+
+// 작동 안함.
+// function onFilterMenuInit(e) {
+// 	var firstValueDropDown = e.container.find('[data-bind="value: filters[0].operator"]').data('kendoDropDownList');
+// 	firstValueDropDown.value("contains");
+// 	firstValueDropDown.trigger("change");
+//
+// 	var secondValueDropDown = e.container.find('[data-bind="value: filters[1].operator"]').data('kendoDropDownList');
+// 	secondValueDropDown.value("doesnotcontain");
+// 	secondValueDropDown.trigger("change");
+// }
+//
+//
+// $(document).ready(function(){
+// 	// .target-class 클래스를 가진 모든 요소를 순회합니다.
+// 	$(".k-list-item").each(function(){
+// 		console.log("버튼값 찾는중")
+// 		// 각 요소의 텍스트 값을 가져옵니다.
+// 		var text = $(this).children().text();
+//
+// 		if (text === "같은 값") {
+// 			$(this).attr('data-offset-index', 3);
+// 		} else if (text === "다른 값") {
+// 			$(this).attr('data-offset-index', 4);
+// 		} else if (text === "다음을 포함") {
+// 			$(this).attr('data-offset-index', 0);
+// 		} else if (text === "다음을 포함 안함") {
+// 			$(this).attr('data-offset-index', 1);
+// 		}
+//
+// 	});
+// });
 
 </script>
 

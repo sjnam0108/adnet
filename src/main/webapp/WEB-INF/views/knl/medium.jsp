@@ -747,16 +747,7 @@ $(document).ready(function() {
 }
 
 
-/* Vertical Scrollbar 삭제 */
-.k-grid .k-grid-header
-{
-   padding: 0 !important;
-}
-.k-grid .k-grid-content
-{
-   overflow-y: visible;
-   min-height: 90px;
-}
+
 
 </style>
 

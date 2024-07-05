@@ -111,16 +111,7 @@
 
 <style>
 
-/* Vertical Scrollbar 삭제 */
-.k-grid .k-grid-header
-{
-   padding: 0 !important;
-}
-.k-grid .k-grid-content
-{
-   overflow-y: visible;
-   min-height: 90px;
-}
+
 
 </style>
 
@@ -241,7 +232,7 @@ $(document).ready(function() {
 			<div class="modal-header move-cursor">
 				<h5 class="modal-title">
 					${pageTitle}
-					<span class="font-weight-light pl-1"><span name="subtitle"></span>
+					<span class="font-weight-light pl-1"><span name="subtitle"></span></span>
 				</h5>
 				<button type="button" class="close" data-dismiss="modal">×</button>
 			</div>
