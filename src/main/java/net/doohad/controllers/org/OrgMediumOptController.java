@@ -97,8 +97,7 @@ public class OrgMediumOptController {
     	model.addAttribute("pageTitle", "일반 설정");
     	
     	
-    	// Device가 PC일 경우에만, 다중 행 선택 설정
-    	Util.setMultiSelectableIfFromComputer(model, request);
+
     	
         return "org/mediumopt";
     }

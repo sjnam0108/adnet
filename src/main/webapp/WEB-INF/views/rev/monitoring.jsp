@@ -326,7 +326,8 @@
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid-sync" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true" selectable="single" >
+<kendo:grid name="grid-sync" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+    <kendo:grid-selectable mode="raw"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-toolbarTemplate>
@@ -625,7 +626,8 @@ function refreshSyncPackStat() {
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid-screen" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true" selectable="multiple" >
+<kendo:grid name="grid-screen" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+    <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
     <kendo:grid-toolbarTemplate>
@@ -1160,7 +1162,8 @@ function deletePlTime(id, lane) {
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid-api" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true" selectable="single" >
+<kendo:grid name="grid-api" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+    <kendo:grid-selectable mode="raw"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
     <kendo:grid-toolbarTemplate>
@@ -1404,7 +1407,8 @@ function goSelLogTab(screenID) {
 		</div>
 	</h6>
 </div>
-<kendo:grid name="grid-chan-ad" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true" selectable="single" >
+<kendo:grid name="grid-chan-ad" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+    <kendo:grid-selectable mode="raw"/>
 	<kendo:grid-excel fileName="채널광고.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
@@ -1561,7 +1565,8 @@ $(document).ready(function() {
 		</div>
 	</h6>
 </div>
-<kendo:grid name="grid-chan-ad-rpt" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true" selectable="single" >
+<kendo:grid name="grid-chan-ad-rpt" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+    <kendo:grid-selectable mode="raw"/>
 	<kendo:grid-excel fileName="묶음광고노출.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
@@ -1667,7 +1672,8 @@ function selectCtrlSyncPack(source, shortName) {
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid-event" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true" selectable="${value_gridSelectable}" >
+<kendo:grid name="grid-event" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+    <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-excel fileName="모니터링(이벤트보고).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-toolbarTemplate>

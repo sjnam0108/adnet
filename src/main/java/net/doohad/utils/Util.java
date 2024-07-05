@@ -822,17 +822,6 @@ public class Util {
 			return isValid(device) && device.equals("Computer");
 		}
 	}
-	
-	/**
-	 * 요청 디바이스가 일반 PC일 경우에만,다중 행 선택 설정
-	 */
-	public static void setMultiSelectableIfFromComputer(Model model, 
-			HttpServletRequest request) {
-		if (model != null && request != null) {
-			model.addAttribute("value_gridSelectable", isFromComputer(request) ? "multiple" : "row");
-		}
-	}
-	
 	/**
 	 * 간단한 날짜 문자열 생성
 	 */

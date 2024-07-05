@@ -163,8 +163,7 @@ public class AdcCreativeFileController {
     	// 공통 업로드 모달 이용을 위한 열기 URL 지정
     	model.addAttribute("uploadOpenUrl", "/adc/creative/files/upload");
     	
-    	// Device가 PC일 경우에만, 다중 행 선택 설정
-    	Util.setMultiSelectableIfFromComputer(model, request);
+
     	
         return "adc/creative/creat-file";
     }

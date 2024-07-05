@@ -129,7 +129,8 @@ $(document).ready(function() {
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true" selectable="single" >
+<kendo:grid name="grid" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+    <kendo:grid-selectable mode="raw"/>
 	<kendo:grid-excel fileName="채널광고.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-toolbarTemplate>

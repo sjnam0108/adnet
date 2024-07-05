@@ -117,8 +117,7 @@ public class BatchInvController {
     	model.addAttribute("pageTitle", "인벤 일괄 업로드");
     	
     	
-    	// Device가 PC일 경우에만, 다중 행 선택 설정
-    	Util.setMultiSelectableIfFromComputer(model, request);
+
 
 
     	// 업로드 마법사에서 사용되는 업로드 진행 모델

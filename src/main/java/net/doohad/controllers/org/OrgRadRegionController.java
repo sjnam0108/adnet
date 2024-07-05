@@ -84,8 +84,7 @@ public class OrgRadRegionController {
     	model.addAttribute("pageTitle", "지도의 원 반경 지역");
     	
     	
-    	// Device가 PC일 경우에만, 다중 행 선택 설정
-    	Util.setMultiSelectableIfFromComputer(model, request);
+
     	
         return "org/radregion";
     }

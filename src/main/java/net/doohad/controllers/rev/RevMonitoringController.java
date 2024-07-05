@@ -139,10 +139,6 @@ public class RevMonitoringController {
     	// 활성 동기화 화면 묶음 통계
     	model.addAttribute("syncStat", getSyncPackCurrStatItem(Util.getSessionMediumId(session)));
 
-    	
-    	// Device가 PC일 경우에만, 다중 행 선택 설정
-    	Util.setMultiSelectableIfFromComputer(model, request);
-
     	return "rev/monitoring";
     }
 

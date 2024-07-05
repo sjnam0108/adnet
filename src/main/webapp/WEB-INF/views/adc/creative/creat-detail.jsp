@@ -401,7 +401,8 @@ $(document).ready(function() {
 	</h6>
 </div>
 <kendo:grid name="grid-audit" pageable="true" filterable="true" sortable="true" scrollable="true" 
-		reorderable="true" resizable="true" selectable="single" detailTemplate="template">
+		reorderable="true" resizable="true" detailTemplate="template">
+	<kendo:grid-selectable mode="raw"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />

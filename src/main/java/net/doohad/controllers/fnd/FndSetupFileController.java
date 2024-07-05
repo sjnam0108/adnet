@@ -94,8 +94,7 @@ public class FndSetupFileController {
     	model.addAttribute("uploadModel", uploadModel);
 
     	
-    	// Device가 PC일 경우에만, 다중 행 선택 설정
-    	Util.setMultiSelectableIfFromComputer(model, request);
+
     	
         return "fnd/setupfile";
     }

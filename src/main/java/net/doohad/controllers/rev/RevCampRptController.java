@@ -77,8 +77,7 @@ public class RevCampRptController {
     	model.addAttribute("pageTitle", "리포트");
     	
     	
-    	// Device가 PC일 경우에만, 다중 행 선택 설정
-    	Util.setMultiSelectableIfFromComputer(model, request);
+
     	
         return "rev/camprpt";
     }

@@ -229,7 +229,8 @@ $(document).ready(function() {
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid" pageable="true" filterable="false" sortable="false" scrollable="true" reorderable="true" resizable="true" selectable="${value_gridSelectable}" >
+<kendo:grid name="grid" pageable="true" filterable="false" sortable="false" scrollable="true" reorderable="true" resizable="true">
+    <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-pageable refresh="true" previousNext="false" numeric="false" pageSize="10000" info="false" />
 	<kendo:grid-toolbarTemplate>
     	<div class="clearfix">

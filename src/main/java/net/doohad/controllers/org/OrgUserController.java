@@ -89,8 +89,7 @@ public class OrgUserController {
     	model.addAttribute("mUser", user == null ? false : 
     		user.getRole().equals("M1") || user.getRole().equals("M2"));
     	
-    	// Device가 PC일 경우에만, 다중 행 선택 설정
-    	Util.setMultiSelectableIfFromComputer(model, request);
+
     	
         return "org/user";
     }

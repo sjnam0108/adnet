@@ -91,8 +91,7 @@ public class FndViewTypeController {
 		model.addAttribute("CustomResos", getCustomResoDropDownList());
     	
     	
-    	// Device가 PC일 경우에만, 다중 행 선택 설정
-    	Util.setMultiSelectableIfFromComputer(model, request);
+
     	
         return "fnd/viewtype";
     }

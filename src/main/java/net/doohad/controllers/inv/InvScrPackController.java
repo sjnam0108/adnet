@@ -85,8 +85,7 @@ public class InvScrPackController {
     	model.addAttribute("pageTitle", "화면 묶음");
 
     	
-    	// Device가 PC일 경우에만, 다중 행 선택 설정
-    	Util.setMultiSelectableIfFromComputer(model, request);
+
     	
         return "inv/scrpack";
     }
