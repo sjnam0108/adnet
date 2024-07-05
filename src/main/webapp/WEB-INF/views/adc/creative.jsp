@@ -1368,6 +1368,42 @@ function dispBadgeValues(values) {
 
 </script>
 
+<script>
+
+	const openModalBtn = $("a.k-grid-filter-menu")
+	const modal = $(".k-filter-menu-container")
+
+
+
+
+
+	function adjustModalPosition(modalId) {
+		const modal = document.getElementById(modalId);
+		if (!modal) return;
+
+
+		const rect = modal.getBoundingClientRect();
+
+		// 오른쪽이 화면 밖으로 나가면 조정
+		if (rect.right > window.innerWidth) {
+			modal.style.left = (window.innerWidth - modal.offsetWidth) + 'px';
+		}
+
+		// 왼쪽이 화면 밖으로 나가면 조정
+		if (rect.left < 0) {
+			modal.style.left = '0px';
+		}
+	}
+
+	// 창 크기 변경 시 모달 위치 재조정
+	window.addEventListener('resize', () => adjustModalPosition('exampleModal'));
+
+	// 초기 모달 위치 조정
+	adjustModalPosition('exampleModal');
+
+
+</script>
+
 <!--  / Scripts -->
 
 

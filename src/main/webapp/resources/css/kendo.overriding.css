@@ -53,7 +53,9 @@
 }
 
 .k-child-animation-container {
-    width: min-content !important;
+    /*width: min-content !important;*/
+    display: inline !important;
+/*     이거 하면 옆으로 나감*/
 }
 
 
@@ -61,6 +63,14 @@
 .k-filter-menu .k-actions {
     /*margin: auto !important;*/
 }
+.k-actions > * {
+    flex: 1 0 0%;
+}
+.k-multicheck-wrap > .mx-3 {
+    overflow: visible;
+}
+
+
 
 /* 리스트박스 선택된 요소 태두리 제거 */
 .k-list-item.k-focus {
