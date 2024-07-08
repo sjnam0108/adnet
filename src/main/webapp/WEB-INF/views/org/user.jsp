@@ -1,3 +1,4 @@
+<%--suppress ALL --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -16,6 +17,8 @@
 <c:url value="/org/user/read" var="readUrl" />
 <c:url value="/org/user/update" var="updateUrl" />
 <c:url value="/org/user/destroy" var="destroyUrl" />
+
+<c:url value="/org/user/readRoles" var="readRoleUrl" />
 
 
 
@@ -94,8 +97,16 @@
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
 		<kendo:grid-column title="사용자" field="name" width="150" />
 		<kendo:grid-column title="사용자ID" field="shortName" width="150" />
-		<kendo:grid-column title="역할" field="role" width="180" template="<%= roleTemplate %>" />
-		<kendo:grid-column title="최근 로그인" field="lastLoginDate" template="<%= lastLoginDateTemplate %>" width="150" 
+		<kendo:grid-column title="역할" field="role" width="180" template="<%= roleTemplate %>" >
+			<kendo:grid-column-filterable multi="true" itemTemplate="kfcIconText">
+				<kendo:dataSource>
+					<kendo:dataSource-transport>
+						<kendo:dataSource-transport-read url="${readRoleUrl}" dataType="json" type="POST" contentType="application/json" />
+					</kendo:dataSource-transport>
+				</kendo:dataSource>
+			</kendo:grid-column-filterable>
+		</kendo:grid-column>
+		<kendo:grid-column title="최근 로그인" field="lastLoginDate" template="<%= lastLoginDateTemplate %>" width="150"
 				filterable="false" sortable="false" />
 		<kendo:grid-column title="활성화" field="activeStatus" width="100"
 				template="#= activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />
