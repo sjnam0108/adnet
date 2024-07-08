@@ -38,6 +38,7 @@
 	<script src="<c:url value='/resources/js/jquery.min.js' />"></script>
 	<script src="<c:url value='/resources/js/jszip.min.js' />"></script>
 	<script src="<c:url value='/resources/js/kendo.all.min.js' />"></script>
+	<script src="<c:url value='/resources/js/kendo.overriding.js' />"></script>
 	
 	<script src="<c:url value='/resources/vendor/lib/jquery-ui/jquery-ui.min.js' />"></script>
 

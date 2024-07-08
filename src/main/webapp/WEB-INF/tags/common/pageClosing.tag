@@ -46,5 +46,7 @@
 		<script src="/resources/vendor/lib/toastr/toastr.js"></script>
 		<script src="/resources/vendor/lib/bootbox/bootbox.js"></script>
 		<script src="/resources/vendor/lib/bootstrap-select/bootstrap-select.js"></script>
+
+		
 	</body>
 </html>

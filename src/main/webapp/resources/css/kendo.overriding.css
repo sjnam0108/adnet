@@ -22,7 +22,7 @@
     line-height: 1.42857;
 }
 
-/*!*그리드 툴바*!*/
+/*  그리드 툴바  */
 .k-grid-toolbar{
     padding: 8px;
     display: block;
@@ -40,9 +40,6 @@
     min-width: 100px;
     min-height: 100px;
 }
-.k-multicheck-wrap, .k-multicheck-wrap > * {
-    width: fit-content;
-}
 .k-filter-help-text {
     white-space: nowrap;
     display: inline-block;
@@ -51,24 +48,15 @@
 .k-filter-selected-items {
     margin: auto;
 }
-
-.k-child-animation-container {
-    /*width: min-content !important;*/
-    display: inline !important;
-/*     이거 하면 옆으로 나감*/
-}
-
-
-.k-filter-menu .k-filter-selected-items,
-.k-filter-menu .k-actions {
-    /*margin: auto !important;*/
+.k-filter-menu {
+    width: fit-content;
 }
 .k-actions > * {
     flex: 1 0 0%;
 }
-.k-multicheck-wrap > .mx-3 {
-    overflow: visible;
-}
+/*.k-multicheck-wrap > .mx-3 {*/
+/*    overflow: visible;*/
+/*}*/
 
 
 
