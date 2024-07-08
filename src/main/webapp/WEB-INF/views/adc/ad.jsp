@@ -258,11 +258,11 @@
     		</div>
     		<div class="float-right">
     			<button id="duplicate-btn" type="button" class="btn btn-outline-success d-none d-sm-inline">복사 추가</button>
-				<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+				<button type="button" class="btn btn-secondary dropdown-toggle bug-fixed-toggle" data-toggle="dropdown">
 					<span class="fa-light fa-lg fa-signs-post"></span>
 					<span class="pl-1">진행</span>
 				</button>
-				<div class="dropdown-menu">
+				<div class="dropdown-menu bug-fixed-menu">
 					<a class="dropdown-item" href="javascript:void(0)" id="approve-btn">
 						<i class="fa-light fa-thumbs-up fa-fw"></i><span class="pl-2">승인</span>
 					</a>
@@ -741,7 +741,7 @@ $(document).ready(function() {
 						</select>
 					</div>
 				</div>
-				<div class="form-row">
+				<div class="form-row custom-class">
 					<div class="form-group col">
 						<label class="form-label">
 							구매 유형
@@ -757,7 +757,7 @@ $(document).ready(function() {
 							시작일
 							<span class="text-danger">*</span>
 						</label>
-						<input name="startDate" type="text" class="form-control required">
+						<input name="startDate" type="text" class="form-control required" >
 					</div>
 					<div class="form-group col">
 						<label class="form-label">

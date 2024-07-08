@@ -47,6 +47,8 @@
 		<script src="/resources/vendor/lib/bootbox/bootbox.js"></script>
 		<script src="/resources/vendor/lib/bootstrap-select/bootstrap-select.js"></script>
 
+		<script src="<c:url value='/resources/js/kendo.overriding.js' />"></script>
+
 		
 	</body>
 </html>

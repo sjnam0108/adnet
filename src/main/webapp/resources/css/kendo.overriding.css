@@ -1,15 +1,4 @@
-/* Vertical Scrollbar 삭제 */
-/*.k-grid .k-grid-header*/
-/*{*/
-/*    padding: 0 !important;*/
-/*}*/
-/*.k-grid .k-grid-content*/
-/*{*/
-/*    overflow-y: visible;*/
-/*    min-height: 0;*/
-/*}*/
-
-/* 추가 */
+/* kendo css 수정 */
 /* 그리드 행의 높이 지정 */
 .k-grid .k-table-td {
     box-sizing: border-box;
@@ -59,7 +48,6 @@
 /*}*/
 
 
-
 /* 리스트박스 선택된 요소 태두리 제거 */
 .k-list-item.k-focus {
     box-shadow: none;
@@ -104,4 +92,28 @@
 }
 .k-grid {
     font-size: 0.894rem;
+}
+
+/*  생성폼 태두리 조정  */
+.custom-class .k-input {
+    border: none;
+}
+.custom-class .k-input-inner {
+    border-radius: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+
+
+
+/* bootstrap css 수정 */
+/*  생성 폼 datepicker버튼 위치 바뀜 */
+.custom-class .form-control {
+    display: flex !important;
+    padding: 0;
+}
+
+.custom-class .form-control > input {
+    padding: .438rem .875rem;
 }
