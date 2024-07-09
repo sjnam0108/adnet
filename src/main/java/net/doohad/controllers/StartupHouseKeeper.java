@@ -3144,6 +3144,22 @@ public class StartupHouseKeeper implements ApplicationListener<ContextRefreshedE
 			}
 		}
 		
+		if (adCreatFileObject != null) {
+
+			String mapKey = "AdSel_A" + adCreatFileObject.getAdCreat().getAd().getId() + "S" + screen.getId();
+			// 다음의 시간까지는 선택이 불가능하도록 함
+			int impPlanPerHour = Util.parseInt(SolUtil.getOptValue(screen.getMedium().getId(), "impress.per.hour"), 6);
+			if (impPlanPerHour < 1) {
+				impPlanPerHour = 6;
+			}
+
+			// 1hr = 60 * 60 = 3600 sec
+			// 매체에 정해진 시간당 송출 횟수 * 2.5배가 가능한 수치가 되도록
+			// 의도적인 floor 처리
+			int expireSecs = (int)(60f * 60f / (float)impPlanPerHour / 2.5f);
+			SolUtil.putAutoExpVarValue(mapKey, "Y", Util.addSeconds(new Date(), expireSecs));
+		}
+
 		return adCreatFileObject;
 	}
 	

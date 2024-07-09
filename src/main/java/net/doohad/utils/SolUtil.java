@@ -3604,6 +3604,10 @@ public class SolUtil {
 	    					// 추가적인 광고 선택이 해당 시간 내 되지 말아야 한다
 	    					continue;
 	    				} else {
+	    					//
+	    					// 설정 부분은 이 메소드 호출에서 확정된 후 진행함
+	    					//
+	    					/*
 	    					// 루프의 현재 광고의 조건이 만족된 상태
 	    					// 다음의 시간까지는 선택이 불가능하도록 함
 	    					int impPlanPerHour = Util.parseInt(SolUtil.getOptValue(screen.getMedium().getId(), "impress.per.hour"), 6);
@@ -3616,6 +3620,7 @@ public class SolUtil {
 	    					// 의도적인 floor 처리
 	    					int expireSecs = (int)(60f * 60f / (float)impPlanPerHour / 2.5f);
 	    					SolUtil.putAutoExpVarValue(mapKey, "Y", Util.addSeconds(new Date(), expireSecs));
+	    					*/
 	    				}
 	    			}
     			}
