@@ -3195,13 +3195,16 @@ public class StartupHouseKeeper implements ApplicationListener<ContextRefreshedE
 		return retList;
 	}
 	
-	private String getAlimTalkForActScr(int mediumId) {
+	private String getAlimTalkForActScr(int mediumId, ArrayList<Integer> noAlimIds) {
     	
     	ArrayList<Integer> ids = new ArrayList<Integer>();
     	
     	// 메모리에 있는 현재 상태의 통계치 전달
     	List<Integer> monitList = invService.getMonitScreenIdsByMediumId(mediumId);
     	for(Integer i : monitList) {
+    		if (noAlimIds.contains(i)) {
+    			continue;
+    		}
     		String status = GlobalInfo.InvenLastStatusMap.get("SC" + i);
     		if (!(Util.isValid(status) && status.equals("6"))) {
     			ids.add(i);
@@ -3259,6 +3262,23 @@ public class StartupHouseKeeper implements ApplicationListener<ContextRefreshedE
 							}
 							
 							
+							// 알림톡 방지가 적용된 기기의 id 획득
+							ArrayList<Integer> noAlimIds = new ArrayList<Integer>();
+							SysOpt sysOpt = sysService.getOpt("opt.noalim." + alimTalk.getMedium().getShortName());
+							if (sysOpt != null) {
+	    						String value = sysOpt.getValue();
+	    						if (Util.isValid(value)) {
+	    							List<String> ids = Util.tokenizeValidStr(value);
+	    							for(String id : ids) {
+	    								Integer i = Util.parseInt(id);
+	    								if (i != null && i.intValue() > 0 && !noAlimIds.contains(i)) {
+	    									noAlimIds.add(i);
+	    								}
+	    							}
+	    							cnt = ids.size();
+	    						}
+							}
+
 							// 현재 상태
 							String currStatus = "S";
 							
@@ -3266,6 +3286,9 @@ public class StartupHouseKeeper implements ApplicationListener<ContextRefreshedE
 					    	int status6 = 0;
 					    	List<Integer> monitList = invService.getMonitScreenIdsByMediumId(alimTalk.getMedium().getId());
 					    	for(Integer i : monitList) {
+					    		if (noAlimIds.contains(i)) {
+					    			continue;
+					    		}
 					    		String status = GlobalInfo.InvenLastStatusMap.get("SC" + i);
 					    		if (Util.isValid(status) && status.equals("6")) {
 				    				status6 ++;
@@ -3287,7 +3310,7 @@ public class StartupHouseKeeper implements ApplicationListener<ContextRefreshedE
 					    	int failCnt = 0;
 					    	String failList = "";
 					    	if (currStatus.equals("F")) {
-					    		String talkStr = getAlimTalkForActScr(alimTalk.getMedium().getId());
+					    		String talkStr = getAlimTalkForActScr(alimTalk.getMedium().getId(), noAlimIds);
 					    		String opStr1 = "";
 					    		String opLgStr1 = "";
 					    		if (!talkStr.equals("0") && talkStr.indexOf("_") > 0) {

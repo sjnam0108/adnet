@@ -12,7 +12,7 @@ public class WebAppInfo {
 	// 형식: yy.mdd
 	//   예) 21.102   21.615   21.1009   21.1221   22.127
 	//
-	public static String SERVER_VERSION = "24.707";
+	public static String SERVER_VERSION = "24.708";
 	
 	
 	// 앱의 ID(appID)

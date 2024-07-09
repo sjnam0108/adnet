@@ -8,3 +8,7 @@ note/origin_setting/.project
 note/origin_setting/.springBeans
 .settings
 note/origin_setting/.factorypath
+.classpath
+.project
+.springBeans
+.factorypath
