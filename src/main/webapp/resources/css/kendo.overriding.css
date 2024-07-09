@@ -175,6 +175,33 @@
     right: 150px;
 }
 
+/*  파일 업로드 폼 양식 수정  */
+.k-file.k-file-invalid.k-file-error {
+    padding: 8px;
+    border-width: 0 0 1px !important;
+    align-items: center !important;;
+    position: relative;
+    line-height: 1.42857;
+}
+.k-file.k-toupload {
+    padding: 8px !important;
+    border-width: 0 0 1px !important;
+    align-items: center !important;
+    position: relative;
+    line-height: 1.42857;
+}
+.k-file-validation-message {
+    font-size: 9.432px !important;
+    color: #d9534f; !important;
+}
+.k-file-name {
+    font-size: 14px ;
+    color: #b3b3b3;
+}
+.drop-zone.upload-root-div .k-actions{
+    border-top: none;
+}
+
 /*  폼 멀티 셀렉트 수정  */
 #formRoot .k-multiselect.k-input {
     display: block !important;

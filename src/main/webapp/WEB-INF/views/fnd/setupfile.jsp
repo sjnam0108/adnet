@@ -479,7 +479,7 @@ $(document).ready(function() {
 
 strong.k-upload-status.k-upload-status-total { font-weight: 500; color: #2e2e2e; }
 
-/*div.k-dropzone.k-dropzone-hovered em, div.k-dropzone em { color: #2e2e2e; }*/
+div.k-dropzone.k-dropzone-hovered em, div.k-dropzone em { color: #2e2e2e; }
 
 .k-upload .k-upload-files ~ .k-button {
 	width: 48%;
@@ -520,32 +520,6 @@ strong.k-upload-status.k-upload-status-total { font-weight: 500; color: #2e2e2e;
 .k-upload .k-upload-files ~ .k-clear-selected:hover {
 	background: rgba(24,28,33,0.06);
 }
-
-
-/*	수정 사항  */
-.k-file.k-file-invalid.k-file-error {
-	padding: 8px;
-	border-width: 0 0 1px !important;
-	align-items: center !important;;
-	position: relative;
-	line-height: 1.42857;
-}
-.k-file.k-toupload {
-	padding: 8px !important;
-	border-width: 0 0 1px !important;
-	align-items: center !important;
-	position: relative;
-	line-height: 1.42857;
-}
-.k-file-validation-message {
-	font-size: 9.432px !important;
-	color: #d9534f; !important;
-}
-.k-file-name {
-	font-size: 14px ;
-	color: #b3b3b3;
-}
-
 
 </style>
 
