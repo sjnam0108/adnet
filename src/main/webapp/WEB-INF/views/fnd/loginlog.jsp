@@ -41,8 +41,8 @@
 <!-- Java(optional)  -->
 
 <%
-	String dateTemplate = net.doohad.utils.Util.getSmartDate();
-	String logoutDateTemplate = net.doohad.utils.Util.getSmartDate("logoutDate");
+	String dateTemplate = kr.adnetwork.utils.Util.getSmartDate();
+	String logoutDateTemplate = kr.adnetwork.utils.Util.getSmartDate("logoutDate");
 	
 	String noRecordsTemplate =
 			"<div class='container text-center my-4'>" +

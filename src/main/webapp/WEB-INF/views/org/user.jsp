@@ -60,8 +60,8 @@
 				"<span>-</span>" +
 			"# } #";
 			
-	String lastLoginDateTemplate = net.doohad.utils.Util.getSmartDate("lastLoginDate");
-	String creationDateTemplate = net.doohad.utils.Util.getSmartDate("whoCreationDate", false, false);
+	String lastLoginDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastLoginDate");
+	String creationDateTemplate = kr.adnetwork.utils.Util.getSmartDate("whoCreationDate", false, false);
 	
 	String noRecordsTemplate =
 			"<div class='container text-center my-4'>" +

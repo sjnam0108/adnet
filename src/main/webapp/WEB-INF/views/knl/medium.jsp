@@ -53,8 +53,8 @@
 				"</span>" +
 			"</div>";
 
-	String effStartDateTemplate = net.doohad.utils.Util.getSmartDate("effectiveStartDate", false, false);
-	String effEndDateTemplate = net.doohad.utils.Util.getSmartDate("effectiveEndDate", false, false);
+	String effStartDateTemplate = kr.adnetwork.utils.Util.getSmartDate("effectiveStartDate", false, false);
+	String effEndDateTemplate = kr.adnetwork.utils.Util.getSmartDate("effectiveEndDate", false, false);
 	
 	String defaultDurSecTemplate =
 			"<span>#= defaultDurSecs #</span>" +

@@ -15,21 +15,21 @@
 	<websocket:handlers>
 		<websocket:mapping handler="siteStatusWebsocketHandler" path="/r/sitestbstatus" />
 		<websocket:handshake-interceptors>
-			<beans:bean class="net.doohad.interceptors.SiteHandshakeInterceptor" />
+			<beans:bean class="kr.adnetwork.interceptors.SiteHandshakeInterceptor" />
 		</websocket:handshake-interceptors>
 	</websocket:handlers>
 	
-	<beans:bean id="siteStatusWebsocketHandler" class="net.doohad.handlers.SiteStatusWebsocketHandler">
+	<beans:bean id="siteStatusWebsocketHandler" class="kr.adnetwork.handlers.SiteStatusWebsocketHandler">
 	</beans:bean>
 
 	<websocket:handlers>
 		<websocket:mapping handler="siteFailureWebsocketHandler" path="/r/sitefailure" />
 		<websocket:handshake-interceptors>
-			<beans:bean class="net.doohad.interceptors.SiteHandshakeInterceptor" />
+			<beans:bean class="kr.adnetwork.interceptors.SiteHandshakeInterceptor" />
 		</websocket:handshake-interceptors>
 	</websocket:handlers>
 	
-	<beans:bean id="siteFailureWebsocketHandler" class="net.doohad.handlers.SiteFailureWebsocketHandler">
+	<beans:bean id="siteFailureWebsocketHandler" class="kr.adnetwork.handlers.SiteFailureWebsocketHandler">
 	</beans:bean>
 	- Solution ext                                                  end -->
 	
@@ -39,7 +39,7 @@
     	<message-converters register-defaults="false">
     		<beans:bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
     			<beans:property name="objectMapper">
-    				<beans:bean class="net.doohad.models.CustomObjectMapper"/>
+    				<beans:bean class="kr.adnetwork.models.CustomObjectMapper"/>
     			</beans:property>
     		</beans:bean>
     	</message-converters>
@@ -82,83 +82,83 @@
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="annotatedClasses">
 			<beans:list>
-				<beans:value>net.doohad.models.adc.AdcAd</beans:value>
-				<beans:value>net.doohad.models.adc.AdcAdCreative</beans:value>
-				<beans:value>net.doohad.models.adc.AdcAdTarget</beans:value>
-				<beans:value>net.doohad.models.adc.AdcCampaign</beans:value>
-				<beans:value>net.doohad.models.adc.AdcCreatFile</beans:value>
-				<beans:value>net.doohad.models.adc.AdcCreative</beans:value>
-				<beans:value>net.doohad.models.adc.AdcCreatTarget</beans:value>
-				<beans:value>net.doohad.models.adc.AdcMobTarget</beans:value>
-				<beans:value>net.doohad.models.adc.AdcMobTargetView</beans:value>
-				<beans:value>net.doohad.models.adc.AdcPlaylist</beans:value>
+				<beans:value>kr.adnetwork.models.adc.AdcAd</beans:value>
+				<beans:value>kr.adnetwork.models.adc.AdcAdCreative</beans:value>
+				<beans:value>kr.adnetwork.models.adc.AdcAdTarget</beans:value>
+				<beans:value>kr.adnetwork.models.adc.AdcCampaign</beans:value>
+				<beans:value>kr.adnetwork.models.adc.AdcCreatFile</beans:value>
+				<beans:value>kr.adnetwork.models.adc.AdcCreative</beans:value>
+				<beans:value>kr.adnetwork.models.adc.AdcCreatTarget</beans:value>
+				<beans:value>kr.adnetwork.models.adc.AdcMobTarget</beans:value>
+				<beans:value>kr.adnetwork.models.adc.AdcMobTargetView</beans:value>
+				<beans:value>kr.adnetwork.models.adc.AdcPlaylist</beans:value>
 				
-				<beans:value>net.doohad.models.adn.AdnExcelRow</beans:value>
+				<beans:value>kr.adnetwork.models.adn.AdnExcelRow</beans:value>
 				
-				<beans:value>net.doohad.models.fnd.FndCtntFolder</beans:value>
-				<beans:value>net.doohad.models.fnd.FndLoginLog</beans:value>
-				<beans:value>net.doohad.models.fnd.FndMobRegion</beans:value>
-				<beans:value>net.doohad.models.fnd.FndPriv</beans:value>
-				<beans:value>net.doohad.models.fnd.FndRegion</beans:value>
-				<beans:value>net.doohad.models.fnd.FndSetupFile</beans:value>
-				<beans:value>net.doohad.models.fnd.FndState</beans:value>
-				<beans:value>net.doohad.models.fnd.FndUserPriv</beans:value>
-				<beans:value>net.doohad.models.fnd.FndViewType</beans:value>
+				<beans:value>kr.adnetwork.models.fnd.FndCtntFolder</beans:value>
+				<beans:value>kr.adnetwork.models.fnd.FndLoginLog</beans:value>
+				<beans:value>kr.adnetwork.models.fnd.FndMobRegion</beans:value>
+				<beans:value>kr.adnetwork.models.fnd.FndPriv</beans:value>
+				<beans:value>kr.adnetwork.models.fnd.FndRegion</beans:value>
+				<beans:value>kr.adnetwork.models.fnd.FndSetupFile</beans:value>
+				<beans:value>kr.adnetwork.models.fnd.FndState</beans:value>
+				<beans:value>kr.adnetwork.models.fnd.FndUserPriv</beans:value>
+				<beans:value>kr.adnetwork.models.fnd.FndViewType</beans:value>
 				
-				<beans:value>net.doohad.models.inv.InvRTScreen</beans:value>
-				<beans:value>net.doohad.models.inv.InvRTScreenView</beans:value>
-				<beans:value>net.doohad.models.inv.InvRTSyncPack</beans:value>
-				<beans:value>net.doohad.models.inv.InvScreen</beans:value>
-				<beans:value>net.doohad.models.inv.InvScrLoc</beans:value>
-				<beans:value>net.doohad.models.inv.InvScrPack</beans:value>
-				<beans:value>net.doohad.models.inv.InvScrPackItem</beans:value>
-				<beans:value>net.doohad.models.inv.InvSite</beans:value>
-				<beans:value>net.doohad.models.inv.InvSyncPack</beans:value>
-				<beans:value>net.doohad.models.inv.InvSyncPackItem</beans:value>
+				<beans:value>kr.adnetwork.models.inv.InvRTScreen</beans:value>
+				<beans:value>kr.adnetwork.models.inv.InvRTScreenView</beans:value>
+				<beans:value>kr.adnetwork.models.inv.InvRTSyncPack</beans:value>
+				<beans:value>kr.adnetwork.models.inv.InvScreen</beans:value>
+				<beans:value>kr.adnetwork.models.inv.InvScrLoc</beans:value>
+				<beans:value>kr.adnetwork.models.inv.InvScrPack</beans:value>
+				<beans:value>kr.adnetwork.models.inv.InvScrPackItem</beans:value>
+				<beans:value>kr.adnetwork.models.inv.InvSite</beans:value>
+				<beans:value>kr.adnetwork.models.inv.InvSyncPack</beans:value>
+				<beans:value>kr.adnetwork.models.inv.InvSyncPackItem</beans:value>
 
-				<beans:value>net.doohad.models.knl.KnlAccount</beans:value>
-				<beans:value>net.doohad.models.knl.KnlMedium</beans:value>
-				<beans:value>net.doohad.models.knl.KnlMenu</beans:value>
-				<beans:value>net.doohad.models.knl.KnlUser</beans:value>
+				<beans:value>kr.adnetwork.models.knl.KnlAccount</beans:value>
+				<beans:value>kr.adnetwork.models.knl.KnlMedium</beans:value>
+				<beans:value>kr.adnetwork.models.knl.KnlMenu</beans:value>
+				<beans:value>kr.adnetwork.models.knl.KnlUser</beans:value>
 
-				<beans:value>net.doohad.models.org.OrgAdvertiser</beans:value>
-				<beans:value>net.doohad.models.org.OrgAlimTalk</beans:value>
-				<beans:value>net.doohad.models.org.OrgChannel</beans:value>
-				<beans:value>net.doohad.models.org.OrgChanSub</beans:value>
-				<beans:value>net.doohad.models.org.OrgMediumOpt</beans:value>
-				<beans:value>net.doohad.models.org.OrgRadRegion</beans:value>
-				<beans:value>net.doohad.models.org.OrgRTChannel</beans:value>
-				<beans:value>net.doohad.models.org.OrgSiteCond</beans:value>
+				<beans:value>kr.adnetwork.models.org.OrgAdvertiser</beans:value>
+				<beans:value>kr.adnetwork.models.org.OrgAlimTalk</beans:value>
+				<beans:value>kr.adnetwork.models.org.OrgChannel</beans:value>
+				<beans:value>kr.adnetwork.models.org.OrgChanSub</beans:value>
+				<beans:value>kr.adnetwork.models.org.OrgMediumOpt</beans:value>
+				<beans:value>kr.adnetwork.models.org.OrgRadRegion</beans:value>
+				<beans:value>kr.adnetwork.models.org.OrgRTChannel</beans:value>
+				<beans:value>kr.adnetwork.models.org.OrgSiteCond</beans:value>
 
-				<beans:value>net.doohad.models.rev.RevAdSelCache</beans:value>
-				<beans:value>net.doohad.models.rev.RevAdSelect</beans:value>
-				<beans:value>net.doohad.models.rev.RevChanAd</beans:value>
-				<beans:value>net.doohad.models.rev.RevChanAdRpt</beans:value>
-				<beans:value>net.doohad.models.rev.RevCreatDecn</beans:value>
-				<beans:value>net.doohad.models.rev.RevDailyAchv</beans:value>
-				<beans:value>net.doohad.models.rev.RevEventReport</beans:value>
-				<beans:value>net.doohad.models.rev.RevFbSelCache</beans:value>
-				<beans:value>net.doohad.models.rev.RevHourlyPlay</beans:value>
-				<beans:value>net.doohad.models.rev.RevInvenRequest</beans:value>
-				<beans:value>net.doohad.models.rev.RevImpWave</beans:value>
-				<beans:value>net.doohad.models.rev.RevObjTouch</beans:value>
-				<beans:value>net.doohad.models.rev.RevPlayHist</beans:value>
-				<beans:value>net.doohad.models.rev.RevScrHourlyPlay</beans:value>
-				<beans:value>net.doohad.models.rev.RevScrHrlyFailTot</beans:value>
-				<beans:value>net.doohad.models.rev.RevScrHrlyFbTot</beans:value>
-				<beans:value>net.doohad.models.rev.RevScrHrlyNoAdTot</beans:value>
-				<beans:value>net.doohad.models.rev.RevScrHrlyPlyTot</beans:value>
-				<beans:value>net.doohad.models.rev.RevScrStatusLine</beans:value>
-				<beans:value>net.doohad.models.rev.RevSitHrlyPlyTot</beans:value>
-				<beans:value>net.doohad.models.rev.RevSyncPackImp</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevAdSelCache</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevAdSelect</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevChanAd</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevChanAdRpt</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevCreatDecn</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevDailyAchv</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevEventReport</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevFbSelCache</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevHourlyPlay</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevInvenRequest</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevImpWave</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevObjTouch</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevPlayHist</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevScrHourlyPlay</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevScrHrlyFailTot</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevScrHrlyFbTot</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevScrHrlyNoAdTot</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevScrHrlyPlyTot</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevScrStatusLine</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevSitHrlyPlyTot</beans:value>
+				<beans:value>kr.adnetwork.models.rev.RevSyncPackImp</beans:value>
 
-				<beans:value>net.doohad.models.sys.SysAuditTrail</beans:value>
-				<beans:value>net.doohad.models.sys.SysAuditTrailValue</beans:value>
-				<beans:value>net.doohad.models.sys.SysOpt</beans:value>
-				<beans:value>net.doohad.models.sys.SysRtUnit</beans:value>
-				<beans:value>net.doohad.models.sys.SysSvcRespTime</beans:value>
-				<beans:value>net.doohad.models.sys.SysTmpHrlyEvent</beans:value>
-				<beans:value>net.doohad.models.sys.SysTmpStatusLine</beans:value>
+				<beans:value>kr.adnetwork.models.sys.SysAuditTrail</beans:value>
+				<beans:value>kr.adnetwork.models.sys.SysAuditTrailValue</beans:value>
+				<beans:value>kr.adnetwork.models.sys.SysOpt</beans:value>
+				<beans:value>kr.adnetwork.models.sys.SysRtUnit</beans:value>
+				<beans:value>kr.adnetwork.models.sys.SysSvcRespTime</beans:value>
+				<beans:value>kr.adnetwork.models.sys.SysTmpHrlyEvent</beans:value>
+				<beans:value>kr.adnetwork.models.sys.SysTmpStatusLine</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -200,37 +200,37 @@
 		<beans:property name="defaultEncoding" value="UTF-8" />
 	</beans:bean>
 
-    <context:component-scan base-package="net.doohad.controllers" />
-    <context:component-scan base-package="net.doohad.controllers.adc" />
-    <context:component-scan base-package="net.doohad.controllers.adn" />
-    <context:component-scan base-package="net.doohad.controllers.api" />
-    <context:component-scan base-package="net.doohad.controllers.common" />
-    <context:component-scan base-package="net.doohad.controllers.fnd" />
-    <context:component-scan base-package="net.doohad.controllers.inv" />
-    <context:component-scan base-package="net.doohad.controllers.knl" />
-    <context:component-scan base-package="net.doohad.controllers.org" />
-    <context:component-scan base-package="net.doohad.controllers.rev" />
-    <context:component-scan base-package="net.doohad.models" />
-    <context:component-scan base-package="net.doohad.models.adc" />
-    <context:component-scan base-package="net.doohad.models.adc.dao" />
-    <context:component-scan base-package="net.doohad.models.adn" />
-    <context:component-scan base-package="net.doohad.models.adn.dao" />
-    <context:component-scan base-package="net.doohad.models.fnd" />
-    <context:component-scan base-package="net.doohad.models.fnd.dao" />
-    <context:component-scan base-package="net.doohad.models.inv" />
-    <context:component-scan base-package="net.doohad.models.inv.dao" />
-    <context:component-scan base-package="net.doohad.models.knl" />
-    <context:component-scan base-package="net.doohad.models.knl.dao" />
-    <context:component-scan base-package="net.doohad.models.org" />
-    <context:component-scan base-package="net.doohad.models.org.dao" />
-    <context:component-scan base-package="net.doohad.models.rev" />
-    <context:component-scan base-package="net.doohad.models.rev.dao" />
-    <context:component-scan base-package="net.doohad.models.service" />
-    <context:component-scan base-package="net.doohad.models.sys" />
-    <context:component-scan base-package="net.doohad.models.sys.dao" />
-    <context:component-scan base-package="net.doohad.utils" />
+    <context:component-scan base-package="kr.adnetwork.controllers" />
+    <context:component-scan base-package="kr.adnetwork.controllers.adc" />
+    <context:component-scan base-package="kr.adnetwork.controllers.adn" />
+    <context:component-scan base-package="kr.adnetwork.controllers.api" />
+    <context:component-scan base-package="kr.adnetwork.controllers.common" />
+    <context:component-scan base-package="kr.adnetwork.controllers.fnd" />
+    <context:component-scan base-package="kr.adnetwork.controllers.inv" />
+    <context:component-scan base-package="kr.adnetwork.controllers.knl" />
+    <context:component-scan base-package="kr.adnetwork.controllers.org" />
+    <context:component-scan base-package="kr.adnetwork.controllers.rev" />
+    <context:component-scan base-package="kr.adnetwork.models" />
+    <context:component-scan base-package="kr.adnetwork.models.adc" />
+    <context:component-scan base-package="kr.adnetwork.models.adc.dao" />
+    <context:component-scan base-package="kr.adnetwork.models.adn" />
+    <context:component-scan base-package="kr.adnetwork.models.adn.dao" />
+    <context:component-scan base-package="kr.adnetwork.models.fnd" />
+    <context:component-scan base-package="kr.adnetwork.models.fnd.dao" />
+    <context:component-scan base-package="kr.adnetwork.models.inv" />
+    <context:component-scan base-package="kr.adnetwork.models.inv.dao" />
+    <context:component-scan base-package="kr.adnetwork.models.knl" />
+    <context:component-scan base-package="kr.adnetwork.models.knl.dao" />
+    <context:component-scan base-package="kr.adnetwork.models.org" />
+    <context:component-scan base-package="kr.adnetwork.models.org.dao" />
+    <context:component-scan base-package="kr.adnetwork.models.rev" />
+    <context:component-scan base-package="kr.adnetwork.models.rev.dao" />
+    <context:component-scan base-package="kr.adnetwork.models.service" />
+    <context:component-scan base-package="kr.adnetwork.models.sys" />
+    <context:component-scan base-package="kr.adnetwork.models.sys.dao" />
+    <context:component-scan base-package="kr.adnetwork.utils" />
 
-    <context:component-scan base-package="net.doohad.models.fnd.service" />
+    <context:component-scan base-package="kr.adnetwork.models.fnd.service" />
     
     <interceptors>
     	<interceptor>
@@ -243,7 +243,7 @@
     		<mapping path="/rev/**" />
     		<mapping path="/sys/**" />
     		
-	    	<beans:bean class="net.doohad.interceptors.LoginCheckInterceptor"/>
+	    	<beans:bean class="kr.adnetwork.interceptors.LoginCheckInterceptor"/>
     	</interceptor>
     </interceptors>
 </beans:beans>

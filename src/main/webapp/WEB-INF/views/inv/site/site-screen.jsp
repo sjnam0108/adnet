@@ -91,9 +91,9 @@
 				"<a href='javascript:showScreen(#= id #,\"#= name #\")' class='btn btn-default btn-xs icon-btn ml-1'><span class='fas fa-search text-info'></span></a>" +
 			"</div>";
 	
-	String effStartDateTemplate = net.doohad.utils.Util.getSmartDate("effectiveStartDate", false, false);
-	String effEndDateTemplate = net.doohad.utils.Util.getSmartDate("effectiveEndDate", false, false);
-	String apiSyncDateTemplate = net.doohad.utils.Util.getSmartDate("apiSyncDate", false, true);
+	String effStartDateTemplate = kr.adnetwork.utils.Util.getSmartDate("effectiveStartDate", false, false);
+	String effEndDateTemplate = kr.adnetwork.utils.Util.getSmartDate("effectiveEndDate", false, false);
+	String apiSyncDateTemplate = kr.adnetwork.utils.Util.getSmartDate("apiSyncDate", false, true);
 
 	String noRecordsTemplate =
 			"<div class='container text-center my-4'>" +

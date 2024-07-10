@@ -79,7 +79,7 @@
 			"</div>";
 	
 			
-	String startDateTemplate = net.doohad.utils.Util.getSmartDate("startDate", false);			
+	String startDateTemplate = kr.adnetwork.utils.Util.getSmartDate("startDate", false);
 %>
 
 

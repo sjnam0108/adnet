@@ -45,7 +45,7 @@
 <!-- Java(optional)  -->
 
 <%
-	String creationDateTemplate = net.doohad.utils.Util.getSmartDate("whoCreationDate", true, true);
+	String creationDateTemplate = kr.adnetwork.utils.Util.getSmartDate("whoCreationDate", true, true);
 	
 	String resultTemplate = "<span class='fa-regular " + 
 			"# if (result == 'I') { #" + "fa-asterisk fa-fw text-muted" + 

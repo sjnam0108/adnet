@@ -59,7 +59,7 @@
 			"<span class='pl-1'>#= name #</span>";
 	String advertiserTemplate = "<span>#= advertiser.name #</span>";
 	
-	String submitDateTemplate = net.doohad.utils.Util.getSmartDate("submitDate", false);
+	String submitDateTemplate = kr.adnetwork.utils.Util.getSmartDate("submitDate", false);
 	
 	String noRecordsTemplate =
 			"<div class='container text-center my-4'>" +
@@ -87,7 +87,7 @@
 			"# } #" +
 			"<span class='pl-1'>#= creative.name #</span>";
 	String advertiserTemplate2 = "<span>#= creative.advertiser.name #</span>";
-	String actDateTemplate = net.doohad.utils.Util.getSmartDate("actDate", false);
+	String actDateTemplate = kr.adnetwork.utils.Util.getSmartDate("actDate", false);
 	String actStatusTemplate =
 			"# if (status == 'A') { #" +
 				"<span class='fa-regular fa-square-check text-blue fa-fw'></span><span class='pl-1'>승인</span>" +

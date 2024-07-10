@@ -79,8 +79,8 @@
 				"<span class='fa-regular fa-list-ol fa-fw'></span><span class='pl-2'>재생목록</span>" +
 			"# } #";
 			
-	String lastAdAppDateTemplate = net.doohad.utils.Util.getSmartDate("lastAdAppDate");
-	String lastAdReqDateTemplate = net.doohad.utils.Util.getSmartDate("lastAdReqDate");
+	String lastAdAppDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastAdAppDate");
+	String lastAdReqDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastAdReqDate");
 %>
 
 

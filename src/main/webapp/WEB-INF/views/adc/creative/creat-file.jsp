@@ -171,7 +171,7 @@ $(document).ready(function() {
 				"<span>-</span>" +
 			"# } #";
 	String lengthTemplate = "<div class='len-container'><span data-toggle='tooltip' data-placement='top' title='#= dispFileLength #'>#= smartLength #</span></div>";
-	String regDateTemplate = net.doohad.utils.Util.getSmartDate("whoCreationDate");
+	String regDateTemplate = kr.adnetwork.utils.Util.getSmartDate("whoCreationDate");
 	
 	String noRecordsTemplate =
 			"<div class='container text-center my-4'>" +

@@ -227,8 +227,8 @@ function navToRptAd(campId, adId) {
 				"<span></span>" +
 			"# } #";
 					
-	String startDateTemplate = "<span class='" + rowClass + "'>" + net.doohad.utils.Util.getSmartDate("startDate", false, false) + "</span>";
-	String endDateTemplate = "<span class='" + rowClass + "'>" + net.doohad.utils.Util.getSmartDate("endDate", false, false) + "</span>";
+	String startDateTemplate = "<span class='" + rowClass + "'>" + kr.adnetwork.utils.Util.getSmartDate("startDate", false, false) + "</span>";
+	String endDateTemplate = "<span class='" + rowClass + "'>" + kr.adnetwork.utils.Util.getSmartDate("endDate", false, false) + "</span>";
 	
 	
 	String nameTemplate =

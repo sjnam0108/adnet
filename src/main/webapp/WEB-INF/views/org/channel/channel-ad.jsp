@@ -120,9 +120,9 @@ $(document).ready(function() {
 				"</div>" +
 			"</div>";
 	
-	String playBeginDateTemplate2 = net.doohad.utils.Util.getSmartDate("playBeginDate");
-	String playEndDateTemplate2 = net.doohad.utils.Util.getSmartDate("playEndDate");
-	String creationDateTemplate = net.doohad.utils.Util.getSmartDate("whoCreationDate", true);
+	String playBeginDateTemplate2 = kr.adnetwork.utils.Util.getSmartDate("playBeginDate");
+	String playEndDateTemplate2 = kr.adnetwork.utils.Util.getSmartDate("playEndDate");
+	String creationDateTemplate = kr.adnetwork.utils.Util.getSmartDate("whoCreationDate", true);
 %>
 
 

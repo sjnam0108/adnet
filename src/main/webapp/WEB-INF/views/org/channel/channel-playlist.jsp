@@ -158,8 +158,8 @@ $(document).ready(function() {
 			"# } #" +
 			"<span>#= name #</span>";
 	
-	String startDateTemplate = net.doohad.utils.Util.getSmartDate("startDate", false);			
-	String endDateTemplate = net.doohad.utils.Util.getSmartDate("endDate", false);			
+	String startDateTemplate = kr.adnetwork.utils.Util.getSmartDate("startDate", false);
+	String endDateTemplate = kr.adnetwork.utils.Util.getSmartDate("endDate", false);
 %>
 
 

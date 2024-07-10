@@ -72,7 +72,7 @@
 			"</div>";
 
 	String lengthTemplate = "<div class='len-container'><span data-toggle='tooltip' data-placement='top' title='#= dispFileLength #'>#= smartLength #</span></div>";
-	String creationDateTemplate = net.doohad.utils.Util.getSmartDate("whoCreationDate", false, true);
+	String creationDateTemplate = kr.adnetwork.utils.Util.getSmartDate("whoCreationDate", false, true);
 %>
 
 

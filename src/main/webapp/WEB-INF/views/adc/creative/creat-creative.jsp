@@ -145,8 +145,8 @@
 				"<span>-</span>" +
 			"# } #";
 			
-	String regDateTemplate = net.doohad.utils.Util.getSmartDate("whoCreationDate");
-	String lastPlayDateTemplate = net.doohad.utils.Util.getSmartDate("lastPlayDate");
+	String regDateTemplate = kr.adnetwork.utils.Util.getSmartDate("whoCreationDate");
+	String lastPlayDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastPlayDate");
 	
 	String nameTemplate =
 			"<div>" + 

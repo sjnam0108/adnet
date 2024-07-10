@@ -133,7 +133,7 @@
 				"<span>-</span>" +
 			"# } #";
 			
-	String playDateTemplate = net.doohad.utils.Util.getSmartDate2("playDate");
+	String playDateTemplate = kr.adnetwork.utils.Util.getSmartDate2("playDate");
 	
 	String cntScreenTemplate = "<span class='" + rowClass + "'>#= kendo.format('{0:n0}', cntScreen) #</span>";
 	String actualAmountTemplate = "<span class='" + rowClass + "'>#= kendo.format('{0:n0}', actualAmount) #</span>";

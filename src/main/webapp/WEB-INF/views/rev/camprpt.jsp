@@ -59,8 +59,8 @@
 				"<span>-</span>" +
 			"# } #";
 			
-	String startDateTemplate = net.doohad.utils.Util.getSmartDate("startDate", false, false);
-	String endDateTemplate = net.doohad.utils.Util.getSmartDate("endDate", false, false);
+	String startDateTemplate = kr.adnetwork.utils.Util.getSmartDate("startDate", false, false);
+	String endDateTemplate = kr.adnetwork.utils.Util.getSmartDate("endDate", false, false);
 
 	String noRecordsTemplate =
 			"<div class='container text-center my-4'>" +

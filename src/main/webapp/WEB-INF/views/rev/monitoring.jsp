@@ -98,13 +98,13 @@
 			"<a href='" + request.getAttribute("apiTestServer") + "/v1/ad/#= shortName #?apikey=" + request.getAttribute("mediumApiKey") + "&test=y' class='badge badge-pill badge-warning mr-1' target='_blank'><span class='pr-1'>ad</span><span class='fa-light fa-arrow-up-right-from-square'></span></a>" +
 			"<a href='" + request.getAttribute("apiTestServer") + "/v1/chan/#= shortName #?apikey=" + request.getAttribute("mediumApiKey") + "&test=y' class='badge badge-pill badge-warning mr-1' target='_blank'><span class='pr-1'>chan</span><span class='fa-light fa-arrow-up-right-from-square'></span></a>";
 	
-	String fileDateTemplate = net.doohad.utils.Util.getSmartDate("lastFileDate");
-	String adRequestDateTemplate = net.doohad.utils.Util.getSmartDate("lastAdRequestDate");
-	String adReportDateTemplate = net.doohad.utils.Util.getSmartDate("lastAdReportDate");
-	String infoDateTemplate = net.doohad.utils.Util.getSmartDate("lastInfoDate");
-	String commandDateTemplate = net.doohad.utils.Util.getSmartDate("lastCommandDate");
-	String commandReportDateTemplate = net.doohad.utils.Util.getSmartDate("lastCommandReportDate");
-	String eventDateTemplate = net.doohad.utils.Util.getSmartDate("lastEventDate");
+	String fileDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastFileDate");
+	String adRequestDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastAdRequestDate");
+	String adReportDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastAdReportDate");
+	String infoDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastInfoDate");
+	String commandDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastCommandDate");
+	String commandReportDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastCommandReportDate");
+	String eventDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastEventDate");
 	
 	String playerVerTemplate = "<small>#= playerVer #</small>";
 	String keeperVerTemplate = "<small>#= keeperVer #</small>";
@@ -124,10 +124,10 @@
 			"</div>";
 			
 
-	String selectAdDateTemplate = net.doohad.utils.Util.getSmartDate("selectDate");
-	String playBeginDateTemplate = net.doohad.utils.Util.getSmartDate("beginDate");
-	String playEndDateTemplate = net.doohad.utils.Util.getSmartDate("endDate");
-	String reportDateTemplate = net.doohad.utils.Util.getSmartDate("reportDate");
+	String selectAdDateTemplate = kr.adnetwork.utils.Util.getSmartDate("selectDate");
+	String playBeginDateTemplate = kr.adnetwork.utils.Util.getSmartDate("beginDate");
+	String playEndDateTemplate = kr.adnetwork.utils.Util.getSmartDate("endDate");
+	String reportDateTemplate = kr.adnetwork.utils.Util.getSmartDate("reportDate");
 	
 	String resultTemplate =
 			"# if (result && delayReported) { #" +
@@ -214,7 +214,7 @@
 				"<span>#= equipName #</span>" +
 			"# } #";
 			
-	String eventRegDateTemplate = net.doohad.utils.Util.getSmartDate("whoCreationDate", true);
+	String eventRegDateTemplate = kr.adnetwork.utils.Util.getSmartDate("whoCreationDate", true);
 
 	String syncPackNameTemplate =
 			"<div class='d-flex align-items-center'>" +
@@ -257,14 +257,14 @@
 				"<span>#= activeScreenCount # / #= screenCount #</span>" +
 			"</div>";
 
-	String lastAdBeginDateTemplate = net.doohad.utils.Util.getSmartDate("lastAdBegin");
-	String lastAdReqDateTemplate = net.doohad.utils.Util.getSmartDate("lastAdReq");
+	String lastAdBeginDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastAdBegin");
+	String lastAdReqDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastAdReq");
 
 	
-	String playBeginDateTemplate2 = net.doohad.utils.Util.getSmartDate("playBeginDate");
-	String playEndDateTemplate2 = net.doohad.utils.Util.getSmartDate("playEndDate");
-	String creationDateTemplate = net.doohad.utils.Util.getSmartDate("whoCreationDate", true);
-	String realBeginDateTemplate = net.doohad.utils.Util.getSmartDate("realBeginDate");
+	String playBeginDateTemplate2 = kr.adnetwork.utils.Util.getSmartDate("playBeginDate");
+	String playEndDateTemplate2 = kr.adnetwork.utils.Util.getSmartDate("playEndDate");
+	String creationDateTemplate = kr.adnetwork.utils.Util.getSmartDate("whoCreationDate", true);
+	String realBeginDateTemplate = kr.adnetwork.utils.Util.getSmartDate("realBeginDate");
 
 	String diffTemplate =
 			"# if (diff > 0) { #" +

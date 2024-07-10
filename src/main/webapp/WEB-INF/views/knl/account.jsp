@@ -49,8 +49,8 @@
 			"<button type='button' onclick='edit(#= id #)' class='btn icon-btn btn-sm btn-outline-success borderless'>" + 
 			"<span class='fas fa-pencil-alt'></span></button>";
 			
-	String effStartDateTemplate = net.doohad.utils.Util.getSmartDate("effectiveStartDate", false, false);
-	String effEndDateTemplate = net.doohad.utils.Util.getSmartDate("effectiveEndDate", false, false);
+	String effStartDateTemplate = kr.adnetwork.utils.Util.getSmartDate("effectiveStartDate", false, false);
+	String effEndDateTemplate = kr.adnetwork.utils.Util.getSmartDate("effectiveEndDate", false, false);
 			
 	String noRecordsTemplate =
 			"<div class='container text-center my-4'>" +

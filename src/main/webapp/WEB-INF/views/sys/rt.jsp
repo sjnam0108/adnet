@@ -55,8 +55,8 @@
 				"</div>" +
 			"</div>";
 			
-	String checkDateTemplate = net.doohad.utils.Util.getSmartDate("checkDate", false, true);
-	String creationDateTemplate = net.doohad.utils.Util.getSmartDate("whoCreationDate");
+	String checkDateTemplate = kr.adnetwork.utils.Util.getSmartDate("checkDate", false, true);
+	String creationDateTemplate = kr.adnetwork.utils.Util.getSmartDate("whoCreationDate");
 %>
 
 

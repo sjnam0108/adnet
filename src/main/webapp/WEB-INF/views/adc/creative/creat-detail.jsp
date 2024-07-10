@@ -55,7 +55,7 @@
 <!-- Java(optional)  -->
 
 <%
-	String dateTemplate = net.doohad.utils.Util.getSmartDate("whoCreationDate", true, true);
+	String dateTemplate = kr.adnetwork.utils.Util.getSmartDate("whoCreationDate", true, true);
 	
 	String noRecordsTemplate =
 			"<div class='container text-center my-4'>" +
