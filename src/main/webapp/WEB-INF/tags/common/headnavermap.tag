@@ -26,7 +26,6 @@
 	<link rel="stylesheet" href="/resources/vendor/lib/bootstrap-slider/bootstrap-slider.css">
 	<link rel="stylesheet" href="/resources/vendor/lib/nouislider/nouislider.css">
 
-	<link href="<c:url value='/resources/css/kendo.overriding.css'/>" rel="stylesheet" />
     <link rel="stylesheet" href="/resources/base/base.css">
 
     <script src="/resources/vendor/js/layout-helpers.js"></script>

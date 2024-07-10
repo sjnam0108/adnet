@@ -300,3 +300,228 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
 .default-pointer {
 	cursor: default;
 }
+
+/************************************************************/
+/*직접 추가 - 소스 리팩토링 필요함*/
+/*  기존 값  */
+/* 더이상 적용 안됨 */
+/*.k-filter-menu .k-button {*/
+/*    width: 47%;*/
+/*    margin: 0.5em 1% 0.25em;*/
+/*}*/
+
+
+/* Vertical Scrollbar 삭제 */
+.k-grid .k-grid-header {
+    padding: 0 !important;
+}
+
+/* 선택 체크박스를 포함하는 필터 패널을 보기 좋게 */
+.k-filter-selected-items {
+    font-weight: 500;
+}
+
+.k-grid .k-grid-content {
+    overflow-y: visible;
+    min-height: 90px;
+}
+
+/************************************************************/
+/*  신규 추가  */
+/* kendo css 수정 */
+/*  그리드 폰트 수정  */
+.k-grid {
+    font-family: "Roboto","Noto Sans","Noto Sans CJK KR",-apple-system,BlinkMacSystemFont,"Segoe UI","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;;
+}
+
+
+/* 그리드 행의 높이 지정 */
+.k-grid .k-table-td {
+    box-sizing: border-box;
+    height: 40px;
+}
+
+/* 그리드 로우 폰트 변경 */
+.k-grid .k-table-md {
+    font-size: 14px;
+    line-height: 1.42857;
+}
+
+/*  그리드 툴바  */
+.k-grid-toolbar {
+    padding: 8px;
+    display: block;
+}
+
+.k-toolbar > * {
+    display: block;
+}
+
+/* 필터 박스 최적화 */
+.k-check-all-wrap {
+    padding: 0 !important;
+    min-width: fit-content !important;
+}
+
+.k-filter-menu.k-popup .k-filter-menu-container {
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.k-filter-help-text {
+    white-space: nowrap;
+    display: inline-block;
+    overflow: visible;
+}
+
+.k-filter-selected-items {
+    margin: auto;
+}
+
+.k-filter-menu {
+    width: fit-content;
+}
+
+.k-actions > * {
+    flex: 1 0 0%;
+}
+
+/* 리스트박스 선택된 요소 태두리 제거 */
+.k-list-item.k-focus {
+    box-shadow: none;
+}
+
+/* 리스트 박스 벨류 짤림 버그*/
+.k-input-inner {
+    overflow: visible;
+}
+
+
+/* 탭 넘길때 페이지 넘버링 버그 */
+.k-pager-numbers {
+    display: flex !important;
+}
+
+.k-pager-md .k-pager-sizes .k-dropdownlist {
+    display: inline-flex !important;
+}
+
+.k-pager-numbers-wrap > .k-dropdown {
+    display: none !important;
+}
+
+/*  건(페이지당) 문구 삭제  */
+.k-pager-sizes > span:not(.k-picker) {
+    display: none;
+}
+
+
+.k-pager > span {
+    display: flex !important;
+}
+
+/* 그리드 colum title ... 생기는 문제  */
+.k-grid .k-cell-inner .k-grid-header-menu {
+    width: calc(10px + 1.42857em);
+    margin-inline-end: 0;
+}
+
+.k-grid .k-grid-header .k-cell-inner > .k-link > .k-sort-icon {
+    margin-inline-start: calc(0.5rem - 1px);
+}
+
+
+/* 광고 광고소재 소재파일 그리드 크기 커짐 */
+.k-grid td {
+    box-sizing: border-box;
+}
+
+.k-grid {
+    font-size: 0.894rem;
+}
+
+/*  생성폼 태두리 조정  */
+.custom-class .k-input {
+    border: none;
+}
+
+.custom-class .k-input-inner {
+    border-radius: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+/*  모달폼, datapicker, input 박스  */
+#formRoot .k-input,
+.modal-level-plus-1 .k-input {
+    border: none;
+}
+
+#formRoot .k-input-inner,
+.modal-level-plus-1 .k-input-inner {
+    border-radius: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+#formRoot .form-control.k-datepicker,
+.modal-level-plus-1 .form-control {
+    display: flex !important;
+    padding: 0;
+}
+
+/*  파일 업로드 버튼  버그 해결  */
+#formRoot input,
+.modal-level-plus-1 input:not([type="file"]) {
+    padding: .438rem .875rem !important;
+}
+.drop-zone input::-webkit-file-upload-button {
+    position: absolute;
+    right: 150px;
+}
+
+/*  파일 업로드 폼 양식 수정  */
+.k-file.k-file-invalid.k-file-error {
+    padding: 8px;
+    border-width: 0 0 1px !important;
+    align-items: center !important;;
+    position: relative;
+    line-height: 1.42857;
+}
+.k-file.k-toupload {
+    padding: 8px !important;
+    border-width: 0 0 1px !important;
+    align-items: center !important;
+    position: relative;
+    line-height: 1.42857;
+}
+.k-file-validation-message {
+    font-size: 9.432px !important;
+    color: #d9534f; !important;
+}
+.k-file-name {
+    font-size: 14px ;
+    color: #b3b3b3;
+}
+.drop-zone.upload-root-div .k-actions{
+    border-top: none;
+}
+
+/*  폼 멀티 셀렉트 수정  */
+#formRoot .k-multiselect.k-input {
+    display: block !important;
+    padding: .438rem .875rem;
+    border: 1px solid rgba(24, 28, 33, 0.1);
+}
+
+/*  4k 모니터 드랍다운 text 줄바뀜 버그  */
+.k-list-item-text {
+    white-space: nowrap;
+}
+
+/*  4k 모니터 그리드 크기 안맞는 버그  */
+
+
+
+
+
