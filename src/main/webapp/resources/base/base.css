@@ -396,7 +396,6 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     overflow: visible;
 }
 
-
 /* 탭 넘길때 페이지 넘버링 버그 */
 .k-pager-numbers {
     display: flex !important;
@@ -410,9 +409,8 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     display: none !important;
 }
 
-/*  건(페이지당) 문구 삭제  */
-.k-pager-sizes > span:not(.k-picker) {
-    display: none;
+.k-pager-sizes > span {
+    display: flex !important;
 }
 
 
