@@ -8,10 +8,9 @@
 
 
 /* Vertical Scrollbar 삭제 */
-/*.k-grid .k-grid-header {*/
-/*    padding: 0 !important;*/
-/*}*/
-
+.k-grid .k-grid-header {
+    padding: 0 !important;
+}
 
 /* 선택 체크박스를 포함하는 필터 패널을 보기 좋게 */
 .k-filter-selected-items {
@@ -107,9 +106,11 @@
     display: none !important;
 }
 
-.k-pager-sizes > span {
-    display: flex !important;
+/*  건(페이지당) 문구 삭제  */
+.k-pager-sizes > span:not(.k-picker) {
+    display: none;
 }
+
 
 .k-pager > span {
     display: flex !important;

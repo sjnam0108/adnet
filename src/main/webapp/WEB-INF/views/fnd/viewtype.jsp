@@ -44,10 +44,10 @@
 <!-- Java(optional)  -->
 
 <%
-	String editTemplate = 
-			"<button type='button' onclick='edit(#= id #)' class='btn icon-btn btn-sm btn-outline-success borderless'>" + 
+	String editTemplate =
+			"<button type='button' onclick='edit(#= id #)' class='btn icon-btn btn-sm btn-outline-success borderless'>" +
 			"<span class='fas fa-pencil-alt'></span></button>";
-			
+
 	String noRecordsTemplate =
 			"<div class='container text-center my-4'>" +
 				"<div class='d-flex justify-content-center align-self-center'>" +
@@ -61,7 +61,8 @@
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid" pageable="true" filterable="true" sortable="true" scrollable="false" reorderable="true" resizable="true">
+<kendo:grid name="grid" pageable="true" filterable="true" scrollable="false" reorderable="true" resizable="true">
+	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
@@ -82,7 +83,7 @@
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
 		<kendo:grid-column title="유형ID" field="code" />
 		<kendo:grid-column title="유형명" field="name" />
-		<kendo:grid-column title="게시 크기" field="resolution" width="150" 
+		<kendo:grid-column title="게시 크기" field="resolution" width="150"
 				template="#= resolution.replace('x', ' x ') #" />
 		<kendo:grid-column title="적용 매체" field="destMedia" width="300" template="#= dispBadgeValues(destMedia) #" />
 		<kendo:grid-column title="묶음 광고 단위" field="adPackUsed"
@@ -97,7 +98,7 @@
 			<kendo:dataSource-transport-parameterMap>
 				<script>
 					function parameterMap(options,type) {
-						return JSON.stringify(options);	
+						return JSON.stringify(options);
 					}
 				</script>
 			</kendo:dataSource-transport-parameterMap>
@@ -124,29 +125,29 @@ $(document).ready(function() {
 	// Add
 	$("#add-btn").click(function(e) {
 		e.preventDefault();
-		
+
 		initForm1();
 
-		
+
 		$('#form-modal-1 .modal-dialog').draggable({ handle: '.modal-header' });
 		$("#form-modal-1").modal();
 	});
 	// / Add
-	
+
 	// Delete
 	$("#delete-btn").click(function(e) {
 		e.preventDefault();
-			
+
 		var grid = $("#grid").data("kendoGrid");
 		var rows = grid.select();
-	
+
 		var delRows = [];
-		
+
 		rows.each(function(index, row) {
 			var selectedItem = grid.dataItem(row);
 			delRows.push(selectedItem.id);
 		});
-		
+
 		if (delRows.length > 0) {
 			showDelConfirmModal(function(result) {
 				if (result) {
@@ -167,8 +168,8 @@ $(document).ready(function() {
 		}
 	});
 	// / Delete
-	
-});	
+
+});
 </script>
 
 <!-- / Grid button actions  -->
@@ -185,7 +186,7 @@ $(document).ready(function() {
 <div class="modal fade" data-backdrop="static" id="form-modal-1">
 	<div class="modal-dialog modal-sm">
 		<form class="modal-content" id="form-1" rowid="-1" url="${createUrl}">
-      
+
 			<!-- Modal Header -->
 			<div class="modal-header move-cursor">
 				<h5 class="modal-title">
@@ -194,7 +195,7 @@ $(document).ready(function() {
 				</h5>
 				<button type="button" class="close" data-dismiss="modal">×</button>
 			</div>
-        
+
 			<!-- Modal body -->
 			<div class="modal-body modal-bg-color">
 				<div class="form-group col">
@@ -215,7 +216,7 @@ $(document).ready(function() {
 					<label class="form-label">
 						가로 x 세로 크기(px)
 					</label>
-					<select name="resolution" class="selectpicker bg-white" data-style="btn-default" 
+					<select name="resolution" class="selectpicker bg-white" data-style="btn-default"
 							data-none-selected-text="크기 선택">
 						<optgroup label="가로형">
 							<option value="1920x1080">1920 x 1080</option>
@@ -257,13 +258,13 @@ $(document).ready(function() {
 					</div>
 				</div>
 			</div>
-        
+
 			<!-- Modal footer -->
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 				<button type="button" class="btn btn-primary" onclick='saveForm1()'>저장</button>
 			</div>
-			
+
 		</form>
 	</div>
 </div>
@@ -278,30 +279,30 @@ $(document).ready(function() {
 <script>
 
 function dispBadgeValues(values) {
-	
+
 	var ret = "";
 	var value = values.split("|");
-	  
+
 	for(var i = 0; i < value.length; i ++) {
 		if (value[i]) {
 			ret = ret + "<span class='badge badge-outline-secondary'>" +
-					"<span class='fa-light fa-globe text-green'></span><span class='pl-1'></span>" + 
+					"<span class='fa-light fa-globe text-green'></span><span class='pl-1'></span>" +
 					value[i] + "</span><span class='pl-1'></span>";
 		}
 	}
-	  
+
 	return ret;
 }
 
 
 function initForm1(subtitle) {
-	
+
 	$("#formRoot").html(kendo.template($("#template-1").html()));
-	
+
 	$("#form-1 select[name='resolution']").selectpicker('render');
 
 	$("#form-1 input[name='adPackUsed']").prop("checked", false);
-	
+
 	bootstrapSelectVal($("#form-1 select[name='resolution']"), "");
 
     $("#form-1 select[name='destMedia']").kendoMultiSelect({
@@ -319,7 +320,7 @@ function initForm1(subtitle) {
 					data: JSON.stringify({}),
                 },
                 parameterMap: function (options) {
-            		return JSON.stringify(options);	
+            		return JSON.stringify(options);
                 }
             },
 			error: kendoReadError
@@ -328,10 +329,10 @@ function initForm1(subtitle) {
         filter: "contains",
         noDataTemplate: "표시할 자료가 없습니다.",
     });
-	
+
 
 	$("#form-1 span[name='subtitle']").text(subtitle ? subtitle : "추가");
-	
+
 	$("#form-1").validate({
 		rules: {
 			name: {
@@ -348,7 +349,7 @@ function initForm1(subtitle) {
 function saveForm1() {
 
 	var resolution = $("#form-1 select[name='resolution']").val();
-	
+
 	if ($("#form-1").valid() && resolution != null) {
     	var data = {
     		id: Number($("#form-1").attr("rowid")),
@@ -358,7 +359,7 @@ function saveForm1() {
     		destMedia: $("#form-1 select[name='destMedia']").data("kendoMultiSelect").value(),
     		adPackUsed: $("#form-1 input[name='adPackUsed']").is(':checked'),
     	};
-    	
+
 		$.ajax({
 			type: "POST",
 			contentType: "application/json",
@@ -377,24 +378,24 @@ function saveForm1() {
 
 
 function edit(id) {
-	
+
 	initForm1("변경");
 
 	var dataItem = $("#grid").data("kendoGrid").dataSource.get(id);
-	
+
 	$("#form-1").attr("rowid", dataItem.id);
 	$("#form-1").attr("url", "${updateUrl}");
-	
+
 	$("#form-1 input[name='name']").val(dataItem.name);
 	$("#form-1 input[name='code']").val(dataItem.code);
 
 	$("#form-1 input[name='adPackUsed']").prop("checked", dataItem.adPackUsed);
-	
+
 	bootstrapSelectVal($("#form-1 select[name='resolution']"), dataItem.resolution);
-	
+
 	$("#form-1 select[name='destMedia']").data("kendoMultiSelect").value(dataItem.destMedia.split("|"));
 
-	
+
 	$('#form-modal-1 .modal-dialog').draggable({ handle: '.modal-header' });
 	$("#form-modal-1").modal();
 }

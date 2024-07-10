@@ -203,7 +203,8 @@
 
 <!-- Kendo grid  -->
 
-		<kendo:grid name="grid-site" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+		<kendo:grid name="grid-site" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
+			<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     		<kendo:grid-selectable mode="multiple, raw"/>
 			<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 			<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
@@ -277,7 +278,8 @@
 
 <!-- Kendo grid  -->
 
-		<kendo:grid name="grid-screen" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+		<kendo:grid name="grid-screen" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
+			<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     		<kendo:grid-selectable mode="multiple, raw"/>
 			<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 			<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />

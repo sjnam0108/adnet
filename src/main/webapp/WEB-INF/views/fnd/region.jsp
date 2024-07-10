@@ -103,7 +103,8 @@
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid-st" pageable="true" filterable="true" sortable="true" scrollable="false" reorderable="true" resizable="true">
+<kendo:grid name="grid-st" pageable="true" filterable="true" scrollable="false" reorderable="true" resizable="true">
+	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-excel fileName="지역(광역시도).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
@@ -222,7 +223,8 @@ $(document).ready(function() {
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid-rgn" pageable="true" filterable="true" sortable="true" scrollable="false" reorderable="true" resizable="true">
+<kendo:grid name="grid-rgn" pageable="true" filterable="true" scrollable="false" reorderable="true" resizable="true">
+	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-excel fileName="지역(시/군/구).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
@@ -341,7 +343,8 @@ $(document).ready(function() {
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid-mob-rgn" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+<kendo:grid name="grid-mob-rgn" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
+	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-excel fileName="지역(모바일타겟팅지역).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />

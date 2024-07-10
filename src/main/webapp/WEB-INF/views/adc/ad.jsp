@@ -243,8 +243,9 @@
 <!-- Kendo grid -->
 
 <div class="mb-4">
-    <kendo:grid name="grid" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true"
+    <kendo:grid name="grid" pageable="true" filterable="true" scrollable="true" reorderable="true"
                 resizable="true">
+        <kendo:grid-sortable mode="mixed" showIndexes="true"/>
         <kendo:grid-selectable mode="raw"/>
         <kendo:grid-sortable mode="mixed" showIndexes="true"/>
         <kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>

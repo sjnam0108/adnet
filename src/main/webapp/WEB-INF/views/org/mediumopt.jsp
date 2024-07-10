@@ -104,7 +104,8 @@
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid-adv" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+<kendo:grid name="grid-adv" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
+	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-excel fileName="광고주.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
@@ -223,7 +224,8 @@ $(document).ready(function() {
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid-cond" pageable="true" filterable="true" sortable="true" scrollable="true" reorderable="true" resizable="true">
+<kendo:grid name="grid-cond" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
+	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-excel fileName="입지유형.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
@@ -348,7 +350,8 @@ $(document).ready(function() {
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid-opt" pageable="true" scrollable="false" sortable="true" resizable="true">
+<kendo:grid name="grid-opt" pageable="true" scrollable="false" resizable="true">
+	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-excel fileName="화면옵션.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" previousNext="false" numeric="false" pageSize="10000" info="true" />

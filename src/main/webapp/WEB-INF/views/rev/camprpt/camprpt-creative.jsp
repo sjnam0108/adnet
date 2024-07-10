@@ -286,7 +286,8 @@
 			</div>
 	</h6>
 </div>
-<kendo:grid name="grid-daily" pageable="true" scrollable="true" sortable="true" resizable="true">
+<kendo:grid name="grid-daily" pageable="true" scrollable="true" resizable="true">
+	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-pageable refresh="false" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-excel fileName="리포트(일자별).xlsx" allPages="true" proxyURL="/proxySave"/>
@@ -621,7 +622,8 @@ function createChart() {
 			</div>
 	</h6>
 </div>
-<kendo:grid name="grid-week-daily" pageable="true" scrollable="true" sortable="true" resizable="true">
+<kendo:grid name="grid-week-daily" pageable="true" scrollable="true" resizable="true">
+	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-pageable refresh="false" previousNext="false" numeric="false" pageSize="10000" info="false" />
 	<kendo:grid-excel fileName="리포트(요일별).xlsx" allPages="true" proxyURL="/proxySave"/>
