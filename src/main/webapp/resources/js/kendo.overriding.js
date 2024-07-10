@@ -3,7 +3,8 @@ $(document).ready(function () {
     // 인풋폼 안에 있는 dropdown 제외하기 위한 변수
     var fixedDropDownMenuList = [];
     var fixedDropDownToggleList = [];
-    $('.dropdown-toggle').each(function (index) {
+    var dropDownToggle = $('.dropdown-toggle');
+    dropDownToggle.each(function () {
         var toggleBtn = $(this);
         var dropDownMenu = toggleBtn.next('.dropdown-menu');
 
@@ -69,7 +70,7 @@ $(document).ready(function () {
     });
 
     // 다른 드롭다운 버튼 클릭시 버그 픽스된 드롭다운 리스트 닫기
-    $('.dropdown-toggle').each(function (index) {
+    dropDownToggle.each(function () {
         var toggleBtn = $(this);
 
         // fixedDropDownMenuList에서 toggleBtn이 존재하면 다음 반복으로 넘어가기
