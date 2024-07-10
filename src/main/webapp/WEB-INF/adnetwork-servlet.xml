@@ -57,22 +57,25 @@
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
 
-<!--	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
-<!--		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
-<!--		<beans:property name="url" value="jdbc:mysql://121.254.176.100:3306/adnet" />-->
-<!--	    <beans:property name="username" value="adnet" />-->
-<!--	    <beans:property name="password" value="adnetfnd" />-->
-<!--	    <beans:property name="maxActive" value="30" />-->
-<!--	    <beans:property name="maxIdle" value="30" />-->
-<!--	</beans:bean>-->
+	<!--  마스터 서버  -->
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<beans:property name="url" value="jdbc:mysql://spring.doohad.net:3306/adnet" />
-		<beans:property name="username" value="adnet" />
-		<beans:property name="password" value="adnetfnd" />
-		<beans:property name="maxActive" value="30" />
-		<beans:property name="maxIdle" value="30" />
+		<beans:property name="url" value="jdbc:mysql://121.254.176.100:3306/adnet" />
+	    <beans:property name="username" value="adnet" />
+	    <beans:property name="password" value="adnetfnd" />
+	    <beans:property name="maxActive" value="30" />
+	    <beans:property name="maxIdle" value="30" />
 	</beans:bean>
+
+	<!--  태스트 서버  -->
+<!--	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
+<!--		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+<!--		<beans:property name="url" value="jdbc:mysql://spring.doohad.net:3306/adnet" />-->
+<!--		<beans:property name="username" value="adnet" />-->
+<!--		<beans:property name="password" value="adnetfnd" />-->
+<!--		<beans:property name="maxActive" value="30" />-->
+<!--		<beans:property name="maxIdle" value="30" />-->
+<!--	</beans:bean>-->
 
 	<beans:bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<!-- beans:property name="configLocation" value="hibernate.cfg.xml"/-->

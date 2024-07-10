@@ -1902,6 +1902,11 @@ public class SolUtil {
 		} else if (hourlyPlay.getAd().getDailyScrCap() > 0) {
 			
 			//
+			// 매체의 값을 적용할 때가 아닌 광고 자체의 [화면당 하루 노출한도]의 값일 경우에만 적용
+			//   이유: 매체의 값은 매체에 속한 모든 광고에 적용되기 때문에 특정 값의 지정이 어려운 경우가 많음
+			//
+
+			//
 			// 오늘 목표치(tgtToday) == 0 && 화면당 하루 노출한도(dailyScrCap) > 0
 			// 
 			
