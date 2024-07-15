@@ -154,8 +154,6 @@
         }).init(function () {
             setTimeout(function () {
                 $('.modal-backdrop:last-child').addClass('modal-level-top');
-                // 확인 버튼에 포커스를 설정하여 Enter 키 이벤트가 발생하도록 함
-                box.find('.bootbox-alert-confirm-btn').focus();
             });
         });
 
