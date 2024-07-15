@@ -104,10 +104,10 @@ $(document).ready(function () {
 });
 
 // kendoUI filter menu icon 변경
-$(document).ready(function () {
-    var e = $("span.k-icon.k-svg-icon.k-svg-i-filter");
-    e.removeClass('k-icon k-svg-icon k-svg-i-filter').addClass('fa-light fa-filter');
-});
+// $(document).ready(function () {
+//     var e = $("span.k-icon.k-svg-icon.k-svg-i-filter");
+//     e.removeClass('k-icon k-svg-icon k-svg-i-filter').addClass('fa-light fa-filter');
+// });
 
 // bootstrap 버전확인
 // $(document).ready(function() {
@@ -118,4 +118,38 @@ $(document).ready(function () {
 //     }
 // });
 
+// 필터 드랍다운 버튼 아이콘 변경
+// $(document).ready(function () {
+//     $('.k-grid-filter-menu').each(function (index) {
+//
+//         // MutationObserver 설정
+//         var observer = new MutationObserver(function (mutations) {
+//             mutations.forEach(function (mutation) {
+//                 if (mutation.addedNodes.length) {
+//                     $(mutation.addedNodes).each(function () {
+//                         if ($(this).hasClass('k-animation-container')) {
+//                             // 컨테이너가 생성되면 필터 아이콘 변경
+//                             $("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
+//                             $("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
+//                         }
+//                     });
+//                 }
+//             });
+//         });
+//
+//         // body 요소를 관찰
+//         observer.observe(document.body, {
+//             childList: true,
+//             subtree: true
+//         });
+//
+//
+//         var toggleBtn = $(this);
+//         toggleBtn.on('click', function (event) {
+//             event.preventDefault(); // 이벤트 전파 방지
+//             event.stopPropagation(); // 이벤트 버블링 방지
+//
+//         });
+//     });
+// });
 
