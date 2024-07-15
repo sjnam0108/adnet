@@ -1349,10 +1349,22 @@ public class StartupHouseKeeper implements ApplicationListener<ContextRefreshedE
 					}
 
 					List<RevScrHourlyPlay> list = revService.getScrHourlyPlayListByAdIdPlayDate(adc.getAd().getId(), today);
+					
+					// 각 광고에서의 성공 합계 미리 계산(한 광고가 여러 광고 소재일 경우 대비)
+					HashMap<String, Integer> succTotMap = new HashMap<String, Integer>();
+					for(RevScrHourlyPlay hourlyPlay : list) {
+						Integer sum = succTotMap.get("A" + hourlyPlay.getAd().getId());
+						if (sum == null || sum.intValue() < 1) {
+							succTotMap.put("A" + hourlyPlay.getAd().getId(), hourlyPlay.getSuccTotal());
+						} else {
+							succTotMap.put("A" + hourlyPlay.getAd().getId(), sum.intValue() + hourlyPlay.getSuccTotal());
+						}
+					}
 					for(RevScrHourlyPlay hourlyPlay : list) {
 						
+						Integer sum = succTotMap.get("A" + hourlyPlay.getAd().getId());
 						Integer goalValue = SolUtil.getScrAdHourlyGoalValue(
-								hourlyPlay, dailyScrCapMedium, adScrCnt, impPlanPerHour, weight);
+								hourlyPlay, dailyScrCapMedium, adScrCnt, impPlanPerHour, weight, ((sum == null || sum.intValue() < 1) ? -1 : sum));
 						
 						// 갑자기 중단되는 광고의 시간 목표치 설정
 						if (!Util.isBetween(today, hourlyPlay.getAdCreative().getStartDate(), hourlyPlay.getAdCreative().getEndDate())) {

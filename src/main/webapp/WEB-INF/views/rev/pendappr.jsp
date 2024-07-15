@@ -310,9 +310,20 @@
 							container: '#tip-' + rows[i].id
 						});
 					}
+					// 아이콘 변경 추가 - 1
+					$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
 	        	}
 			</script>
 		</kendo:grid-dataBound>
+		// 아이콘 변경 추가 - 2
+		<kendo:grid-filterMenuInit>
+			<script>
+				function grid_filterMenuInit(e) {
+					$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
+					$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
+	        	}
+			</script>
+		</kendo:grid-filterMenuInit>
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
@@ -476,7 +487,13 @@ $(document).ready(function() {
 
 
 <style>
-
+<%--	아이콘 변경 추가 - 3--%>
+span.k-icon.k-svg-i-filter.k-svg-icon {
+	//display:none;
+}
+span.k-icon.k-svg-i-filter.k-svg-icon:after {
+	//content: "<span class='fa-light fa-user'></span>";
+}
 
 
 
@@ -490,6 +507,13 @@ $(document).ready(function() {
 }
 
 </style>
+<script>
+	// 아이콘 변경 추가 - 4
+//$("span.k-icon.k-svg-i-filter.k-svg-icon").html("<span class='fa-light fa-user'></span>");
+//$(".k-button-icon.k-icon.k-svg-i-filter.k-svg-icon").removeClass("k-svg-i-filter");
+//$(".k-button-icon.k-icon.k-svg-i-filter.k-svg-icon").addClass("k-i-zoom k-i-search");
+//$(".k-icon.k-i-filter").removeClass("k-i-filter");
+</script>
 
 
 <!--  / Forms -->

@@ -323,7 +323,13 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
 
 .k-grid .k-grid-content {
     overflow-y: visible;
-    min-height: 90px;
+    min-height: 100px;
+}
+
+.k-loading-image::before {
+    border-width: 0.1rem;
+    border-color: #4e5155;
+    animation: k-loading-animation 1.5s linear infinite;
 }
 
 /************************************************************/

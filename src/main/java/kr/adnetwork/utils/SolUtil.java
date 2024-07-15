@@ -1802,7 +1802,7 @@ public class SolUtil {
 		int impPlanPerHour = Util.parseInt(SolUtil.getOptValue(hourlyPlay.getMedium().getId(), "impress.per.hour"), 6);
 		
 		
-		return getScrAdHourlyGoalValue(hourlyPlay, dailyScrCapMedium, activeScrCnt, impPlanPerHour, weight);
+		return getScrAdHourlyGoalValue(hourlyPlay, dailyScrCapMedium, activeScrCnt, impPlanPerHour, weight, -1);
 	}	
 	
 	
@@ -1810,7 +1810,7 @@ public class SolUtil {
 	 * 광고/화면별 시간 목표치 획득
 	 */
 	public static Integer getScrAdHourlyGoalValue(RevScrHourlyPlay hourlyPlay, int dailyScrCapMedium, 
-			int activeScrCnt, int impPlanPerHour, float weight) {
+			int activeScrCnt, int impPlanPerHour, float weight, int succTot) {
 		
 		if (hourlyPlay == null) {
 			return null;
@@ -1863,7 +1863,7 @@ public class SolUtil {
 			//int reqValues = (int)intrimVal - hourlyPlay.getSuccTotal();
 			//int currHourCount = SolUtil.getCurrHourCount(hourlyPlay);
 			//int valueFromCurrHour0ToMidnight = reqValues + currHourCount;
-			int valueFromCurrHour0ToMidnight = (int)intrimVal - hourlyPlay.getSuccTotal() + SolUtil.getCurrHourCount(hourlyPlay);
+			int valueFromCurrHour0ToMidnight = (int)intrimVal - (succTot == -1 ? hourlyPlay.getSuccTotal() : succTot) + SolUtil.getCurrHourCount(hourlyPlay);
 			int hourValue = 0;
 			
 			// valueFromCurrHour0ToMidnight의 값이 음수(intrimVal 보다 기존 성공 수량이 더 많음)일 경우 처리
@@ -1910,7 +1910,7 @@ public class SolUtil {
 			// 오늘 목표치(tgtToday) == 0 && 화면당 하루 노출한도(dailyScrCap) > 0
 			// 
 			
-			int valueFromCurrHour0ToMidnight = hourlyPlay.getAd().getDailyScrCap() - hourlyPlay.getSuccTotal() + SolUtil.getCurrHourCount(hourlyPlay);
+			int valueFromCurrHour0ToMidnight = hourlyPlay.getAd().getDailyScrCap() - (succTot == -1 ? hourlyPlay.getSuccTotal() : succTot) + SolUtil.getCurrHourCount(hourlyPlay);
 			int hourValue = 0;
 			
 			// valueFromCurrHour0ToMidnight의 값이 음수(intrimVal 보다 기존 성공 수량이 더 많음)일 경우 처리
