@@ -94,11 +94,19 @@ $(document).ready(function () {
     });
 });
 
-// filter icon 변경
+// kendoUI filter menu icon 변경
 $(document).ready(function () {
     var e = $("span.k-icon.k-svg-icon.k-svg-i-filter");
     e.removeClass('k-icon k-svg-icon k-svg-i-filter').addClass('fa-light fa-filter');
 });
 
-// filter dropdown button icon 변경
+// bootstrap 버전확인
+// $(document).ready(function() {
+//     if (typeof $.fn.tooltip !== 'undefined') {
+//         console.log('Bootstrap version:', $.fn.tooltip.Constructor.VERSION);
+//     } else {
+//         console.log('Bootstrap is not loaded.');
+//     }
+// });
+
 

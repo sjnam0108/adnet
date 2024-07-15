@@ -321,6 +321,7 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     font-weight: 500;
 }
 
+/*  min-height 적용 -> 로딩 버그 해결  */
 .k-grid .k-grid-content {
     overflow-y: visible;
     min-height: 100px;
