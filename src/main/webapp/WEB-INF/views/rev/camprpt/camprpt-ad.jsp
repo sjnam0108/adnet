@@ -996,14 +996,7 @@ function createChart() {
 	<kendo:grid-excel fileName="리포트(개별화면일자별).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:grid-columns>
 		<kendo:grid-column title="화면" field="screen.name" width="250" template="<%= screenNameTemplate %>" />
 		<kendo:grid-column title="날짜" field="playDate" width="120" template="<%= playDateTemplate %>" />

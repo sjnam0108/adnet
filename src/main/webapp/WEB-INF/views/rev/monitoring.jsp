@@ -331,14 +331,7 @@
     <kendo:grid-selectable mode="raw"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:grid-toolbarTemplate>
     	<div class="clearfix">
     		<div class="float-left">
@@ -820,14 +813,7 @@ function refreshSyncPackStat() {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:dataSource serverPaging="true" serverSorting="true" serverFiltering="true" serverGrouping="true" error="kendoReadError">
 		<kendo:dataSource-sort>
 			<kendo:dataSource-sortItem field="name" dir="asc"/>
@@ -1229,14 +1215,7 @@ function deletePlTime(id, lane) {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:grid-dataBound>
 		<script>
 			function grid_dataBound(e) {
@@ -1457,14 +1436,7 @@ function goSelLogTab(screenID) {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:grid-dataBound>
 		<script>
 			function grid_dataBound(e) {
@@ -1621,14 +1593,7 @@ $(document).ready(function() {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:dataSource serverPaging="true" serverSorting="true" serverFiltering="true" serverGrouping="true" error="kendoReadError">
 		<kendo:dataSource-sort>
 			<kendo:dataSource-sortItem field="realBeginDate" dir="desc"/>
@@ -1779,14 +1744,7 @@ function selectCtrlSyncPack(source, shortName) {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:dataSource serverPaging="false" serverSorting="false" serverFiltering="false" serverGrouping="false" error="kendoReadError">
 		<kendo:dataSource-sort>
 			<kendo:dataSource-sortItem field="whoCreationDate" dir="desc"/>

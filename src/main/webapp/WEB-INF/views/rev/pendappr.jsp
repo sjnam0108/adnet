@@ -320,14 +320,7 @@
                 }
             </script>
         </kendo:grid-dataBound>
-        <kendo:grid-filterMenuInit>
-            <script>
-                function grid_filterMenuInit(e) {
-                    $("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-                    $("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-                }
-            </script>
-        </kendo:grid-filterMenuInit>
+
         <kendo:grid-filterable>
             <kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
         </kendo:grid-filterable>

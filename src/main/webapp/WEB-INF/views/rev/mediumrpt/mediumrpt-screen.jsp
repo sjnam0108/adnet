@@ -205,14 +205,7 @@ function navigateToDate(date) {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:dataSource serverPaging="false" serverSorting="false" serverFiltering="false" serverGrouping="false" error="kendoReadError">
 		<kendo:dataSource-sort>
 			<kendo:dataSource-sortItem field="name" dir="asc"/>
@@ -303,14 +296,7 @@ function navigateToDate(date) {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:dataSource serverPaging="true" serverSorting="true" serverFiltering="true" serverGrouping="true" error="kendoReadError">
 		<kendo:dataSource-sort>
 			<kendo:dataSource-sortItem field="succTotal" dir="desc"/>
@@ -400,14 +386,7 @@ function navigateToDate(date) {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:dataSource serverPaging="true" serverSorting="true" serverFiltering="true" serverGrouping="true" error="kendoReadError">
 		<kendo:dataSource-sort>
 			<kendo:dataSource-sortItem field="dateTotal" dir="desc"/>
@@ -497,14 +476,7 @@ function navigateToDate(date) {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:dataSource serverPaging="true" serverSorting="true" serverFiltering="true" serverGrouping="true" error="kendoReadError">
 		<kendo:dataSource-sort>
 			<kendo:dataSource-sortItem field="dateTotal" dir="desc"/>
@@ -594,14 +566,7 @@ function navigateToDate(date) {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:dataSource serverPaging="true" serverSorting="true" serverFiltering="true" serverGrouping="true" error="kendoReadError">
 		<kendo:dataSource-sort>
 			<kendo:dataSource-sortItem field="dateTotal" dir="desc"/>

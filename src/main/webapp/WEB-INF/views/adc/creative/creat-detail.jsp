@@ -403,14 +403,7 @@ $(document).ready(function() {
 <kendo:grid name="grid-audit" pageable="true" filterable="true" scrollable="true"
 		reorderable="true" resizable="true" detailTemplate="template">
 	<kendo:grid-filterable />
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
 	<kendo:grid-selectable mode="raw"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
@@ -443,14 +436,7 @@ $(document).ready(function() {
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:grid-filterMenuInit>
-		<script>
-			function grid_filterMenuInit(e) {
-				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-			}
-		</script>
-	</kendo:grid-filterMenuInit>
+
 	<kendo:grid-detailInit>
 		<script>
 			function grid_detailInit(e) {
