@@ -70,7 +70,15 @@
     <kendo:grid-selectable mode="raw"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
-    <kendo:grid-toolbarTemplate>
+	<kendo:grid-filterMenuInit>
+		<script>
+			function grid_filterMenuInit(e) {
+				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
+				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
+			}
+		</script>
+	</kendo:grid-filterMenuInit>
+	<kendo:grid-toolbarTemplate>
     	<div class="clearfix">
     		<div class="float-left">
     			<button id="add-btn" type="button" class="btn btn-outline-success">추가</button>

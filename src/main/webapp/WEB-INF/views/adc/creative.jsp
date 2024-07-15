@@ -301,6 +301,14 @@
     	</div>
 	</kendo:grid-toolbarTemplate>
 	<kendo:grid-filterable extra="false" />
+	<kendo:grid-filterMenuInit>
+		<script>
+			function grid_filterMenuInit(e) {
+				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
+				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
+			}
+		</script>
+	</kendo:grid-filterMenuInit>
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
@@ -729,6 +737,14 @@ $(document).ready(function() {
 	<kendo:grid-excel fileName="광고소재(소재파일).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
+	<kendo:grid-filterMenuInit>
+		<script>
+			function grid_filterMenuInit(e) {
+				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
+				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
+			}
+		</script>
+	</kendo:grid-filterMenuInit>
 	<kendo:grid-columns>
 		<kendo:grid-column title="썸네일" field="thumbFilename" width="160" filterable="false" template="<%= thumbTemplate %>" />
 		<kendo:grid-column title="광고 소재" field="creative.name" width="200" template="<%= typeNameTemplate %>" />

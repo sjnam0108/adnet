@@ -93,47 +93,12 @@ $(document).ready(function () {
         });
     });
 });
-//
-// $(document).ready(function () {
-//     $('.k-grid-filter-menu').each(function (index) {
-//
-//         // MutationObserver 설정
-//         var observer = new MutationObserver(function (mutations) {
-//             mutations.forEach(function (mutation) {
-//                 if (mutation.addedNodes.length) {
-//                     $(mutation.addedNodes).each(function () {
-//                         if ($(this).hasClass('k-animation-container')) {
-//                             // 컨테이너가 생성되면 CSS 조정
-//                             var newContainer = $(this);
-//                             var containerRect = newContainer[0].getBoundingClientRect();
-//                             var viewportWidth = $(window).width();
-//
-//
-//                             // 뷰포트를 벗어나는지 확인
-//                             if (containerRect.right + 5 > viewportWidth) {
-//                                 // 뷰포트를 벗어나는 경우, 왼쪽으로 위치 조정
-//                                 $(this).css({
-//                                     left: containerRect.left - 20 + 'px',
-//                                 });
-//                             }
-//                         }
-//                     });
-//                 }
-//             });
-//         });
-//
-//         // body 요소를 관찰
-//         observer.observe(document.body, {
-//             childList: true,
-//             subtree: true
-//         });
-//
-//
-//         var toggleBtn = $(this);
-//         toggleBtn.on('click', function (event) {
-//             event.preventDefault(); // 이벤트 전파 방지
-//             event.stopPropagation(); // 이벤트 버블링 방지
-//
-//         });
-//     });
-// });
+
+// filter icon 변경
+$(document).ready(function () {
+    var e = $("span.k-icon.k-svg-icon.k-svg-i-filter");
+    e.removeClass('k-icon k-svg-icon k-svg-i-filter').addClass('fa-light fa-filter');
+});
+
+// filter dropdown button icon 변경
+

@@ -143,6 +143,14 @@ $(document).ready(function() {
     	</div>
 	</kendo:grid-toolbarTemplate>
 	<kendo:grid-filterable extra="false" />
+	<kendo:grid-filterMenuInit>
+		<script>
+			function grid_filterMenuInit(e) {
+				$("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
+				$("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
+			}
+		</script>
+	</kendo:grid-filterMenuInit>
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="번호" field="laneId" width="150" filterable="false" />
