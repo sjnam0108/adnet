@@ -8,11 +8,21 @@ $(document).ready(function () {
         var toggleBtn = $(this);
         var dropDownMenu = toggleBtn.next('.dropdown-menu');
 
+        // .clearfix 클래스가 없는 경우 다음 반복으로 넘어감
         if (!toggleBtn.parent().parent().hasClass('clearfix') && !toggleBtn.parent().parent().parent().hasClass('clearfix')) {
             return true;
-            // .clearfix 클래스가 없는 경우 다음 반복으로 넘어감
         }
 
+        // grid 안에 있지 않는경우 다음 반복으로 넘어감
+        var hasGridClass = toggleBtn.parentsUntil('body').filter(function() {
+            return $(this).hasClass('k-grid');
+        }).length > 0;
+
+        if (!hasGridClass) {
+            return true;
+        }
+
+        console.log('fixed dropdown')
         fixedDropDownMenuList.push(dropDownMenu);
         fixedDropDownToggleList.push(toggleBtn);
         $("body").append(dropDownMenu);
@@ -33,7 +43,7 @@ $(document).ready(function () {
 
             // 드롭다운 메뉴가 화면 밖으로 넘어가는지 확인
             if (rect.left + menuWidth > viewportWidth) {
-                leftPosition = viewportWidth - menuWidth - 10; // 10px 여유
+                leftPosition = viewportWidth - menuWidth - 5; // 10px 여유
             }
             if (rect.bottom + menuHeight > viewportHeight) {
                 topPosition = rect.top - menuHeight;
@@ -52,7 +62,6 @@ $(document).ready(function () {
                         }
                     }
                 );
-
 
             } else {
                 dropDownMenu.removeClass('show');
