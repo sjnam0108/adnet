@@ -471,8 +471,6 @@ function initFormActScr(subtitle) {
 	
 	$("#formRoot").html(kendo.template($("#template-1").html()));
 
-	// $("#form-1 input[name='subscribers']").attr("data-role", "tagsinput")
-
 	$("#form-1 input[name='subscribers']").tagsinput({
 		trimValue: true,
 		tagClass: 'badge badge-outline-secondary text-secondary',

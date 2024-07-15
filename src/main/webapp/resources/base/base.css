@@ -528,7 +528,10 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     white-space: nowrap;
 }
 
-
+/* tagsinput value 가려짐 문제  */
+#formRoot .bootstrap-tagsinput input {
+    padding: 0 .375rem !important;
+}
 
 
 
