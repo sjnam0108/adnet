@@ -518,10 +518,17 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
 
 /*  폼 멀티 셀렉트 수정  */
 #formRoot .k-multiselect.k-input {
-    display: block !important;
-    padding: .438rem .875rem;
+    display: flex !important;
+    padding: 0;
     border: 1px solid rgba(24, 28, 33, 0.1);
 }
+
+#formRoot .k-multiselect.k-input span.k-clear-value {
+    position: relative;
+    left: -5px;
+    /*bottom: 1.5px;*/
+}
+
 
 /*  4k 모니터 드랍다운 text 줄바뀜 버그  */
 .k-list-item-text {
@@ -536,9 +543,23 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
 }
 
 /*  inv/screen form 양식 수정  */
-div[name="siteShortName-con"] span,
-div[name="siteName-con"] span {
+div[name="siteShortName-con"] > span,
+div[name="siteName-con"] > span {
     padding: 0;
+    display: flex;
+    border: 1px solid rgba(24, 28, 33, 0.1) !important;
 }
 
+div[name="siteShortName-con"] input.form-control,
+div[name="siteName-con"] input.form-control {
+    border: none;
+}
 
+/*  폼 clear-value button 조정  */
+.custom-show-inline-flex {
+    display: inline-flex;
+}
+
+.custom-hide {
+    display: none;
+}

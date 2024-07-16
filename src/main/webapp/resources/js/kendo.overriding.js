@@ -103,53 +103,60 @@ $(document).ready(function () {
     });
 });
 
-// kendoUI filter menu icon 변경
-// $(document).ready(function () {
-//     var e = $("span.k-icon.k-svg-icon.k-svg-i-filter");
-//     e.removeClass('k-icon k-svg-icon k-svg-i-filter').addClass('fa-light fa-filter');
-// });
+// KendoUI Form X 버튼 로직
+$(document).ready(function () {
+    // KendoUI AutoComplete x버튼 로직 수정
+    $(document).on('mouseenter', '#formRoot div[name="siteShortName-con"]', function() {
+        if ($('input[name="siteShortName"]').val()) {
+            $(this).find('.k-clear-value').removeClass('k-hidden');
+            console.log("발동")
+        }
+    });
 
-// bootstrap 버전확인
-// $(document).ready(function() {
-//     if (typeof $.fn.tooltip !== 'undefined') {
-//         console.log('Bootstrap version:', $.fn.tooltip.Constructor.VERSION);
-//     } else {
-//         console.log('Bootstrap is not loaded.');
-//     }
-// });
+    $(document).on('mouseleave', '#formRoot div[name="siteShortName-con"]', function() {
+        $(this).find('.k-clear-value').addClass('k-hidden');
+        console.log("제거")
+    });
 
-// 필터 드랍다운 버튼 아이콘 변경
-// $(document).ready(function () {
-//     $('.k-grid-filter-menu').each(function (index) {
-//
-//         // MutationObserver 설정
-//         var observer = new MutationObserver(function (mutations) {
-//             mutations.forEach(function (mutation) {
-//                 if (mutation.addedNodes.length) {
-//                     $(mutation.addedNodes).each(function () {
-//                         if ($(this).hasClass('k-animation-container')) {
-//                             // 컨테이너가 생성되면 필터 아이콘 변경
-//                             $("span.k-icon.k-svg-icon.k-svg-i-filter").html("<span class='fa-light fa-filter'></span>");
-//                             $("span.k-icon.k-svg-icon.k-svg-i-filter-clear").html("<span class='fa-light fa-filter-circle-xmark'></span>");
-//                         }
-//                     });
-//                 }
-//             });
-//         });
-//
-//         // body 요소를 관찰
-//         observer.observe(document.body, {
-//             childList: true,
-//             subtree: true
-//         });
-//
-//
-//         var toggleBtn = $(this);
-//         toggleBtn.on('click', function (event) {
-//             event.preventDefault(); // 이벤트 전파 방지
-//             event.stopPropagation(); // 이벤트 버블링 방지
-//
-//         });
-//     });
-// });
+    $(document).on('mouseenter', '#formRoot div[name="siteName-con"]', function() {
+        if ($('input[name="siteName"]').val()) {
+            $(this).find('.k-clear-value').removeClass('k-hidden');
+            console.log("발동")
+        }
+    });
 
+    $(document).on('mouseleave', '#formRoot div[name="siteName-con"]', function() {
+        $(this).find('.k-clear-value').addClass('k-hidden');
+        console.log("제거")
+    });
+
+
+    // multiSelect x버튼 로직
+    var isMultiSelectFocused = false;
+
+    $(document).on('focus', '#formRoot .k-input-inner', function(e) {
+        isMultiSelectFocused = true;
+        console.log('포커스')
+    });
+    $(document).on('blur', '#formRoot .k-input-inner', function(e) {
+        isMultiSelectFocused = false;
+        $('#formRoot .k-multiselect.k-input').find('.k-clear-value').addClass('k-hidden');
+        console.log('아웃')
+    });
+
+    $(document).on('mouseenter', '#formRoot .k-multiselect.k-input', function() {
+        if ($(this).find(".k-chip-solid-base").length > 0) {
+            $(this).find('.k-clear-value').removeClass('k-hidden');
+            console.log("발동")
+        }
+    });
+
+    $(document).on('mouseleave', '#formRoot .k-multiselect.k-input', function() {
+        if (isMultiSelectFocused) {
+
+        } else {
+            $(this).find('.k-clear-value').addClass('k-hidden');
+            console.log("제거")
+        }
+    });
+});
