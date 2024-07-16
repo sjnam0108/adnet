@@ -230,7 +230,7 @@
 					</kendo:grid-column-filterable>
 				</kendo:grid-column>
 				<kendo:grid-column title="사이트ID" field="colA" width="150" />
-				<kendo:grid-column title="사이트명" field="colB" width="200" />
+				<kendo:grid-column title="사이트명" field="colB" width="200" sticky="true" />
 				<kendo:grid-column title="위도" field="colC" width="120" filterable="false" sortable="false" />
 				<kendo:grid-column title="경도" field="colD" width="120" filterable="false" sortable="false" />
 				<kendo:grid-column title="시/도" field="colE" width="100" />
@@ -305,7 +305,7 @@
 					</kendo:grid-column-filterable>
 				</kendo:grid-column>
 				<kendo:grid-column title="화면ID" field="colA" width="120" />
-				<kendo:grid-column title="화면명" field="colB" width="200" />
+				<kendo:grid-column title="화면명" field="colB" width="200" sticky="true" />
 				<kendo:grid-column title="사이트ID" field="colC" width="120" />
 				<kendo:grid-column title="해상도" field="colD" width="150" />
 				<kendo:grid-column title="동영상허용" field="colE" width="150" />

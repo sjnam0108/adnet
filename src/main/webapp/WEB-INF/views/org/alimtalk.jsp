@@ -104,7 +104,7 @@
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="알림톡ID" field="shortName" width="120" />
+		<kendo:grid-column title="알림톡ID" field="shortName" width="120" sticky="true" />
 		<kendo:grid-column title="점검 요약" field="checkList" width="250" filterable="false" sortable="false" template="<%= checkListTemplate %>" />
 		<kendo:grid-column title="운영시간(hrs)" field="bizHours" width="120" filterable="false" sortable="false" />
 		<kendo:grid-column title="알림톡 수신" field="subCount" width="120" filterable="false" sortable="false" />

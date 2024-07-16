@@ -204,8 +204,8 @@ $(document).ready(function() {
 	</kendo:grid-toolbarTemplate>
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="썸네일" field="thumbFilename" width="160" filterable="false" template="<%= thumbTemplate %>" />
-		<kendo:grid-column title="파일명" field="srcFilename" width="250" filterable="false" template="<%= fileTemplate %>" />
+		<kendo:grid-column title="썸네일" field="thumbFilename" width="160" filterable="false" template="<%= thumbTemplate %>" sticky="true" />
+		<kendo:grid-column title="파일명" field="srcFilename" width="250" filterable="false" template="<%= fileTemplate %>" sticky="true" />
 		<kendo:grid-column title="해상도" field="resolution" width="100" filterable="false" template="<%= resolTemplate %>" />
 		<kendo:grid-column title="파일형식" field="mimeType" width="100" filterable="false" />
 		<kendo:grid-column title="재생시간" field="durSecs" width="80" filterable="false" template="<%= durTemplate %>" />

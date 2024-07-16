@@ -242,7 +242,7 @@ $(document).ready(function() {
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column width="100" template="<%= andOrTemplate %>" />
-		<kendo:grid-column title="타겟 유형" field="mobType" width="150" template="<%= mobTypeTemplate %>" />
+		<kendo:grid-column title="타겟 유형" field="mobType" width="150" template="<%= mobTypeTemplate %>" sticky="true" />
 		<kendo:grid-column title="대상" field="tgtName" width="500" />
 		<kendo:grid-column title="서비스중" field="activeStatus" width="100"
 				template="#= activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />

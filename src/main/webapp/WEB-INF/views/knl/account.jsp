@@ -85,7 +85,7 @@
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="계정명" field="name" width="150" />
+		<kendo:grid-column title="계정명" field="name" width="150" sticky="true" />
 		<kendo:grid-column title="커널 관리" field="scopeKernel" width="150"
 				template="#=scopeKernel ? \"<span class='fa-light fa-check'>\" : \"\"#" />
 		<kendo:grid-column title="매체 관리" field="scopeMedium" width="150"

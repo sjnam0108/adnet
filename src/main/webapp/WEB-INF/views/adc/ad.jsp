@@ -298,7 +298,7 @@
         <kendo:grid-columns>
             <kendo:grid-column title="수정" width="50" filterable="false" sortable="false"
                                template="<%= editTemplate %>"/>
-            <kendo:grid-column title="광고명" field="name" width="300" template="<%= nameTemplate %>"/>
+            <kendo:grid-column title="광고명" field="name" width="300" template="<%= nameTemplate %>" sticky="true" />
             <kendo:grid-column title="상태" field="status" width="120" template="<%= statusTemplate %>">
                 <kendo:grid-column-filterable multi="true" itemTemplate="kfcIconText">
                     <kendo:dataSource>

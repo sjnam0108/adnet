@@ -283,7 +283,7 @@ $(document).ready(function() {
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column width="100" template="<%= andOrTemplate %>" />
-		<kendo:grid-column title="타겟 유형" field="invenType" width="100" template="<%= invenTypeTemplate %>" />
+		<kendo:grid-column title="타겟 유형" field="invenType" width="100" template="<%= invenTypeTemplate %>" sticky="true" />
 		<kendo:grid-column title="대상" field="tgtDisplay" width="500" template="<%= tgtDispTemplate %>" />
 		<kendo:grid-column title="대상 수" field="tgtCount" width="100" />
 		<kendo:grid-column title="화면 수" field="tgtScrCount" width="100" />

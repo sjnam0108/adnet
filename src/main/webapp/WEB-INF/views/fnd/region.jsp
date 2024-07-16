@@ -124,7 +124,7 @@
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editStTemplate %>" />
-		<kendo:grid-column title="광역시/도" field="name" />
+		<kendo:grid-column title="광역시/도" field="name" sticky="true" />
 		<kendo:grid-column title="코드" field="code" />
 		<kendo:grid-column title="리스트에 포함" field="listIncluded"
 				template="#=listIncluded ? \"<span class='fa-light fa-check'>\" : \"\"#" />
@@ -245,7 +245,7 @@ $(document).ready(function() {
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editRgnTemplate %>" />
-		<kendo:grid-column title="시/군/구" field="name" />
+		<kendo:grid-column title="시/군/구" field="name" sticky="true" />
 		<kendo:grid-column title="코드" field="code" />
 		<kendo:grid-column title="리스트에 포함" field="listIncluded"
 				template="#=listIncluded ? \"<span class='fa-light fa-check'>\" : \"\"#" />
@@ -366,7 +366,7 @@ $(document).ready(function() {
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editMobRgnTemplate %>" />
-		<kendo:grid-column title="지역" field="name" width="200" />
+		<kendo:grid-column title="지역" field="name" width="200" sticky="true" />
 		<kendo:grid-column title="지오코딩 필터명" field="gcName" width="250" />
 		<kendo:grid-column title="코드" field="code" width="300" />
 		<kendo:grid-column title="활성화" field="activeStatus" width="100"

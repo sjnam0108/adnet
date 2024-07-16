@@ -83,7 +83,7 @@
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
 		<kendo:grid-column title="유형ID" field="code" />
-		<kendo:grid-column title="유형명" field="name" />
+		<kendo:grid-column title="유형명" field="name" sticky="true" />
 		<kendo:grid-column title="게시 크기" field="resolution" width="150"
 				template="#= resolution.replace('x', ' x ') #" />
 		<kendo:grid-column title="적용 매체" field="destMedia" width="300" template="#= dispBadgeValues(destMedia) #" />

@@ -656,7 +656,7 @@ function readCurrCreats() {
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="광고 소재" field="creative.name" width="160" filterable="false" template="<%= nameTemplate %>" />
+		<kendo:grid-column title="광고 소재" field="creative.name" width="160" filterable="false" template="<%= nameTemplate %>" sticky="true" />
 		<kendo:grid-column title="해상도" field="creative.fileResolutions" width="150" filterable="false"
 				template="#= dispBadgeValues(creative.fileResolutions) #" />
 		<kendo:grid-column title="상태" field="creative.status" width="150" filterable="false" template="<%= statusTemplate %>" />

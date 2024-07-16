@@ -85,7 +85,7 @@
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="묶음 이름" field="name" width="200" template="<%= nameTemplate %>" />
+		<kendo:grid-column title="묶음 이름" field="name" width="200" template="<%= nameTemplate %>" sticky="true" />
 		<kendo:grid-column title="활성화 상태" field="activeStatus" width="200"
 				template="#=activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />
 		<kendo:grid-column title="화면수" field="screenCount" width="150" filterable="false" sortable="false" />

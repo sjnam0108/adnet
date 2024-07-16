@@ -350,7 +350,7 @@ function navToRptAd(campId, adId) {
 	<kendo:grid-excel fileName="매체리포트(광고검색요약).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="광고명" field="name" width="300" template="<%= ovwNameTemplate %>" filterable="false" />
+		<kendo:grid-column title="광고명" field="name" width="300" template="<%= ovwNameTemplate %>" filterable="false" sticky="true" />
 		<kendo:grid-column title="구매 유형" field="purchType" width="140" template="<%= purchTypeTemplate %>" filterable="false" />
 		<kendo:grid-column title="예산" field="budget" width="120" template="<%= budgetTemplate %>" filterable="false" />
 		<kendo:grid-column title="보장" field="goalValue" width="120" template="<%= goalValueTemplate %>" filterable="false" />
@@ -611,7 +611,7 @@ function searchForm() {
 	<kendo:grid-excel fileName="매체리포트(광고).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="광고명" field="name" width="300" template="<%= nameTemplate %>" filterable="false" />
+		<kendo:grid-column title="광고명" field="name" width="300" template="<%= nameTemplate %>" filterable="false" sticky="true" />
 		<kendo:grid-column title="노출량" field="total" width="100" template="<%= totalTemplate %>" filterable="false" />
 		<kendo:grid-column title="화면수" field="cntScreen" width="100" template="<%= cntScreenTemplate %>" filterable="false" />
 

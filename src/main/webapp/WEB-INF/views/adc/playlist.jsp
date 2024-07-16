@@ -123,8 +123,8 @@
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정..." width="110" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="재생목록" field="name" width="250" />
-		<kendo:grid-column title="광고 채널" field="channelId" width="200" template="#= channel #" >
+		<kendo:grid-column title="재생목록" field="name" width="250" sticky="true" />
+		<kendo:grid-column title="광고 채널" field="channelId" width="200" template="#= channel #" sticky="true" >
 			<kendo:grid-column-filterable multi="true" itemTemplate="kfcTextOnly">
 				<kendo:dataSource>
 					<kendo:dataSource-transport>

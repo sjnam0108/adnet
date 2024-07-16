@@ -147,7 +147,7 @@ $(document).ready(function() {
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="번호" field="laneId" width="150" filterable="false" />
-		<kendo:grid-column title="화면명" field="name" width="250" template="<%= nameTemplate %>" />
+		<kendo:grid-column title="화면명" field="name" width="250" template="<%= nameTemplate %>" sticky="true" />
 		<kendo:grid-column title="화면ID" field="shortName" width="150" />
 		<kendo:grid-column title="사이트명" field="siteName" width="200" />
 		<kendo:grid-column title="사이트ID" field="siteShortName" width="150"/>

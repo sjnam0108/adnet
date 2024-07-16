@@ -80,7 +80,7 @@
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="식별자" field="ukid" />
+		<kendo:grid-column title="식별자" field="ukid" sticky="true" />
 		<kendo:grid-column title="권한명" field="name" />
 	</kendo:grid-columns>
 	<kendo:grid-dataBound>

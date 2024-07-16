@@ -295,7 +295,7 @@
 				</kendo:dataSource>
 			</kendo:grid-column-filterable>
 		</kendo:grid-column>
-		<kendo:grid-column title="광고 소재" field="name" width="220" template="<%= nameTemplate %>" />
+		<kendo:grid-column title="광고 소재" field="name" width="220" template="<%= nameTemplate %>" sticky="true" />
 		<kendo:grid-column title="등록된 해상도" width="200" sortable="false" filterable="false"
 				template="#= dispBadgeValues(fileResolutions) #" />
 		<kendo:grid-column title="범주" field="category" width="80" template="<%= categoryTemplate %>" >

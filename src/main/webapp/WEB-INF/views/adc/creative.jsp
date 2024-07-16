@@ -314,7 +314,7 @@
 				</kendo:dataSource>
 			</kendo:grid-column-filterable>
 		</kendo:grid-column>
-		<kendo:grid-column title="광고 소재" field="name" width="250" template="<%= nameTemplate %>" />
+		<kendo:grid-column title="광고 소재" field="name" width="250" template="<%= nameTemplate %>" sticky="true" />
 		<kendo:grid-column title="등록된 해상도" width="200" sortable="false" filterable="false"
 				template="#= dispBadgeValues(fileResolutions) #" />
 		<kendo:grid-column title="범주" field="category" width="80" template="<%= categoryTemplate %>" >
@@ -732,8 +732,8 @@ $(document).ready(function() {
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 
 	<kendo:grid-columns>
-		<kendo:grid-column title="썸네일" field="thumbFilename" width="160" filterable="false" template="<%= thumbTemplate %>" />
-		<kendo:grid-column title="광고 소재" field="creative.name" width="200" template="<%= typeNameTemplate %>" />
+		<kendo:grid-column title="썸네일" field="thumbFilename" width="160" filterable="false" template="<%= thumbTemplate %>" sticky="true" />
+		<kendo:grid-column title="광고 소재" field="creative.name" width="200" template="<%= typeNameTemplate %>" sticky="true" />
 		<kendo:grid-column title="파일명" field="srcFilename" width="250" template="<%= fileTemplate %>"  />
 		<kendo:grid-column title="해상도" field="resolution" width="100" template="<%= resolTemplate %>" />
 		<kendo:grid-column title="파일형식" field="mimeType" width="120" />

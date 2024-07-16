@@ -187,7 +187,7 @@ function navigateToDate(date) {
    	</kendo:grid-toolbarTemplate>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="사이트" field="site.name" width="200" />
+		<kendo:grid-column title="사이트" field="site.name" width="200" sticky="true" />
 		<kendo:grid-column title="합계" field="dateTotal" width="100" />
 		<kendo:grid-column title="성공" field="succTotal" width="100" />
 		<kendo:grid-column title="00" field="cnt00" width="80" filterable="false" />

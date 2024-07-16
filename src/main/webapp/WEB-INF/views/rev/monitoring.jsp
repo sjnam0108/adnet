@@ -432,7 +432,7 @@
 	<kendo:grid-filterable extra="false" />
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="묶음 이름" field="name" width="200" template="<%= syncPackNameTemplate %>" />
+		<kendo:grid-column title="묶음 이름" field="name" width="200" template="<%= syncPackNameTemplate %>" sticky="true" />
 		<kendo:grid-column title="묶음ID" field="shortName" width="180" template="<%= syncPackShortNameTemplate %>" />
 		<kendo:grid-column title="10분내 동작 중" width="120" template="<%= activeScrCntTemplate %>" />
 		<kendo:grid-column title="오차(ms)" width="100" field="diff" sortable="false" filterable="false" />
@@ -782,7 +782,7 @@ function refreshSyncPackStat() {
    	</kendo:grid-toolbarTemplate>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="화면명" field="name" width="300" template="<%= nameTemplate %>" />
+		<kendo:grid-column title="화면명" field="name" width="300" template="<%= nameTemplate %>" sticky="true" />
 		<kendo:grid-column title="화면ID" field="shortName" width="150" />
 		<kendo:grid-column title="해상도" field="resolution" width="120" 
 				template="#= resolution.replace('x', ' x ') #" >
@@ -1201,7 +1201,7 @@ function deletePlTime(id, lane) {
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="광고 선택" field="selectDate" width="130" template="<%= selectAdDateTemplate %>"/>
-		<kendo:grid-column title="광고" field="adName" width="250" template="<%= adNameTemplate %>" />
+		<kendo:grid-column title="광고" field="adName" width="250" template="<%= adNameTemplate %>" sticky="true" />
 		<kendo:grid-column title="결과" field="result" width="80" filterable="false" template="<%= resultTemplate %>" />
 		<kendo:grid-column title="시작" field="beginDate" width="120" template="<%= playBeginDateTemplate %>"/>
 		<kendo:grid-column title="종료" field="endDate" width="120" template="<%= playEndDateTemplate %>"/>
@@ -1423,7 +1423,7 @@ function goSelLogTab(screenID) {
 		<kendo:grid-column title="시작" field="playBeginDate" width="120" template="<%= playBeginDateTemplate2 %>"/>
 		<kendo:grid-column title="종료" field="playEndDate" width="120" template="<%= playEndDateTemplate2 %>"/>
 		<kendo:grid-column title="재생시간" field="duration" width="120" template="#= durDisp #" />
-		<kendo:grid-column title="광고" field="adName" width="200" />
+		<kendo:grid-column title="광고" field="adName" width="200" sticky="true" />
 		<kendo:grid-column title="번호" field="seq" width="120" />
 		<kendo:grid-column title="광고 소재" field="creatName" width="200" />
 		<kendo:grid-column title="묶음광고" field="adPackIds" width="200" />
@@ -1582,7 +1582,7 @@ $(document).ready(function() {
 	<kendo:grid-columns>
 		<kendo:grid-column title="기기시작" field="realBeginDate" width="120" template="<%= realBeginDateTemplate %>"/>
 		<kendo:grid-column title="채널일련번호" field="seq" width="120" />
-		<kendo:grid-column title="광고" field="adName" width="200" />
+		<kendo:grid-column title="광고" field="adName" width="200" sticky="true" />
 		<kendo:grid-column title="광고 소재" field="creatName" width="200" sortable="false" filterable="false" />
 		<kendo:grid-column title="묶음 유형" field="adPackType" width="100" sortable="false" filterable="false" />
 		<kendo:grid-column title="화면수" field="scrCount" width="100" />
@@ -1719,7 +1719,7 @@ function selectCtrlSyncPack(source, shortName) {
 		</kendo:grid-column>
 		<kendo:grid-column title="등록" field="whoCreationDate" width="150" template="<%= eventRegDateTemplate %>" />
 		<kendo:grid-column title="이벤트" field="event" width="120" />
-		<kendo:grid-column title="기기" field="equipName" width="250" template="<%= equipNameTemplate %>" />
+		<kendo:grid-column title="기기" field="equipName" width="250" template="<%= equipNameTemplate %>" sticky="true" />
 		<kendo:grid-column title="기기유형" field="equipType" template="<%= equipTypeTemplate %>" width="110" >
 			<kendo:grid-column-filterable multi="true" itemTemplate="kfcIconText">
 				<kendo:dataSource>

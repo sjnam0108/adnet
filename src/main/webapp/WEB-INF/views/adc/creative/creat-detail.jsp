@@ -410,7 +410,7 @@ $(document).ready(function() {
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="시간" field="whoCreationDate" width="120" template="<%= dateTemplate %>" />
+		<kendo:grid-column title="시간" field="whoCreationDate" width="120" template="<%= dateTemplate %>" sticky="true" />
 		<kendo:grid-column title="유형" field="actType" width="120" filterable="false" sortable="false" template="<%= actTypeTemplate %>" />
 		<kendo:grid-column title="대상" field="target" width="300" filterable="false" sortable="false" template="<%= targetTemplate %>" />
 		<kendo:grid-column title="누가?" field="actedBy" width="120" filterable="false" sortable="false" template="#= actedByShortName #" />

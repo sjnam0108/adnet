@@ -76,8 +76,8 @@
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="로그인 일시" field="whoCreationDate" template="<%= dateTemplate %>"  width="180" />
-		<kendo:grid-column title="사용자ID" field="user.shortName" width="150" />
-		<kendo:grid-column title="사용자명" field="user.name" width="150" />
+		<kendo:grid-column title="사용자ID" field="user.shortName" width="150"/>
+		<kendo:grid-column title="사용자명" field="user.name" width="150" sticky="true" />
 		<kendo:grid-column title="IP" field="ip" width="150" />
 		<kendo:grid-column title="로그아웃 일시" field="logoutDate" template="<%= logoutDateTemplate %>" width="150" />
 		<kendo:grid-column title="로그아웃" field="logout" width="150"

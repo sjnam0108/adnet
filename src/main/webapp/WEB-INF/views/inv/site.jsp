@@ -120,7 +120,7 @@
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="사이트명" field="name" width="200" template="<%= nameTemplate %>"/>
+		<kendo:grid-column title="사이트명" field="name" width="200" template="<%= nameTemplate %>" sticky="true"/>
 		<kendo:grid-column title="사이트ID" field="shortName" width="150" />
 		<kendo:grid-column title="서비스중" field="activeStatus" width="120"
 				template="#=activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />

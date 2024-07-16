@@ -148,7 +148,7 @@ $(document).ready(function() {
 		<kendo:grid-column title="시작" field="playBeginDate" width="120" template="<%= playBeginDateTemplate2 %>"/>
 		<kendo:grid-column title="종료" field="playEndDate" width="120" template="<%= playEndDateTemplate2 %>"/>
 		<kendo:grid-column title="재생시간" field="duration" width="120" template="#= durDisp #" />
-		<kendo:grid-column title="광고" field="adName" width="200" />
+		<kendo:grid-column title="광고" field="adName" width="200" sticky="true" />
 		<kendo:grid-column title="번호" field="seq" width="120" />
 		<kendo:grid-column title="광고 소재" field="creatName" width="200" />
 		<kendo:grid-column title="묶음광고" field="adPackIds" width="200" />

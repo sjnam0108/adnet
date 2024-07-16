@@ -137,7 +137,7 @@
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
 		<kendo:grid-column title="채널ID" field="shortName" width="200" template="<%= shortNameTemplate %>" />
-		<kendo:grid-column title="채널 이름" field="name" width="200" />
+		<kendo:grid-column title="채널 이름" field="name" width="200" sticky="true" />
 		<kendo:grid-column title="해상도" field="resolution" width="120"  
 				template="#= resolution.replace('x', ' x ') #"  />
 		<kendo:grid-column title="게시유형" field="viewTypeCode" width="120" />

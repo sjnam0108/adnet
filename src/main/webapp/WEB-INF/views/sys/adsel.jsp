@@ -93,7 +93,7 @@
    	</kendo:grid-toolbarTemplate>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="시간" field="date" template="<%= dateTemplate %>" filterable="false" />
+		<kendo:grid-column title="시간" field="date" template="<%= dateTemplate %>" filterable="false" sticky="true"/>
 		<kendo:grid-column title="전체" field="count" filterable="false" template="#= countDisp #" />
 		<kendo:grid-column title="${mediumTitle1}" field="sub1" filterable="false" template="#= sub1Disp #" />
 		<kendo:grid-column title="${mediumTitle2}" field="sub2" filterable="false" template="#= sub2Disp #" />
@@ -157,7 +157,7 @@
    	</kendo:grid-toolbarTemplate>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="시간" field="date" template="<%= dateTemplate %>" filterable="false" />
+		<kendo:grid-column title="시간" field="date" template="<%= dateTemplate %>" filterable="false" sticky="true" />
 		<kendo:grid-column title="전체" field="count" filterable="false" template="#= countDisp #" />
 		<kendo:grid-column title="${mediumTitle1}" field="sub1" filterable="false" template="#= sub1Disp #" />
 		<kendo:grid-column title="${mediumTitle2}" field="sub2" filterable="false" template="#= sub2Disp #" />

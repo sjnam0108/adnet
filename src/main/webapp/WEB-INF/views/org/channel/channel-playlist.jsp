@@ -187,7 +187,7 @@ $(document).ready(function() {
 		<kendo:grid-column title="수정..." width="110" filterable="false" sortable="false" template="<%= editTemplate %>" />
 		<kendo:grid-column title="시작" field="startDate" width="120" template="<%= startDateTemplate %>" />
 		<kendo:grid-column title="종료" field="endDate" width="120" template="<%= endDateTemplate %>" />
-		<kendo:grid-column title="이름" field="name" width="250" template="<%= nameTemplate %>" />
+		<kendo:grid-column title="이름" field="name" width="250" template="<%= nameTemplate %>" sticky="true" />
 		<kendo:grid-column title="광고수" field="adCount" width="120" />
 		<kendo:grid-column title="시간(초)" field="totDurSecs" width="120" />
 		<kendo:grid-column title="활성화 상태" field="activeStatus" width="120"

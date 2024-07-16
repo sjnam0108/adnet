@@ -201,7 +201,7 @@
 	<kendo:grid-excel fileName="리포트(광고 소재별).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="광고 소재" field="name" width="250" template="<%= nameTemplate %>" filterable="false" />
+		<kendo:grid-column title="광고 소재" field="name" width="250" template="<%= nameTemplate %>" filterable="false" sticky="true" />
 		<kendo:grid-column title="상태" field="status" width="100" template="<%= statusTemplate %>" filterable="false" />
 		<kendo:grid-column title="등록된 해상도" width="200" sortable="false" filterable="false" template="#= dispBadgeValues(fileResolutions) #" />
 		<kendo:grid-column title="노출량" field="total" width="100" template="<%= totalTemplate %>" filterable="false" />
@@ -293,7 +293,7 @@
 	<kendo:grid-excel fileName="리포트(일자별).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="날짜" field="playDate" width="120" template="<%= playDateTemplate %>" />
+		<kendo:grid-column title="날짜" field="playDate" width="120" template="<%= playDateTemplate %>" sticky="true" />
 		<kendo:grid-column title="노출량" field="total" width="100" format="{0:n0}" filterable="false" />
 		<kendo:grid-column title="화면수" field="cntScreen" width="100" format="{0:n0}" filterable="false" />
 		<kendo:grid-column title="화면당" field="actualValuePerScreen" width="100" format="{0:n2}" filterable="false" />
@@ -629,7 +629,7 @@ function createChart() {
 	<kendo:grid-excel fileName="리포트(요일별).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="요일" field="weekDay" width="120" template="#= weekDayName #" />
+		<kendo:grid-column title="요일" field="weekDay" width="120" template="#= weekDayName #" sticky="true" />
 		<kendo:grid-column title="노출량" field="total" width="100" format="{0:n0}" filterable="false" />
 		<kendo:grid-column title="화면수" field="cntScreen" width="100" format="{0:n0}" filterable="false" />
 		<kendo:grid-column title="집행금액" field="actualAmount" width="120" format="{0:n0}" filterable="false" />

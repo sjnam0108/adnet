@@ -273,7 +273,7 @@
 
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="캠페인명" field="name" width="250" template="<%= nameTemplate %>" />
+		<kendo:grid-column title="캠페인명" field="name" width="250" template="<%= nameTemplate %>" sticky="true" />
 		<kendo:grid-column title="예산" field="budget" width="120" format="{0:n0}" filterable="false" />
 		<kendo:grid-column title="보장" field="goalValue" width="120" format="{0:n0}" filterable="false" />
 		<kendo:grid-column title="목표" field="sysValue" width="120" template="<%= campSysValueTemplate %>" filterable="false" />
@@ -362,7 +362,7 @@
 
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="캠페인명" field="name" width="250" template="<%= nameTemplate %>" />
+		<kendo:grid-column title="캠페인명" field="name" width="250" template="<%= nameTemplate %>" sticky="true" />
 		<kendo:grid-column title="상태" field="status" width="120" template="<%= statusTemplate %>" >
 			<kendo:grid-column-filterable multi="true" itemTemplate="kfcIconText">
 				<kendo:dataSource>
@@ -453,7 +453,7 @@
 
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="광고명" field="name" width="300" template="<%= adNameTemplate %>" />
+		<kendo:grid-column title="광고명" field="name" width="300" template="<%= adNameTemplate %>" sticky="true" />
 		<kendo:grid-column title="상태" field="status" width="120" template="<%= adStatusTemplate %>" >
 			<kendo:grid-column-filterable multi="true" itemTemplate="kfcIconText">
 				<kendo:dataSource>

@@ -108,7 +108,7 @@
 				</kendo:dataSource>
 			</kendo:grid-column-filterable>
 		</kendo:grid-column>
-		<kendo:grid-column title="화면" field="screenName" width="200" />
+		<kendo:grid-column title="화면" field="screenName" width="200" sticky="true" />
 		<kendo:grid-column title="화면ID" field="screenShortName" width="150" />
 		<kendo:grid-column title="사이트" field="siteName" width="200" />
 		<kendo:grid-column title="사이트ID" field="siteShortName" width="150" />
