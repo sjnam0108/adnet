@@ -168,6 +168,10 @@ public class InvScreen {
 	@Transient
 	private String reqStatus = "0";
 
+	// 플레이어 버전
+	@Transient
+	private String playerVer = "";
+
 	
 	// 다른 개체 연결(S)
 	
@@ -265,6 +269,10 @@ public class InvScreen {
 		overridden = overridden || maxDurSecs != null && maxDurSecs.intValue() != medium.getMaxDurSecs();		
 		
 		return overridden;
+	}
+	
+	public String getResolutionDisp() {
+		return Util.parseString(resolution).replace("x", " x ");
 	}
 	
 	
@@ -563,6 +571,14 @@ public class InvScreen {
 
 	public void setReqStatus(String reqStatus) {
 		this.reqStatus = reqStatus;
+	}
+
+	public String getPlayerVer() {
+		return playerVer;
+	}
+
+	public void setPlayerVer(String playerVer) {
+		this.playerVer = playerVer;
 	}
 
 }

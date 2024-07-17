@@ -80,10 +80,12 @@
 					"<span title='기록 없음'><span class='fa-solid fa-flag-pennant fa-fw text-secondary'></span></span>" +
 				"# } #" +
 				//"<span class='pl-1'><a href='javascript:void(0)' class='stb-status-popover' tabindex='0'>#= name #</a></span>" +
-				"<span class='pl-1'><a href='javascript:navToScrList(#= site.id #)'><span class='text-link'>#= name #</span></a></span>" +
+				"<span class='pl-1'><a href='javascript:navToScreen(#= id #)'><span class='text-link'>#= name #</span></a></span>" +
 				"<a href='javascript:showScreen(#= id #,\"#= name #\")' class='btn btn-default btn-xs icon-btn ml-1'><span class='fas fa-search text-info'></span></a>" +
 			"</div>";
-	
+	String siteNameTemplate =
+			"<a href='javascript:navToSite(#= site.id #)'><span class='text-link'>#= site.name #</span>";
+
 	String effStartDateTemplate = kr.adnetwork.utils.Util.getSmartDate("effectiveStartDate", false, false);
 	String effEndDateTemplate = kr.adnetwork.utils.Util.getSmartDate("effectiveEndDate", false, false);
 	String apiSyncDateTemplate = kr.adnetwork.utils.Util.getSmartDate("apiSyncDate", false, true);
@@ -122,7 +124,7 @@
 		<kendo:grid-column title="수정..." width="80" filterable="false" sortable="false" template="<%= editTemplate %>" />
 		<kendo:grid-column title="화면명" field="name" width="250" template="<%= nameTemplate %>" sticky="true" />
 		<kendo:grid-column title="화면ID" field="shortName" width="150" />
-		<kendo:grid-column title="사이트명" field="site.name" width="200" />
+		<kendo:grid-column title="사이트명" field="site.name" width="200" template="<%= siteNameTemplate %>" />
 		<kendo:grid-column title="사이트ID" field="site.shortName" width="150" />
 		<kendo:grid-column title="서비스중" field="activeStatus" width="100"
 				template="#=activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />
@@ -1463,8 +1465,14 @@ function mouseUpAct() {
 }
 
 
-function navToScrList(siteId) {
+function navToSite(siteId) {
 	var path = "/inv/site/screen/" + siteId;
+	location.href = path;
+}
+
+
+function navToScreen(screenId) {
+	var path = "/inv/screen/" + screenId;
 	location.href = path;
 }
 
