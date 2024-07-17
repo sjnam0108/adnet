@@ -479,6 +479,15 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     padding: 0;
 }
 
+#formRoot .k-input-button {
+    border-inline-start-width: 0;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border: 1px solid rgba(24, 28, 33, 0.1);
+    border-left: none;
+
+}
+
 /*  파일 업로드 버튼  버그 해결  */
 #formRoot input,
 .modal-level-plus-1 input:not([type="file"]) {
