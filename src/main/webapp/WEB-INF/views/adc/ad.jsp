@@ -247,7 +247,6 @@
                 resizable="true">
         <kendo:grid-sortable mode="mixed" showIndexes="true"/>
         <kendo:grid-selectable mode="raw"/>
-        <kendo:grid-sortable mode="mixed" showIndexes="true"/>
         <kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
         <kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}"/>
         <kendo:grid-toolbarTemplate>

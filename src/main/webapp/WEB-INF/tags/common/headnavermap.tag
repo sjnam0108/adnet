@@ -11,7 +11,7 @@
 
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
 
-	<link href="<c:url value='/resources/css/kendo.bootstrap.nordic.css'/>" rel="stylesheet" />
+	<link href="<c:url value='/resources/css/kendo.bootstrap.nordic.themebuilder.css'/>" rel="stylesheet" />
 
     <link rel="stylesheet" href="/resources/vendor/css/bootstrap.css">
     <link rel="stylesheet" href="/resources/vendor/css/appwork.css">
