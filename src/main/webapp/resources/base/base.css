@@ -429,6 +429,10 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     display: flex !important;
 }
 
+.k-pager > .k-pager-refresh {
+    display: inline-flex !important;
+}
+
 /*  그리드 colum title ... 생기는 문제  */
 .k-grid .k-cell-inner .k-grid-header-menu {
     width: calc(10px + 1.42857em);
