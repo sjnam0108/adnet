@@ -94,7 +94,7 @@
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="관리자" field="name" width="150" sticky="true" />
+		<kendo:grid-column title="관리자" field="name" width="150" />
 		<kendo:grid-column title="관리자ID" field="shortName" width="150" />
 		<kendo:grid-column title="역할" field="role" width="180" template="<%= roleTemplate %>" >
 			<kendo:grid-column-filterable multi="true" itemTemplate="kfcIconText">

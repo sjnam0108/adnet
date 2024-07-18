@@ -195,7 +195,7 @@ function navigateToDate(date) {
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="화면" field="name" width="250" template="<%= screenNameTemplate2 %>" sticky="true" />
+		<kendo:grid-column title="화면" field="name" width="250" template="<%= screenNameTemplate2 %>" />
 		<kendo:grid-column title="성공" field="succTotal" format="{0:n0}" />
 		<kendo:grid-column title="실패" field="failTotal" format="{0:n0}" />
 		<kendo:grid-column title="대체광고" field="fbTotal" format="{0:n0}" />

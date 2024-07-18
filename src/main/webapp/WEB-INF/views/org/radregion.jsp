@@ -100,7 +100,7 @@
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="지역명" field="name" width="200" sticky="true" />
+		<kendo:grid-column title="지역명" field="name" width="200" />
 		<kendo:grid-column title="중심" field="center" width="300" filterable="false" sortable="false" />
 		<kendo:grid-column title="반경" field="radius" width="100" template="<%= radiusTemplate %>" />
 		<kendo:grid-column title="활성화 상태" field="activeStatus" width="200"

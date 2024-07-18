@@ -61,7 +61,7 @@
 		<div>
 			<div class="d-flex mb-2">
 				<div class="chart-container mr-auto">
-					<div id="summary-chart-control" style="width: 250px; height: 250px; top: 25px; left: 25px;"></div>
+					<div id="summary-chart-control" data-role="chart" class="k-chart" style="position: relative; width: 250px; height: 250px; top: 25px; left: 25px;"></div>
 					<div style="width: 1px; height: 50px"></div>
 				</div>
 				<div class="d-none d-sm-block pl-2">
@@ -739,7 +739,11 @@ $(document).ready(function() {
 		$("#status-line-chart span[name='op-time-hide']").hide();
 	});
 
-	
+	createEmptyChart();
+
+
+
+
 	$.ajax({
 		type: "POST",
 		contentType: "application/json",
@@ -1261,6 +1265,39 @@ function drawMap(data) {
 	});
 };
 
+
+function createEmptyChart() {
+
+	$("#summary-chart-control").kendoChart({
+		transitions: true,
+		legend: {
+			visible: false,
+		},
+		chartArea: {
+			background: ""
+		},
+		seriesDefaults: {
+			type: "donut",
+			holeSize: 40,
+			startAngle: 90,
+			explodeField: "explode",
+			tooltip: {
+				font: "'Roboto', 'Noto Sans', 'Noto Sans CJK KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue'",
+			}
+		},
+		series: [{
+			name: "Service Time",
+			data: null,
+			size: 65,
+		}],
+		tooltip: {
+			visible: true,
+			template: "#= category #"
+		},
+	});
+	console.log("빈 차트 생성")
+
+}
 </script>
 
 <style>

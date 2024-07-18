@@ -87,7 +87,7 @@
 					"<span title='기록 없음'><span class='fa-solid fa-flag-pennant fa-fw text-secondary'></span></span>" +
 				"# } #" +
 				//"<span class='pl-1'><a href='javascript:void(0)' class='stb-status-popover' tabindex='0'>#= name #</a></span>" +
-				"<span class='pl-1'>#= name #</span>" +
+				"<span class='pl-1'><a href='javascript:navToScreen(#= id #)'><span class='text-link'>#= name #</span></a></span>" +
 				"<a href='javascript:showScreen(#= id #,\"#= name #\")' class='btn btn-default btn-xs icon-btn ml-1'><span class='fas fa-search text-info'></span></a>" +
 			"</div>";
 	
@@ -1062,6 +1062,12 @@ function edit(id) {
 
 function navToSite(id) {
 	var path = "/inv/site?siteid=" + id;
+	location.href = path;
+}
+
+
+function navToScreen(screenId) {
+	var path = "/inv/screen/" + screenId;
 	location.href = path;
 }
 

@@ -159,8 +159,8 @@ $(document).ready(function() {
 
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="묶음ID" field="shortName" width="150" sticky="true" />
-		<kendo:grid-column title="묶음 이름" field="name" width="250" sticky="true" />
+		<kendo:grid-column title="묶음ID" field="shortName" width="150" />
+		<kendo:grid-column title="묶음 이름" field="name" width="250" />
 		<kendo:grid-column title="활성화 상태" field="activeStatus" width="150"
 				template="#=activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />
 		<kendo:grid-column title="화면수" field="screenCount" width="150" filterable="false" sortable="false" />

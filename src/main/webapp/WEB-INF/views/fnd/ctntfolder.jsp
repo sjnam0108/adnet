@@ -83,7 +83,7 @@
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="폴더명" field="name" width="120" sticky="true" />
+		<kendo:grid-column title="폴더명" field="name" width="120" />
 		<kendo:grid-column title="웹 접근 경로" field="webPath" width="300" />
 		<kendo:grid-column title="로컬 네트워크 접근 경로" field="localPath" width="300" />
 		<kendo:grid-column title="기본 이용" field="logout" width="150"

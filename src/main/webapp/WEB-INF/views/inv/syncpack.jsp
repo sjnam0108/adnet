@@ -86,7 +86,7 @@
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
 		<kendo:grid-column title="묶음ID" field="shortName" width="150" template="<%= shortNameTemplate %>" />
-		<kendo:grid-column title="묶음 이름" field="name" width="200" sticky="true" />
+		<kendo:grid-column title="묶음 이름" field="name" width="200" />
 		<kendo:grid-column title="구독 광고 채널" field="subChannels" width="300" template="#= dispBadgeValues(subChannels) #" />
 		<kendo:grid-column title="활성화 상태" field="activeStatus" width="200"
 				template="#=activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />

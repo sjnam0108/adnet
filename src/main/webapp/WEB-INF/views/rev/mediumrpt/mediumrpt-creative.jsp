@@ -285,7 +285,7 @@ function dispBadgeValues(values) {
 	<kendo:grid-excel fileName="매체리포트(광고소재검색요약).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="광고 소재" field="name" width="220" template="<%= nameTemplate %>" filterable="false" sticky="true" />
+		<kendo:grid-column title="광고 소재" field="name" width="220" template="<%= nameTemplate %>" filterable="false" />
 		<kendo:grid-column title="등록된 해상도" width="200" sortable="false" filterable="false" template="#= dispBadgeValues(fileResolutions) #" />
 		<kendo:grid-column title="범주" field="category" width="150" filterable="false" template="<%= categoryTemplate %>" />
 		<kendo:grid-column title="광고주" field="advertiserName" width="200" filterable="false" />

@@ -1739,7 +1739,7 @@ function selectCtrlSyncPack(source, shortName) {
 		</kendo:grid-column>
 		<kendo:grid-column title="등록" field="whoCreationDate" width="150" template="<%= eventRegDateTemplate %>" />
 		<kendo:grid-column title="이벤트" field="event" width="120" />
-		<kendo:grid-column title="기기" field="equipName" width="250" template="<%= equipNameTemplate %>" sticky="true" />
+		<kendo:grid-column title="기기" field="equipName" width="250" template="<%= equipNameTemplate %>" />
 		<kendo:grid-column title="기기유형" field="equipType" template="<%= equipTypeTemplate %>" width="110" >
 			<kendo:grid-column-filterable multi="true" itemTemplate="kfcIconText">
 				<kendo:dataSource>

@@ -78,7 +78,7 @@
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="사용자ID" field="user.shortName" />
-		<kendo:grid-column title="사용자명" field="user.name" minScreenWidth="800" sticky="true" />
+		<kendo:grid-column title="사용자명" field="user.name" minScreenWidth="800" />
 		<kendo:grid-column title="권한" field="priv.ukid" />
 		<kendo:grid-column title="권한명" field="priv.name" minScreenWidth="800" />
 	</kendo:grid-columns>

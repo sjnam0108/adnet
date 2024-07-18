@@ -125,7 +125,7 @@
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" template="<%= editAdvTemplate %>" />
-		<kendo:grid-column title="광고주" field="name" width="150" template="<%= advNameTemplate %>" sticky="true" />
+		<kendo:grid-column title="광고주" field="name" width="150" template="<%= advNameTemplate %>" />
 		<kendo:grid-column title="도메인명" field="domainName" width="200" />
 		<kendo:grid-column title="캠페인수" field="campaignCount" width="150" filterable="false" sortable="false" />
 		<kendo:grid-column title="광고 소재수" field="creativeCount" width="150" filterable="false" sortable="false" />
@@ -246,7 +246,7 @@ $(document).ready(function() {
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editCondTemplate %>" />
-		<kendo:grid-column title="입지 이름" field="name" width="200" sticky="true" />
+		<kendo:grid-column title="입지 이름" field="name" width="200" />
 		<kendo:grid-column title="코드" field="code" width="200" />
 		<kendo:grid-column title="활성화 상태" field="activeStatus" width="200"
 				template="#=activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />
@@ -367,7 +367,7 @@ $(document).ready(function() {
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="옵션ID" field="text" width="120" filterable="false" template="<%= optIDTemplate %>" />
-		<kendo:grid-column title="옵션명" field="value" width="120" filterable="false" sticky="true" />
+		<kendo:grid-column title="옵션명" field="value" width="120" filterable="false" />
 		<kendo:grid-column title="화면수" field="icon" width="120" filterable="false" sortable="false" />
 	</kendo:grid-columns>
 	<kendo:grid-filterable>

@@ -113,8 +113,8 @@
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정..." width="80" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="매체ID" field="shortName" width="150" />
-		<kendo:grid-column title="매체" field="name" width="150" sticky="true" />
+		<kendo:grid-column title="매체ID" field="shortName" width="150" sticky="true" />
+		<kendo:grid-column title="매체" field="name" width="150" />
 		<kendo:grid-column title="화면해상도" field="resolutions" width="250" template="#= dispBadgeValues(resolutions) #" />
 		<kendo:grid-column title="1주 운영시간" field="bizHours" width="120" filterable="false" sortable="false" />
 		<kendo:grid-column title="재생시간(초)" field="defaultDurSecs" width="150" template="<%= defaultDurSecTemplate %>" />

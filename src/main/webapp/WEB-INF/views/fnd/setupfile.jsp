@@ -100,8 +100,8 @@
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정..." width="80" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="제품" field="prodKeyword" width="100" filterable="false" sortable="false" sticky="true" />
-		<kendo:grid-column title="버전" field="version" width="100" filterable="false" sortable="false" sticky="true" />
+		<kendo:grid-column title="제품" field="prodKeyword" width="100" filterable="false" sortable="false" />
+		<kendo:grid-column title="버전" field="version" width="100" filterable="false" sortable="false" />
 		<kendo:grid-column title="파일명" field="filename" width="300" />
 		<kendo:grid-column title="파일크기" field="fileLength" width="100" filterable="false" template="<%= lengthTemplate %>" />
 		<kendo:grid-column title="플랫폼" field="platKeyword" width="100" filterable="false" sortable="false" />

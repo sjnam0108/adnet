@@ -106,7 +106,7 @@
 	<kendo:grid-columns>
 		<kendo:grid-column title="기준 시간" field="checkDate" width="180" template="<%= checkDateTemplate %>" />
 		<kendo:grid-column title="유닛 식별자" field="rtUnit.ukid" width="150" />
-		<kendo:grid-column title="유닛명" field="rtUnit.name" width="200" sticky="true" />
+		<kendo:grid-column title="유닛명" field="rtUnit.name" width="200" />
 		<kendo:grid-column title="보고횟수" field="count" width="100" format="{0:n0}" />
 		<kendo:grid-column title="응답시간 (ms)" field="timeMillis" width="100" />
 		<kendo:grid-column title="최초 등록" field="whoCreationDate" width="180" template="<%= creationDateTemplate %>" />
@@ -225,7 +225,7 @@ $(document).ready(function() {
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
 		<kendo:grid-column title="식별자" field="ukid" width="150" />
-		<kendo:grid-column title="유닛명" field="name" width="200" sticky="true" />
+		<kendo:grid-column title="유닛명" field="name" width="200" />
 		<kendo:grid-column title="활성화" field="active" width="150"
 				template="#=active ? \"<span class='fa-light fa-check'>\" : \"\"#" />
 		<kendo:grid-column title="등록" field="whoCreationDate" width="180" template="<%= creationDateTemplate %>" />

@@ -148,7 +148,7 @@
         </kendo:grid-toolbarTemplate>
         <kendo:grid-noRecords template="<%= noRecordsTemplate %>"/>
         <kendo:grid-columns>
-            <kendo:grid-column title="소재명" field="name" width="250" template="<%= nameTemplate %>" sticky="true"/>
+            <kendo:grid-column title="소재명" field="name" width="250" template="<%= nameTemplate %>" />
             <kendo:grid-column title="등록된 해상도" width="200" sortable="false" filterable="false"
                                template="#= dispBadgeValues(fileResolutions) #"/>
             <kendo:grid-column title="광고주" field="advertiser.name" width="250" template="<%= advertiserTemplate %>"/>
@@ -201,8 +201,8 @@
                                  alwaysVisible="false"/>
             <kendo:grid-noRecords template="<%= noRecordsTemplate %>"/>
             <kendo:grid-columns>
-                <kendo:grid-column title="썸네일" field="thumbFilename" template="<%= thumbTemplate %>" sticky="true"/>
-                <kendo:grid-column title="파일명" field="srcFilename" width="250" template="<%= fileTemplate %>" sticky="true"/>
+                <kendo:grid-column title="썸네일" field="thumbFilename" template="<%= thumbTemplate %>" />
+                <kendo:grid-column title="파일명" field="srcFilename" width="250" template="<%= fileTemplate %>" />
                 <kendo:grid-column title="해상도" field="resolution" width="100" template="<%= resTemplate %>"/>
                 <kendo:grid-column title="파일형식" field="mimeType" width="100"/>
                 <kendo:grid-column title="재생시간" field="durSecs" width="120" template="<%= durTemplate %>"/>
@@ -279,7 +279,7 @@
         <kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}"/>
         <kendo:grid-noRecords template="<%= noRecordsTemplate %>"/>
         <kendo:grid-columns>
-            <kendo:grid-column title="소재명" field="creative.name" width="250" template="<%= nameTemplate2 %>" sticky="true"/>
+            <kendo:grid-column title="소재명" field="creative.name" width="250" template="<%= nameTemplate2 %>" />
             <kendo:grid-column title="광고주" field="creative.advertiser.name" sortable="false" filterable="false"
                                width="200" template="<%= advertiserTemplate2 %>"/>
             <kendo:grid-column title="현재 상태" field="creative.status" width="120" template="<%= statusTemplate %>">

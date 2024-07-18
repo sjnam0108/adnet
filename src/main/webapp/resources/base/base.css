@@ -523,3 +523,19 @@ div[name="siteName-con"] > span {
     background-color: #dc485f;
     color: #fff ;
 }
+
+/*  그리드 colum title ... 생기는 문제  */
+.k-grid .k-cell-inner .k-grid-header-menu {
+    width: calc(10px + 1.42857em);
+    margin-inline-end: 0;
+}
+
+.k-grid .k-grid-header .k-cell-inner > .k-link > .k-sort-icon {
+    margin-inline-start: calc(0.5rem - 1px);
+}
+
+/*  Kendo TreeView Font  */
+.k-treeview-leaf-text {
+    font-size: 1rem !important;
+    font-weight: 100 !important;
+}
