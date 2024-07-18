@@ -245,9 +245,10 @@ function drawMap() {
 		var marker = new naver.maps.Marker({
 			position: new naver.maps.LatLng(lats[i], lngs[i]),
 			icon: {
-				url: '/resources/shared/images/marker/' + markerFile,
-				size: new naver.maps.Size(25, 29),
-				anchor: new naver.maps.Point(13, 29)
+				content: '<img class="marker-image" src=\'/resources/shared/images/marker/' + markerFile + '\' width="46px" height="59px">',
+				size: new naver.maps.Size(46, 59),
+				scaledSize: new naver.maps.Size(46, 59),
+				anchor: new naver.maps.Point(23, 59)
 			},
 			map: map
 		});

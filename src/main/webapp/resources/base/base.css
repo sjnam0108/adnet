@@ -301,16 +301,8 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
 	cursor: default;
 }
 
-/************************************************************/
-/*직접 추가 - 소스 리팩토링 필요함*/
-/*  기존 값  */
-/* 더이상 적용 안됨 */
-/*.k-filter-menu .k-button {*/
-/*    width: 47%;*/
-/*    margin: 0.5em 1% 0.25em;*/
-/*}*/
 
-
+/*  추가  */
 /* Vertical Scrollbar 삭제 */
 .k-grid .k-grid-header {
     padding: 0 !important;
@@ -326,21 +318,11 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     overflow-y: visible;
     min-height: 100px;
 }
-
 .k-loading-image::before {
     border-width: 0.1rem;
     border-color: #4e5155;
     animation: k-loading-animation 1.5s linear infinite;
 }
-
-/************************************************************/
-/*  신규 추가  */
-/*  kendo css 수정  */
-/*  그리드 폰트 수정  */
-.k-grid {
-    font-family: "Roboto","Noto Sans","Noto Sans CJK KR",-apple-system,BlinkMacSystemFont,"Segoe UI","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;;
-}
-
 
 /*  그리드 행의 높이 지정  */
 .k-grid .k-table-td {
@@ -393,15 +375,6 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     flex: 1 0 0%;
 }
 
-/*  필터 아이콘 변경  */
-
-
-
-/*  리스트박스 선택된 요소 태두리 제거  */
-.k-list-item.k-focus {
-    box-shadow: none;
-}
-
 /*  리스트 박스 벨류 짤림 버그  */
 .k-input-inner {
     overflow: visible;
@@ -424,7 +397,6 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     display: flex !important;
 }
 
-
 .k-pager > span {
     display: flex !important;
 }
@@ -433,40 +405,8 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     display: inline-flex !important;
 }
 
-/*  그리드 colum title ... 생기는 문제  */
-.k-grid .k-cell-inner .k-grid-header-menu {
-    width: calc(10px + 1.42857em);
-    margin-inline-end: 0;
-}
-
-.k-grid .k-grid-header .k-cell-inner > .k-link > .k-sort-icon {
-    margin-inline-start: calc(0.5rem - 1px);
-}
-
-
-/*  광고 광고소재 소재파일 그리드 크기 커짐  */
-.k-grid td {
-    box-sizing: border-box;
-}
-
-.k-grid {
-    font-size: 0.894rem;
-}
-
-/*  생성폼 태두리 조정  */
-.custom-class .k-input {
-    border: none;
-}
-
-.custom-class .k-input-inner {
-    border-radius: 0;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
-
 /*  모달폼, datapicker, input 박스  */
-#formRoot .k-input,
-.modal-level-plus-1 .k-input {
+#formRoot .k-input-inner {
     border: none;
 }
 
@@ -483,20 +423,12 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     padding: 0;
 }
 
-#formRoot .k-input-button {
-    border-inline-start-width: 0;
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-    border: 1px solid rgba(24, 28, 33, 0.1);
-    border-left: none;
-
-}
-
 /*  파일 업로드 버튼  버그 해결  */
 #formRoot input,
 .modal-level-plus-1 input:not([type="file"]) {
     padding: .438rem .875rem !important;
 }
+
 .drop-zone input::-webkit-file-upload-button {
     position: absolute;
     right: 150px;
@@ -510,6 +442,7 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     position: relative;
     line-height: 1.42857;
 }
+
 .k-file.k-toupload {
     padding: 8px !important;
     border-width: 0 0 1px !important;
@@ -517,14 +450,7 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
     position: relative;
     line-height: 1.42857;
 }
-.k-file-validation-message {
-    font-size: 9.432px !important;
-    color: #d9534f; !important;
-}
-.k-file-name {
-    font-size: 14px ;
-    color: #b3b3b3;
-}
+
 .drop-zone.upload-root-div .k-actions{
     border-top: none;
 }
@@ -533,15 +459,12 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
 #formRoot .k-multiselect.k-input {
     display: flex !important;
     padding: 0;
-    border: 1px solid rgba(24, 28, 33, 0.1);
 }
 
 #formRoot .k-multiselect.k-input span.k-clear-value {
     position: relative;
     left: -5px;
-    /*bottom: 1.5px;*/
 }
-
 
 /*  4k 모니터 드랍다운 text 줄바뀜 버그  */
 .k-list-item-text {
@@ -560,19 +483,31 @@ div[name="siteShortName-con"] > span,
 div[name="siteName-con"] > span {
     padding: 0;
     display: flex;
-    border: 1px solid rgba(24, 28, 33, 0.1) !important;
-}
-
-div[name="siteShortName-con"] input.form-control,
-div[name="siteName-con"] input.form-control {
-    border: none;
 }
 
 /*  폼 clear-value button 조정  */
 .custom-show-inline-flex {
     display: inline-flex;
 }
-
 .custom-hide {
     display: none;
+}
+
+/*  pager-size button 화살표 넘어가는 버그  */
+.k-pager-sizes .k-dropdownlist .k-input-inner {
+    padding-right: 0;
+}
+
+.k-pager-sizes .k-dropdownlist .k-input-button {
+    padding-left: 0;
+    border-left: none;
+}
+
+.k-input {
+    box-shadow: none !important;
+}
+
+/*  datepicker border 줄 안맞는 버그  */
+.k-datepicker.k-input .k-input-inner {
+    border: none;
 }
