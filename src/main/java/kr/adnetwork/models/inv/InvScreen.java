@@ -172,6 +172,14 @@ public class InvScreen {
 	@Transient
 	private String playerVer = "";
 
+	// 화면 묶음명
+	@Transient
+	private String scrPackName = "";
+
+	// 동기화 화면 묶음명
+	@Transient
+	private String syncPackName = "";
+
 	
 	// 다른 개체 연결(S)
 	
@@ -579,6 +587,22 @@ public class InvScreen {
 
 	public void setPlayerVer(String playerVer) {
 		this.playerVer = playerVer;
+	}
+
+	public String getScrPackName() {
+		return scrPackName;
+	}
+
+	public void setScrPackName(String scrPackName) {
+		this.scrPackName = scrPackName;
+	}
+
+	public String getSyncPackName() {
+		return syncPackName;
+	}
+
+	public void setSyncPackName(String syncPackName) {
+		this.syncPackName = syncPackName;
 	}
 
 }

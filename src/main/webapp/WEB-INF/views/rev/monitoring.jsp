@@ -808,7 +808,7 @@ function refreshSyncPackStat() {
 		<kendo:grid-column title="이벤트보고" field="lastEventDate" width="150" template="<%= eventDateTemplate %>" />
 		<kendo:grid-column title="키퍼ver" field="keeperVer" width="120" template="<%= keeperVerTemplate %>" />
 		<kendo:grid-column title="시/군/구" field="regionName" width="150" />
-		<kendo:grid-column title="화면 묶음" field="scrPackName" width="150" filterable="false" sortable="false" />
+		<kendo:grid-column title="화면 묶음" field="scrPackName" width="150" filterable="false" sortable="false" template="#= getScrPackIconName(scrPackName) #" />
 	</kendo:grid-columns>
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
@@ -1150,6 +1150,26 @@ function deletePlTime(id, lane) {
 		},
 		error: ajaxDeleteError
 	});
+}
+
+
+function getScrPackIconName(packs) {
+
+	var ret = "";
+	var pack = packs.split("|");
+
+	for(var i = 0; i < pack.length; i ++) {
+		if (pack[i]) {
+			var prefix = pack[i].substr(0, 1);
+			if (prefix == "P") {
+				ret = ret + "<span title='화면 묶음'><span class='fa-light fa-box-taped'></span></span><span class='pl-1 pr-2'>" + pack[i].substr(1) + "</span>";
+			} else if (prefix == "S") {
+				ret = ret + "<span title='동기화 화면 묶음'><span class='fa-light fa-rectangle-vertical-history'></span></span><span class='pl-1 pr-2'>" + pack[i].substr(1) + "</span>";
+			}
+		}
+	}
+
+	return ret;
 }
 
 </script>

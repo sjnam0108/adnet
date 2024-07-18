@@ -99,7 +99,7 @@ public class InvScreenInfoData {
 			scrReso = screen.getResolution().replace("x", " x ");
 			
 			scrEffPeriod = Util.getSmartPeriodStr(screen.getEffectiveStartDate(), screen.getEffectiveEndDate());
-			scrScreenPack = SolUtil.getScreenPackNamesByScreenId(screen.getId());
+			scrScreenPack = SolUtil.getScreenPackTypeNamesByScreenId(screen.getId());
 
 			scrActiveStatus = screen.isActiveStatus();
 			scrAdServerAvailable = screen.isAdServerAvailable();

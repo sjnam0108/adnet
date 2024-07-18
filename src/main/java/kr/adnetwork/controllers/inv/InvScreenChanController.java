@@ -100,6 +100,25 @@ public class InvScreenChanController {
     		screen.setPlayerVer(rtScreen.getPlayerVer());
     	}
     	
+    	List<String> typeNames = Util.tokenizeValidStr(SolUtil.getScreenPackTypeNamesByScreenId(screen.getId()));
+    	for(String s : typeNames) {
+    		if (Util.isNotValid(s) || s.length() < 2) {
+    			continue;
+    		}
+    		
+    		// S: 동기화 화면 묶음, P: 화면 묶음
+    		// 자료 구조상 처음 S, 그다음 P 연속
+    		if (s.startsWith("S")) {
+    			screen.setSyncPackName(s.substring(1));
+    		} else if (s.startsWith("P")) {
+    			screen.setScrPackName(s.substring(1));
+    			break;
+    		}
+    	}
+    	if (Util.isNotValid(screen.getScrPackName()) && Util.isNotValid(screen.getSyncPackName())) {
+    		screen.setScrPackName("-");
+    	}
+    	
     	model.addAttribute("Screen", screen);
 
     	

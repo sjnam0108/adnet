@@ -232,7 +232,7 @@ public class RevMonitoringController {
         			}
     				
         			// 화면 묶음명 설정
-        			rtScreen.setScrPackName(SolUtil.getScreenPackNamesByScreenId(rtScreen.getId()).replace("|", ", "));
+        			rtScreen.setScrPackName(SolUtil.getScreenPackTypeNamesByScreenId(rtScreen.getId()));
     			}
     		}
     		

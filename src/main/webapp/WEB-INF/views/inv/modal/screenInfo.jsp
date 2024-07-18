@@ -782,7 +782,15 @@ function clickGroup(group) {
 	
 	piePrevGroup = group;
 	
-	$("#summary-chart-control").data("kendoChart").refresh();
+	// $("#summary-chart-control").data("kendoChart").refresh();
+
+	var chart = $("#summary-chart-control").data("kendoChart");
+	chart.setOptions({tooltip: {visible: true, template: "#= category #"}});
+	chart.refresh()
+
+	// var chart = $("#summary-chart-control").data("kendoChart");
+	// chart.redraw();
+	// console.log("redraw")
 }
 
 
@@ -1006,7 +1014,7 @@ function createPieChart(currDate) {
         }],
         tooltip: {
             visible: true,
-            template: "#= category#"
+            template: "#= category #"
         },
     });
 
@@ -1128,8 +1136,14 @@ function getScrPackIconName(packs) {
 	  
 	for(var i = 0; i < pack.length; i ++) {
 		if (pack[i]) {
-			ret = ret + "<span class='fa-light fa-box-taped'></span><span class='pl-1 pr-3'>" + pack[i] + "</span>";
-			cnt ++;
+			var prefix = pack[i].substr(0, 1);
+			if (prefix == "P") {
+				ret = ret + "<span title='화면 묶음'><span class='fa-light fa-box-taped'></span></span><span class='pl-1 pr-3'>" + pack[i].substr(1) + "</span>";
+				cnt ++;
+			} else if (prefix == "S") {
+				ret = ret + "<span title='동기화 화면 묶음'><span class='fa-light fa-rectangle-vertical-history'></span></span><span class='pl-1 pr-3'>" + pack[i].substr(1) + "</span>";
+				cnt ++;
+			}
 		}
 	}
 	

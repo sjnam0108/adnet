@@ -44,6 +44,7 @@ import kr.adnetwork.models.fnd.FndViewType;
 import kr.adnetwork.models.inv.InvScrPackItem;
 import kr.adnetwork.models.inv.InvScreen;
 import kr.adnetwork.models.inv.InvSite;
+import kr.adnetwork.models.inv.InvSyncPackItem;
 import kr.adnetwork.models.knl.KnlAccount;
 import kr.adnetwork.models.knl.KnlMedium;
 import kr.adnetwork.models.knl.KnlUser;
@@ -2041,28 +2042,39 @@ public class SolUtil {
 	
 	
     /**
-	 * 화면이 포함된 화면 묶음의 이름을 획득
+	 * 화면이 포함된 화면 묶음 및 동기화 화면 묶음의 유형과 이름을 획득
+	 *
+	 *   - 항목의 구분자는 '|'이고, 항목 유형의 접두 문자는 P(화면 묶음), S(동기화 화면 묶음)
+	 *   - 각 유형(P, S) 내에서의 정렬은 없으나, 유형에서 S가 P에 우선함
+	 *
+	 *     예) Sadsync|P강동구 극장|P성동구 도로 입구
 	 */
-	public static String getScreenPackNamesByScreenId(int screenId) {
-		
-		List<InvScrPackItem> items = sInvService.getScrPackItemListByScreenId(screenId);
-		if (items == null || items.size() == 0) {
-			return "";
-		}
-
-		ArrayList<String> list = new ArrayList<String>();
-		for(InvScrPackItem item : items) {
-			list.add(item.getScrPack().getName());
-		}
-		
-		Collections.sort(list);
+	public static String getScreenPackTypeNamesByScreenId(int screenId) {
 		
 		String ret = "";
-		for(String s : list) {
-			if (Util.isValid(ret)) {
-				ret += "|";
+
+		// 동기화 화면 묶음 확인
+		InvSyncPackItem syncPackItem = sInvService.getSyncPackItemByScreenId(screenId);
+		if (syncPackItem != null) {
+			ret = "S" + syncPackItem.getSyncPack().getName();
+		}
+		
+		// 화면 묶음 확인
+		List<InvScrPackItem> items = sInvService.getScrPackItemListByScreenId(screenId);
+		if (items != null && items.size() > 0) {
+			ArrayList<String> list = new ArrayList<String>();
+			for(InvScrPackItem item : items) {
+				list.add(item.getScrPack().getName());
 			}
-			ret += s;
+			
+			Collections.sort(list);
+			
+			for(String s : list) {
+				if (Util.isValid(ret)) {
+					ret += "|";
+				}
+				ret += "P" + s;
+			}
 		}
 		
 		return ret;

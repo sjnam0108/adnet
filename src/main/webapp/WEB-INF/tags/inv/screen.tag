@@ -55,13 +55,32 @@
 		</div>
 		<div class="col-sm-6 col-md-4">
 			<div class="d-flex align-items-center container-p-x py-4">
+
+<c:choose>
+<c:when test="${not empty Screen.syncPackName}">
+
+				<span class="fa-thin fa-rectangle-vertical-history fa-3x text-gray fa-fw"></span>
+				<div class="ml-3">
+					<div class="text-muted small">동기화 화면 묶음</div>
+					<div class="text-large">
+						${Screen.syncPackName}
+					</div>
+				</div>
+
+</c:when>
+<c:otherwise>
+
 				<span class="fa-thin fa-box-taped fa-3x text-gray fa-fw"></span>
 				<div class="ml-3">
 					<div class="text-muted small">화면 묶음</div>
 					<div class="text-large">
-						${Site.screenCount}
+						${Screen.scrPackName}
 					</div>
 				</div>
+
+</c:otherwise>
+</c:choose>
+
 			</div>
 		</div>
 	</div>
