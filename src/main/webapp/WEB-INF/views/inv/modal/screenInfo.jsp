@@ -744,6 +744,11 @@ $(document).ready(function() {
 		type: "POST",
 		contentType: "application/json",
 		dataType: "json",
+		cache: false,
+		headers: {
+			'Cache-Control': 'no-cache',
+			'Pragma': 'no-cache'
+		},
 		url: "${readScreenInfoUrl}",
 		data: JSON.stringify({ id: ${value_id}, date: "${value_date}" }),
 		success: function (data, status) {
@@ -1001,7 +1006,7 @@ function createPieChart(currDate) {
         }],
         tooltip: {
             visible: true,
-            template: "#: category#"
+            template: "#= category#"
         },
     });
 

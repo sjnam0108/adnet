@@ -278,7 +278,8 @@ svg.svg-inline--fa.fa-blank.fa-w-16.check-mark { width: 0; }
 
 .text-link {
 	text-decoration: underline;
-	text-decoration-color: #cccccc !important;
+	/*text-decoration-color: #cccccc !important;*/
+    text-decoration-color: #868686 !important;
 	text-underline-offset: 5px;
 }
 .btn-custom {

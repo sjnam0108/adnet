@@ -22,7 +22,6 @@ $(document).ready(function () {
             return true;
         }
 
-        console.log('fixed dropdown')
         fixedDropDownMenuList.push(dropDownMenu);
         fixedDropDownToggleList.push(toggleBtn);
         $("body").append(dropDownMenu);
@@ -97,7 +96,6 @@ $(document).ready(function () {
         toggleBtn.on('click', function () {
             fixedDropDownMenuList.forEach(function (e) {
                 e.removeClass('show');
-                console.log('클로즈 함수 실행')
             });
         });
     });
@@ -109,25 +107,21 @@ $(document).ready(function () {
     $(document).on('mouseenter', '#formRoot div[name="siteShortName-con"]', function() {
         if ($('input[name="siteShortName"]').val()) {
             $(this).find('.k-clear-value').removeClass('k-hidden');
-            console.log("발동")
         }
     });
 
     $(document).on('mouseleave', '#formRoot div[name="siteShortName-con"]', function() {
         $(this).find('.k-clear-value').addClass('k-hidden');
-        console.log("제거")
     });
 
     $(document).on('mouseenter', '#formRoot div[name="siteName-con"]', function() {
         if ($('input[name="siteName"]').val()) {
             $(this).find('.k-clear-value').removeClass('k-hidden');
-            console.log("발동")
         }
     });
 
     $(document).on('mouseleave', '#formRoot div[name="siteName-con"]', function() {
         $(this).find('.k-clear-value').addClass('k-hidden');
-        console.log("제거")
     });
 
 
@@ -136,27 +130,21 @@ $(document).ready(function () {
 
     $(document).on('focus', '#formRoot .k-input-inner', function(e) {
         isMultiSelectFocused = true;
-        console.log('포커스')
     });
     $(document).on('blur', '#formRoot .k-input-inner', function(e) {
         isMultiSelectFocused = false;
         $('#formRoot .k-multiselect.k-input').find('.k-clear-value').addClass('k-hidden');
-        console.log('아웃')
     });
 
     $(document).on('mouseenter', '#formRoot .k-multiselect.k-input', function() {
         if ($(this).find(".k-chip-solid-base").length > 0) {
             $(this).find('.k-clear-value').removeClass('k-hidden');
-            console.log("발동")
         }
     });
 
     $(document).on('mouseleave', '#formRoot .k-multiselect.k-input', function() {
-        if (isMultiSelectFocused) {
-
-        } else {
+        if (!isMultiSelectFocused) {
             $(this).find('.k-clear-value').addClass('k-hidden');
-            console.log("제거")
         }
     });
 });
