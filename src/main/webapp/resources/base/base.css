@@ -511,3 +511,14 @@ div[name="siteName-con"] > span {
 .k-datepicker.k-input .k-input-inner {
     border: none;
 }
+
+/*  alart modal button 색 변경  */
+.bootbox button.bootbox-alert-confirm-btn {
+    background-color: #e84c64;
+    color: #fff ;
+}
+
+.bootbox button.bootbox-alert-confirm-btn:hover {
+    background-color: #dc485f;
+    color: #fff ;
+}

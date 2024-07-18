@@ -1001,7 +1001,7 @@ function createPieChart(currDate) {
         }],
         tooltip: {
             visible: true,
-            template: "#= category #"
+            template: "#: category#"
         },
     });
 

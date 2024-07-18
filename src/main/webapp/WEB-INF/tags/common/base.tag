@@ -154,6 +154,7 @@
         }).init(function () {
             setTimeout(function () {
                 $('.modal-backdrop:last-child').addClass('modal-level-top');
+                box.find('.bootbox-alert-confirm-btn').focus();
             });
         });
 
