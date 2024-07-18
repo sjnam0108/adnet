@@ -283,7 +283,7 @@
 
 	<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#active-sync-pack" id="active-sync-pack-tab-a">
-			<i class="mr-1 fa-light fa-box-taped"></i>
+			<i class="mr-1 fa-light fa-rectangle-vertical-history"></i>
 			활성 동기화 묶음
 		</a>
 	</li>

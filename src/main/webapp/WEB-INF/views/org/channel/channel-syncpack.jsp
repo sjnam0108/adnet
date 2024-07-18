@@ -31,7 +31,7 @@
 
 <h4 class="pt-1 pb-3 mb-3">
 	<span class="text-muted font-weight-light">${pageTitle}<span class="px-2">/</span></span>
-	<span class="mr-1 fa-light fa-box-taped"></span><span class="pl-1">동기화 화면 묶음</span>
+	<span class="mr-1 fa-light fa-rectangle-vertical-history"></span><span class="pl-1">동기화 화면 묶음</span>
 </h4>
 
 <hr class="border-light container-m--x mt-0 mb-4">
@@ -60,7 +60,7 @@
 	</li>
 	<li class="nav-item">
 		<a class="nav-link active" href="/org/channel/syncpack/${Channel.id}">
-			<i class="mr-1 fa-light fa-box-taped"></i>
+			<i class="mr-1 fa-light fa-rectangle-vertical-history"></i>
 			동기화 화면 묶음
 		</a>
 	</li>

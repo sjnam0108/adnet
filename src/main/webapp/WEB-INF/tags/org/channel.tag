@@ -32,7 +32,7 @@
 				<i class="fa-light fa-screen-users fa-lg"></i>
 			</button>
 			<button type="button" class="btn btn-outline-dark btn-round icon-btn btn-custom mr-3" id="qlb-syncpack" title="동기화 화면 묶음 목록">
-				<i class="fa-light fa-box-taped fa-lg"></i>
+				<i class="fa-light fa-rectangle-vertical-history fa-lg"></i>
 			</button>
 			<div class="btn-group">
 				<button type="button" class="btn btn-outline-secondary btn-round icon-btn btn-custom" data-toggle="dropdown" title="이 광고 채널에 대해 ...">

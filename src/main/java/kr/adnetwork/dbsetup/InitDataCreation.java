@@ -274,7 +274,7 @@ public class InitDataCreation {
 		KnlMenu siteKMenu = new KnlMenu("InvSite", "/inv/site", "map-pin", 10, true, true, false, null);
 		KnlMenu screenKMenu = new KnlMenu("InvScreen", "/inv/screen", "screen-users", 20, true, true, false, null);
 		KnlMenu scrPackKMenu = new KnlMenu("InvScrPack", "/inv/scrpack", "box-taped", 30, true, true, false, null);
-		KnlMenu syncPackKMenu = new KnlMenu("InvSyncPack", "/inv/syncpack", "box-taped", 40, true, true, false, null);
+		KnlMenu syncPackKMenu = new KnlMenu("InvSyncPack", "/inv/syncpack", "rectangle-vertical-history", 40, true, true, false, null);
 		
 		siteKMenu.setParent(invKMenu);
 		screenKMenu.setParent(invKMenu);

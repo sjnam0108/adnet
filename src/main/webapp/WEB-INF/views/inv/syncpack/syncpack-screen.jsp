@@ -48,17 +48,17 @@
 <div class="card">
 	<h6 class="card-header with-elements pl-2">
 		<span class="lead">
-			<span class="fa-stack fa-xs" title="화면 묶음" style="vertical-align: top; color: #a0a0a0;">
+			<span class="fa-stack fa-xs" title="동기화 화면 묶음" style="vertical-align: top; color: #a0a0a0;">
 				<span class="fa-solid fa-circle fa-stack-2x"></span>
-				<span class="fa-solid fa-box-taped fa-stack-1x fa-inverse fa-lg"></span>
+				<span class="fa-solid fa-rectangle-vertical-history fa-stack-1x fa-inverse fa-lg"></span>
 			</span>
 			<span id="sync-pack-name"></span>
 		</span>
 		<div class="card-header-elements ml-auto p-0 m-0">
 			<span class="lead mr-4">${SyncPack.shortName}</span>
 			
-			<button type="button" class="btn btn-outline-dark btn-round icon-btn btn-custom" id="qlb-sync-pack" title="화면 묶음 목록">
-				<i class="fa-light fa-box-taped fa-lg"></i>
+			<button type="button" class="btn btn-outline-dark btn-round icon-btn btn-custom" id="qlb-sync-pack" title="동기화 화면 묶음 목록">
+				<i class="fa-light fa-rectangle-vertical-history fa-lg"></i>
 			</button>
 		</div>
 	</h6>

@@ -60,7 +60,7 @@
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/org/channel/syncpack/${Channel.id}">
-			<i class="mr-1 fa-light fa-box-taped"></i>
+			<i class="mr-1 fa-light fa-rectangle-vertical-history"></i>
 			동기화 화면 묶음
 		</a>
 	</li>

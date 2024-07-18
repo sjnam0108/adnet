@@ -1039,7 +1039,7 @@ public class RevMonitoringController {
 		
 		List<InvSyncPack> syncPackList = invService.getSyncPackListByMediumId(mediumId);
 		for (InvSyncPack syncPack : syncPackList) {
-			String icon = syncPack.isActiveStatus() ? "fa-box-taped" : "fa-circle-dashed";
+			String icon = syncPack.isActiveStatus() ? "fa-rectangle-vertical-history" : "fa-circle-dashed";
 			String text = syncPack.getShortName();
 			String value = String.valueOf(syncPack.getId());
 			String subIcon = syncPack.getName();
@@ -1049,7 +1049,7 @@ public class RevMonitoringController {
 
 		Collections.sort(list, CustomComparator.DropDownListItemTextComparator);
 
-		list.add(0, new DropDownListItem("fa-box-taped", "선택", "동기화 화면 묶음", "-1"));
+		list.add(0, new DropDownListItem("fa-rectangle-vertical-history", "선택", "동기화 화면 묶음", "-1"));
 
 		return list;
     }
