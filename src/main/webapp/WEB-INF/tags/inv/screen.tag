@@ -23,8 +23,11 @@
 			<button type="button" class="btn btn-outline-dark btn-round icon-btn btn-custom mr-1" id="qlb-site" title="사이트 목록">
 				<i class="fa-light fa-map-pin fa-lg"></i>
 			</button>
-			<button type="button" class="btn btn-outline-dark btn-round icon-btn btn-custom" id="qlb-screen" title="화면 목록">
+			<button type="button" class="btn btn-outline-dark btn-round icon-btn btn-custom mr-1" id="qlb-screen" title="화면 목록">
 				<i class="fa-light fa-screen-users fa-lg"></i>
+			</button>
+			<button type="button" class="btn btn-outline-dark btn-round icon-btn btn-custom" id="qlb-channel" title="광고 채널 목록">
+				<i class="fa-light fa-tower-cell fa-lg"></i>
 			</button>
 		</div>
 	</h6>
@@ -103,6 +106,12 @@ $(document).ready(function() {
 		e.preventDefault();
 		
 		location.href = "/inv/screen";
+	});
+
+	$("#qlb-channel").click(function(e) {
+		e.preventDefault();
+
+		location.href = "/org/channel";
 	});
 	// / Quick Link Buttons
 

@@ -113,7 +113,7 @@ public class CommonController {
     	
     	try {
     		if (Util.isValid(file) && Util.isValid(type)) {
-    			if (type.equals("XlsTemplate")) {
+    			if (type.equals("XlsTemplate") || type.equals("Log")) {
     				target = new File(SolUtil.getPhysicalRoot(type) + "/" + file);
     			}
     		}

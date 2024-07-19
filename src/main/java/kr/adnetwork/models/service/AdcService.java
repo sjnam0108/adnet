@@ -258,5 +258,6 @@ public interface AdcService {
 	public List<Tuple> getChannelAdNoViewTypeTupleList();
 	public List<Tuple> getChannelAdViewTypeTupleListByMediumId(int mediumId);
 	public List<Tuple> getChannelAdNoViewTypeTupleListByMediumId(int mediumId);
+	public DataSourceResult getChanSubList(DataSourceRequest request, String type, int objId);
 	
 }

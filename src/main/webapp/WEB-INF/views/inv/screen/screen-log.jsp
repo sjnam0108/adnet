@@ -14,7 +14,7 @@
 
 <!-- URL -->
 
-<c:url value="/inv/screen/chans/read" var="readUrl" />
+<c:url value="/inv/screen/logs/read" var="readUrl" />
 
 
 <!-- Opening tags -->
@@ -26,7 +26,7 @@
 
 <h4 class="pt-1 pb-3 mb-3">
 	<span class="text-muted font-weight-light">${pageTitle}<span class="px-2">/</span></span>
-	<span class="mr-1 fa-light fa-tower-cell"></span><span class="pl-1">광고 채널</span>
+	<span class="mr-1 fa-light fa-file-waveform"></span><span class="pl-1">로그</span>
 </h4>
 
 <hr class="border-light container-m--x mt-0 mb-4">
@@ -48,13 +48,13 @@
 <!--  Tab -->
 <ul class="nav nav-tabs tabs-alt mb-4 mt-3">
 	<li class="nav-item">
-		<a class="nav-link active" href="/inv/screen/chans/${Screen.id}">
+		<a class="nav-link" href="/inv/screen/chans/${Screen.id}">
 			<i class="mr-1 fa-light fa-tower-cell"></i>
 			광고 채널
 		</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="/inv/screen/logs/${Screen.id}">
+		<a class="nav-link active" href="/inv/screen/logs/${Screen.id}">
 			<i class="mr-1 fa-light fa-file-waveform"></i>
 			로그
 		</a>
@@ -73,6 +73,10 @@
 <!-- Java(optional)  -->
 
 <%
+	String operTemplate = 
+			"<button type='button' onclick='download(#= id #)' class='btn icon-btn btn-sm btn-outline-secondary borderless'>" + 
+			"<span class='fa-solid fa-download'></span></button>";
+
 	String noRecordsTemplate =
 			"<div class='container text-center my-4'>" +
 				"<div class='d-flex justify-content-center align-self-center'>" +
@@ -80,31 +84,32 @@
 					"<span class='pl-3 mt-2' style='font-weight: 300; font-size: 1.3rem;'>해당 자료 없음</span>" +
 				"</div>" +
 			"</div>";
-
+			
 	String shortNameTemplate =
 			"<div>" +
-				"<a href='javascript:navToChanAd(#= channel.id #)'><span class='text-link'>#= channel.shortName #</span></a>" +
+				"<a href='javascript:navToChanAd(#= channel.id #)'><span class='text-link'>#= channel.shortName #</span></a>" + 
 			"</div>";
-
+			
 	String appendModeTemplate =
 			"# if (channel.appendMode == 'A') { #" +
 				"<span class='fa-regular fa-robot fa-fw'></span><span class='pl-2'>자율선택</span>" +
 			"# } else if (channel.appendMode == 'P') { #" +
 				"<span class='fa-regular fa-list-ol fa-fw'></span><span class='pl-2'>재생목록</span>" +
 			"# } #";
-
-	String lastAdAppDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastAdAppDate");
-	String lastAdReqDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastAdReqDate");
+			
+	String lengthTemplate = "<div class='len-container'><span data-toggle='tooltip' data-placement='top' title='#= dispFileLength #'>#= smartLength #</span></div>";
+			
+	String uploadDateTemplate = kr.adnetwork.utils.Util.getSmartDate("uploadDate");
 %>
 
 <!-- Kendo grid  -->
 
 <div class="mb-4">
-<kendo:grid name="grid" pageable="true" filterable="false" scrollable="true" reorderable="true" resizable="true" sortable="false">
+<kendo:grid name="grid" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true" sortable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
     <kendo:grid-selectable mode="multiple, raw"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
-	<kendo:grid-pageable refresh="true" previousNext="false" numeric="false" pageSize="10000" info="true" />
+	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-toolbarTemplate>
     	<div class="clearfix">
     		<div class="float-left">
@@ -114,32 +119,20 @@
     		</div>
     	</div>
 	</kendo:grid-toolbarTemplate>
-	<kendo:grid-filterable extra="false" />
-
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="우선순위" field="channel.priority" width="130" template="#= kendo.format('{0:n0}', channel.priority) #" />
-		<kendo:grid-column title="채널ID" field="channel.shortName" width="200" template="<%= shortNameTemplate %>" sticky="true" />
-		<kendo:grid-column title="채널 이름" field="channel.name" width="200" filterable="false" sortable="false" />
-		<kendo:grid-column title="해상도" field="channel.resolution" width="120" filterable="false" sortable="false"
-				template="#= channel.resolution.replace('x', ' x ') #"  />
-		<kendo:grid-column title="게시유형" field="channel.viewTypeCode" width="120" filterable="false" sortable="false" />
-		<kendo:grid-column title="광고 추가 모드" field="channel.appendMode" width="150" sortable="false" filterable="false" template="<%= appendModeTemplate %>" />
-		<kendo:grid-column title="광고 편성중" field="channel.adAppended" width="120" filterable="false" sortable="false"
-				template="#= channel.adAppended ? \"<span class='fa-light fa-check'>\" : \"\"#" />
-		<kendo:grid-column title="활성화 상태" field="channel.activeStatus" width="120" filterable="false" sortable="false"
-				template="#= channel.activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />
-		<kendo:grid-column title="최근 편성" field="lastAdAppDate" width="150" template="<%= lastAdAppDateTemplate %>" filterable="false" sortable="false" />
-		<kendo:grid-column title="최근광고요청" field="lastAdReqDate" width="150" template="<%= lastAdReqDateTemplate %>" filterable="false" sortable="false" />
-		<kendo:grid-column title="구독수" field="channel.subCount" width="150" filterable="false" sortable="false" />
+		<kendo:grid-column title=" " width="50" filterable="false" sortable="false" template="<%= operTemplate %>" />
+        <kendo:grid-column title="날짜" field="date" filterable="false" />
+        <kendo:grid-column title="파일명" field="filename" filterable="false" />
+		<kendo:grid-column title="파일크기" field="length" filterable="false" template="<%= lengthTemplate %>" />
+        <kendo:grid-column title="업로드일시" field="uploadDate" filterable="false" template="<%= uploadDateTemplate %>" />
 	</kendo:grid-columns>
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
 	</kendo:grid-filterable>
-	<kendo:dataSource serverPaging="true" serverSorting="true" serverFiltering="true" serverGrouping="true" error="kendoReadError">
+	<kendo:dataSource error="kendoReadError">
 		<kendo:dataSource-sort>
-			<kendo:dataSource-sortItem field="channel.priority" dir="asc"/>
-			<kendo:dataSource-sortItem field="channel.shortName" dir="asc"/>
+			<kendo:dataSource-sortItem field="lastModified" dir="desc"/>
 		</kendo:dataSource-sort>
 		<kendo:dataSource-transport>
 			<kendo:dataSource-transport-read url="${readUrl}" dataType="json" type="POST" contentType="application/json">
@@ -154,16 +147,16 @@
 			<kendo:dataSource-transport-parameterMap>
 				<script>
 					function parameterMap(options,type) {
-						return JSON.stringify(options);
+						return JSON.stringify(options);	
 					}
 				</script>
 			</kendo:dataSource-transport-parameterMap>
 		</kendo:dataSource-transport>
-		<kendo:dataSource-schema data="data" total="total" groups="data">
-			<kendo:dataSource-schema-model id="id">
+		<kendo:dataSource-schema>
+			<kendo:dataSource-schema-model>
 				<kendo:dataSource-schema-model-fields>
-					<kendo:dataSource-schema-model-field name="lastAdAppDate" type="date" />
-					<kendo:dataSource-schema-model-field name="lastAdReqDate" type="date" />
+					<kendo:dataSource-schema-model-field name="length" type="number"/>
+					<kendo:dataSource-schema-model-field name="uploadDate" type="date"/>
 				</kendo:dataSource-schema-model-fields>
 			</kendo:dataSource-schema-model>
 		</kendo:dataSource-schema>
@@ -188,8 +181,8 @@
 <script>
 $(document).ready(function() {
 
-
-});
+	
+});	
 </script>
 
 <!-- / Grid button actions  -->
@@ -201,6 +194,16 @@ $(document).ready(function() {
 
 function navToChanAd(chanId) {
 	var path = "/org/channel/ad/" + chanId;
+	location.href = path;
+}
+
+
+function download(id) {
+	
+	var dataItem = $("#grid").data("kendoGrid").dataSource.get(id);
+
+	var path = "/adn/common/download?type=Log&file=" + dataItem.filename;
+	
 	location.href = path;
 }
 

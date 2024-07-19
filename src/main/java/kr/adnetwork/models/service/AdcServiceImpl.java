@@ -1,6 +1,7 @@
 package kr.adnetwork.models.service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.Tuple;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +40,8 @@ import kr.adnetwork.models.adc.dao.AdcMobTargetViewDao;
 import kr.adnetwork.models.adc.dao.AdcPlaylistDao;
 import kr.adnetwork.models.knl.KnlMedium;
 import kr.adnetwork.models.knl.dao.KnlMediumDao;
+import kr.adnetwork.models.org.OrgChanSub;
+import kr.adnetwork.models.org.OrgChannel;
 import kr.adnetwork.models.sys.SysAuditTrail;
 import kr.adnetwork.utils.Util;
 
@@ -1186,6 +1191,19 @@ public class AdcServiceImpl implements AdcService {
 		return session.createNativeQuery(sql, Tuple.class)
 				.setParameter("mediumId", mediumId)
 				.getResultList();
+	}
+
+	@Override
+	public DataSourceResult getChanSubList(DataSourceRequest request, String type, int objId) {
+		
+		HashMap<String, Class<?>> map = new HashMap<String, Class<?>>();
+		map.put("channel", OrgChannel.class);
+		
+		Criterion criterion = Restrictions.and(
+				Restrictions.eq("type", type),
+				Restrictions.eq("objId", objId));
+		
+        return request.toDataSourceResult(sessionFactory.getCurrentSession(), OrgChanSub.class, map, criterion);
 	}
 
 }

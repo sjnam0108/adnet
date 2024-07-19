@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.servlet.http.HttpSession;
 
 import kr.adnetwork.utils.Util;
@@ -52,6 +53,15 @@ public class OrgChanSub {
 	@Column(name = "LAST_UPDATE_LOGIN", nullable = false)
 	private int whoLastUpdateLogin;
 	// WHO 컬럼들(E)
+
+	
+	// 최근 광고 요청
+	@Transient
+	private Date lastAdReqDate;
+	
+	// 최근 광고 편성
+	@Transient
+	private Date lastAdAppDate;
 
 	
 	// 다른 개체 연결(S)
@@ -137,6 +147,22 @@ public class OrgChanSub {
 
 	public void setObjId(int objId) {
 		this.objId = objId;
+	}
+
+	public Date getLastAdReqDate() {
+		return lastAdReqDate;
+	}
+
+	public void setLastAdReqDate(Date lastAdReqDate) {
+		this.lastAdReqDate = lastAdReqDate;
+	}
+
+	public Date getLastAdAppDate() {
+		return lastAdAppDate;
+	}
+
+	public void setLastAdAppDate(Date lastAdAppDate) {
+		this.lastAdAppDate = lastAdAppDate;
 	}
 
 }

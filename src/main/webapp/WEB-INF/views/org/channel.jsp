@@ -136,12 +136,12 @@
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
 		<kendo:grid-column title="수정" width="50" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="채널ID" field="shortName" width="200" template="<%= shortNameTemplate %>" />
-		<kendo:grid-column title="채널 이름" field="name" width="200" sticky="true" />
+		<kendo:grid-column title="채널ID" field="shortName" width="200" template="<%= shortNameTemplate %>" sticky="true" />
+		<kendo:grid-column title="채널 이름" field="name" width="200" />
 		<kendo:grid-column title="해상도" field="resolution" width="120"  
 				template="#= resolution.replace('x', ' x ') #"  />
 		<kendo:grid-column title="게시유형" field="viewTypeCode" width="120" />
-		<kendo:grid-column title="우선순위" field="viewTypeCode" width="120" template="#= kendo.format('{0:n0}', priority) #" />
+		<kendo:grid-column title="우선순위" field="priority" width="130" template="#= kendo.format('{0:n0}', priority) #" />
 		<kendo:grid-column title="광고 추가 모드" field="appendMode" width="150" sortable="false" filterable="false" template="<%= appendModeTemplate %>" >
 			<kendo:grid-column-filterable multi="true" itemTemplate="kfcIconText">
 				<kendo:dataSource>

@@ -1,5 +1,8 @@
 package kr.adnetwork.controllers.inv;
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -21,41 +24,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.adnetwork.exceptions.ServerOperationForbiddenException;
+import kr.adnetwork.info.StringInfo;
 import kr.adnetwork.models.AdnMessageManager;
 import kr.adnetwork.models.DataSourceRequest;
-import kr.adnetwork.models.DataSourceResult;
 import kr.adnetwork.models.Message;
 import kr.adnetwork.models.MessageManager;
 import kr.adnetwork.models.ModelManager;
 import kr.adnetwork.models.inv.InvRTScreen;
 import kr.adnetwork.models.inv.InvScreen;
-import kr.adnetwork.models.inv.InvSyncPackItem;
-import kr.adnetwork.models.org.OrgChanSub;
-import kr.adnetwork.models.org.OrgRTChannel;
-import kr.adnetwork.models.service.AdcService;
 import kr.adnetwork.models.service.InvService;
-import kr.adnetwork.models.service.OrgService;
 import kr.adnetwork.utils.SolUtil;
 import kr.adnetwork.utils.Util;
+import kr.adnetwork.viewmodels.rev.RevUploadFileItem;
 
 /**
- * 화면 컨트롤러(광고 채널)
+ * 화면 컨트롤러(로그)
  */
-@Controller("inv-screen-chan-controller")
-@RequestMapping(value="")
-public class InvScreenChanController {
+@Controller("inv-screen-log-controller")
+@RequestMapping(value="/inv/screen/logs")
+public class InvScreenLogController {
 
-	private static final Logger logger = LoggerFactory.getLogger(InvScreenChanController.class);
+	private static final Logger logger = LoggerFactory.getLogger(InvScreenLogController.class);
 
 	
     @Autowired 
     private InvService invService;
-
-    @Autowired 
-    private AdcService adcService;
-
-    @Autowired
-    private OrgService orgService;
 
     
 	@Autowired
@@ -69,11 +62,10 @@ public class InvScreenChanController {
 
     
 	/**
-	 * 화면(광고 채널) 페이지
+	 * 화면 컨트롤러(로그)
 	 */
-    @RequestMapping(value = {"/inv/screen/{screenId}", "/inv/screen/{screenId}/", 
-    		"/inv/screen/chans/{screenId}", "/inv/screen/chans/{screenId}/"}, method = RequestMethod.GET)
-    public String index(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+    @RequestMapping(value = {"/{screenId}", "/{screenId}/"}, method = RequestMethod.GET)
+    public String index1(HttpServletRequest request, HttpServletResponse response, HttpSession session,
     		@PathVariable Map<String, String> pathMap, @RequestParam Map<String,String> paramMap,
     		Model model, Locale locale) {
 
@@ -125,47 +117,56 @@ public class InvScreenChanController {
     	model.addAttribute("Screen", screen);
 
     	
-        return "inv/screen/screen-chan";
+        return "inv/screen/screen-log";
     }
     
     
 	/**
 	 * 읽기 액션
 	 */
-    @RequestMapping(value = "/inv/screen/chans/read", method = RequestMethod.POST)
-    public @ResponseBody DataSourceResult read(@RequestBody DataSourceRequest request, HttpSession session) {
+    @RequestMapping(value = "/read", method = RequestMethod.POST)
+    public @ResponseBody List<RevUploadFileItem> read(@RequestBody DataSourceRequest request, HttpSession session) {
     	
-    	int objId = (int)request.getReqIntValue1();
-    	String objType = "S";
-
-		// 동기화 화면 묶음 확인
-		InvSyncPackItem syncPackItem = invService.getSyncPackItemByScreenId(objId);
-		if (syncPackItem != null) {
-			objType = "P";
-			objId = syncPackItem.getSyncPack().getId();
-		}
-		
+    	ArrayList<RevUploadFileItem> list = new ArrayList<RevUploadFileItem>();
+    	InvScreen screen = invService.getScreen((int)request.getReqIntValue1());
+    	
+    	if (screen == null) {
+    		throw new ServerOperationForbiddenException(StringInfo.CMN_WRONG_PARAM_ERROR);
+    	}
+    	
     	try {
-    		DataSourceResult result = adcService.getChanSubList(request, objType, objId);
-
-			for(Object obj : result.getData()) {
-    			OrgChanSub chanSub = (OrgChanSub)obj;
-    			
-    			chanSub.getChannel().setSubCount(
-    					orgService.getChanSubCountByChannelId(chanSub.getChannel().getId()));
-    			
-    			OrgRTChannel rtChannel = orgService.getRTChannelByChannelId(chanSub.getChannel().getId());
-    			if (rtChannel != null) {
-    				chanSub.setLastAdAppDate(rtChannel.getLastAdAppDate());
-    				chanSub.setLastAdReqDate(rtChannel.getLastAdReqDate());
-    			}
-    		}
+    		String typeRootDir = SolUtil.getPhysicalRoot("Log");
     		
-    		return result;
+    		File dir = new File(typeRootDir);
+    		if (dir.exists() && dir.isDirectory()) {
+				File[] files = dir.listFiles(new FilenameFilter() {
+					
+					@Override
+					public boolean accept(File dir, String name) {
+						return name.toLowerCase().endsWith(".zip");
+					}
+				});
+				
+				String prefix = screen.getMedium().getId() + "_" + screen.getId() + "_log_";
+				
+				//
+				// 업로드 파일 형식: {mediumId}_{screenId}_log_{대상일:yyyy.MM.dd}.zip
+				// 형식의 예: 17_17980_log_2024.07.24.zip
+				//
+				int idx = 0;
+				for(File file : files) {
+					if (file.getName().startsWith(prefix)) {
+						String remain = file.getName().substring(prefix.length()).toLowerCase().replace(".zip", "");
+						list.add(new RevUploadFileItem(file.getName(), file.length(), file.lastModified(), 
+								Util.delimitDateStr(remain, "."), ++idx));
+					}
+				}
+    		}
     	} catch (Exception e) {
     		logger.error("read", e);
     		throw new ServerOperationForbiddenException("ReadError");
     	}
+    	
+    	return list;
     }
-    
 }
