@@ -69,7 +69,7 @@
 			
 	String shortNameTemplate =
 			"<div>" +
-				"<a href='javascript:navToScrList(#= id #)'><span class='text-link'>#= shortName #</span></a>" + 
+				"<a href='javascript:navToChanWork(#= id #)'><span class='text-link'>#= shortName #</span></a>" +
 			"</div>";
 			
 	String appendModeTemplate =
@@ -603,8 +603,8 @@ function edit(id) {
 }
 
 
-function navToScrList(typeId) {
-	var path = "/org/channel/screen/" + typeId;
+function navToChanWork(chanId) {
+	var path = "/org/channel/ad/" + chanId;
 	location.href = path;
 }
 

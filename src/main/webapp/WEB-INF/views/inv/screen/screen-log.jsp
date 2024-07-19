@@ -15,6 +15,7 @@
 <!-- URL -->
 
 <c:url value="/inv/screen/logs/read" var="readUrl" />
+<c:url value="/inv/screen/logs/destroy" var="destroyUrl" />
 
 
 <!-- Opening tags -->
@@ -116,6 +117,7 @@
     			<button type="button" class="btn btn-default d-none d-sm-inline k-grid-excel">엑셀</button>
     		</div>
     		<div class="float-right">
+    			<button id="delete-btn" type="button" class="btn btn-danger">삭제</button>
     		</div>
     	</div>
 	</kendo:grid-toolbarTemplate>
@@ -181,8 +183,42 @@
 <script>
 $(document).ready(function() {
 
+	// Delete
+	$("#delete-btn").click(function(e) {
+		e.preventDefault();
+
+		var grid = $("#grid").data("kendoGrid");
+		var rows = grid.select();
 	
-});	
+		var delRows = [];
+
+		rows.each(function(index, row) {
+			var selectedItem = grid.dataItem(row);
+			delRows.push(selectedItem.filename);
+		});
+
+		if (delRows.length > 0) {
+			showDelConfirmModal(function(result) {
+				if (result) {
+					$.ajax({
+						type: "POST",
+						contentType: "application/json",
+						dataType: "json",
+						url: "${destroyUrl}",
+						data: JSON.stringify({ items: delRows }),
+						success: function (form) {
+        					showDeleteSuccessMsg();
+							grid.dataSource.read();
+						},
+						error: ajaxDeleteError
+					});
+				}
+			}, true, delRows.length);
+		}
+	});
+	// / Delete
+
+});
 </script>
 
 <!-- / Grid button actions  -->
@@ -202,7 +238,7 @@ function download(id) {
 	
 	var dataItem = $("#grid").data("kendoGrid").dataSource.get(id);
 
-	var path = "/adn/common/download?type=Log&file=" + dataItem.filename;
+	var path = "/adn/common/download?type=Log&file=" + dataItem.filename + "&prefix=${Screen.name}";
 	
 	location.href = path;
 }

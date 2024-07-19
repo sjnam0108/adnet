@@ -30,8 +30,10 @@ import kr.adnetwork.models.DataSourceResult;
 import kr.adnetwork.models.Message;
 import kr.adnetwork.models.MessageManager;
 import kr.adnetwork.models.ModelManager;
+import kr.adnetwork.models.fnd.FndViewType;
 import kr.adnetwork.models.inv.InvScreen;
 import kr.adnetwork.models.org.OrgChannel;
+import kr.adnetwork.models.service.FndService;
 import kr.adnetwork.models.service.InvService;
 import kr.adnetwork.models.service.OrgService;
 import kr.adnetwork.models.service.RevService;
@@ -42,7 +44,7 @@ import kr.adnetwork.viewmodels.DropDownListItem;
  * 광고 채널 컨트롤러(채널 광고)
  */
 @Controller("org-channel-ad-controller")
-@RequestMapping(value="/org/channel/ad")
+@RequestMapping(value="")
 public class OrgChannelAdController {
 
 	private static final Logger logger = LoggerFactory.getLogger(OrgChannelAdController.class);
@@ -56,6 +58,9 @@ public class OrgChannelAdController {
 
     @Autowired 
     private RevService revService;
+
+    @Autowired
+    private FndService fndService;
     
     
 	@Autowired
@@ -71,7 +76,8 @@ public class OrgChannelAdController {
 	/**
 	 * 광고 채널(채널 광고) 페이지
 	 */
-    @RequestMapping(value = {"/{channelId}", "/{channelId}/"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/org/channel/{channelId}", "/org/channel/{channelId}/",
+    		"/org/channel/ad/{channelId}", "/org/channel/ad/{channelId}/"}, method = RequestMethod.GET)
     public String index(HttpServletRequest request, HttpServletResponse response, HttpSession session,
     		@PathVariable Map<String, String> pathMap, @RequestParam Map<String,String> paramMap,
     		Model model, Locale locale) {
@@ -114,6 +120,15 @@ public class OrgChannelAdController {
 			}
 		}
 		
+		// 묶음 광고 모드 확인
+		boolean isPackedAdMode = false;
+		if (Util.isValid(channel.getViewTypeCode())) {
+			FndViewType viewType = fndService.getViewType(channel.getViewTypeCode(), channel.getResolution());
+			isPackedAdMode = viewType != null && viewType.isAdPackUsed();
+		}
+		channel.setPackedAdMode(isPackedAdMode);
+
+		
     	model.addAttribute("Channel", channel);
 
     	
@@ -124,7 +139,7 @@ public class OrgChannelAdController {
 	/**
 	 * 읽기 액션
 	 */
-    @RequestMapping(value = "/read", method = RequestMethod.POST)
+    @RequestMapping(value = "/org/channel/ad/read", method = RequestMethod.POST)
     public @ResponseBody DataSourceResult read(@RequestBody DataSourceRequest request, HttpSession session) {
     	try {
     		return revService.getChanAdList(request, (int)request.getReqIntValue1());

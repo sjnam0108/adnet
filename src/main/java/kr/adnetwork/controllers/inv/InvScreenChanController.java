@@ -1,5 +1,8 @@
 package kr.adnetwork.controllers.inv;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -31,6 +34,7 @@ import kr.adnetwork.models.inv.InvRTScreen;
 import kr.adnetwork.models.inv.InvScreen;
 import kr.adnetwork.models.inv.InvSyncPackItem;
 import kr.adnetwork.models.org.OrgChanSub;
+import kr.adnetwork.models.org.OrgChannel;
 import kr.adnetwork.models.org.OrgRTChannel;
 import kr.adnetwork.models.service.AdcService;
 import kr.adnetwork.models.service.InvService;
@@ -148,6 +152,35 @@ public class InvScreenChanController {
     	try {
     		DataSourceResult result = adcService.getChanSubList(request, objType, objId);
 
+    		ArrayList<OrgChannel> chanList = new ArrayList<OrgChannel>();
+    		for(Object obj : result.getData()) {
+    			OrgChanSub chanSub = (OrgChanSub)obj;
+    			chanList.add(chanSub.getChannel());
+    		}
+    		
+    		Collections.sort(chanList, new Comparator<OrgChannel>() {
+    	    	public int compare(OrgChannel item1, OrgChannel item2) {
+    	    		if (item1.getPriority() == item2.getPriority()) {
+    	    			return item1.getShortName().compareTo(item2.getShortName());
+    	    		} else {
+    	    			return Integer.compare(item1.getPriority(), item2.getPriority());
+    	    		}
+    	    	}
+    	    });
+    		
+    		ArrayList<String> regChans = new ArrayList<String>();
+    		ArrayList<Integer> highIds = new ArrayList<Integer>();
+    		for(OrgChannel chan : chanList) {
+    			if (!chan.isActiveStatus()) {
+    				continue;
+    			}
+    			String key = chan.getViewTypeCode() + "R" + chan.getResolution();
+    			if (!regChans.contains(key)) {
+    				regChans.add(key);
+    				highIds.add(chan.getId());
+    			}
+    		}
+    		
 			for(Object obj : result.getData()) {
     			OrgChanSub chanSub = (OrgChanSub)obj;
     			
@@ -159,6 +192,8 @@ public class InvScreenChanController {
     				chanSub.setLastAdAppDate(rtChannel.getLastAdAppDate());
     				chanSub.setLastAdReqDate(rtChannel.getLastAdReqDate());
     			}
+    			
+    			chanSub.getChannel().setPriorityHigh(highIds.contains(chanSub.getChannel().getId()));
     		}
     		
     		return result;

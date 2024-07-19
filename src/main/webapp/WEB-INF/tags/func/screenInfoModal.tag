@@ -23,7 +23,11 @@
             <div class="modal-body py-1">
 				<div class='d-flex align-items-center justify-content-center py-4'>잠시 기다려 주십시오</div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer d-flex">
+				<button type="button" class="btn btn-round btn-outline-secondary mr-auto" onClick="navToScrWork()">
+                	<span class="fa-light fa-arrow-down-left"></span>
+                	<span class="ml-1">화면 업무</span>
+				</button>
                 <button type="button" class="btn btn-primary" id="btn-screen-info-ok" data-dismiss="modal">확인</button>
             </div>
         </div>
@@ -38,7 +42,7 @@
 <script>
 
 var screenInfoDate = null;
-
+var scrWorkId = null;
 
 function showScreen(id, name, date) {
 	$("#screenInfoModalTitle").attr("rowid", id);
@@ -50,8 +54,19 @@ function showScreen(id, name, date) {
     	screenInfoDate = date;
     }
     
+    scrWorkId = id;
+
 	$('#screenInfoModal .modal-dialog').draggable({ handle: '.modal-header' });
 	$("#screenInfoModal").modal();
+}
+
+
+function navToScrWork() {
+
+	if (scrWorkId) {
+		var path = "/inv/screen/" + scrWorkId;
+		location.href = path;
+	}
 }
 
 

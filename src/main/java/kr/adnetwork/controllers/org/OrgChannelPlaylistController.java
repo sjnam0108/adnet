@@ -37,9 +37,11 @@ import kr.adnetwork.models.ModelManager;
 import kr.adnetwork.models.adc.AdcAdCreative;
 import kr.adnetwork.models.adc.AdcCreatFile;
 import kr.adnetwork.models.adc.AdcPlaylist;
+import kr.adnetwork.models.fnd.FndViewType;
 import kr.adnetwork.models.inv.InvScreen;
 import kr.adnetwork.models.org.OrgChannel;
 import kr.adnetwork.models.service.AdcService;
+import kr.adnetwork.models.service.FndService;
 import kr.adnetwork.models.service.InvService;
 import kr.adnetwork.models.service.OrgService;
 import kr.adnetwork.utils.Util;
@@ -65,6 +67,9 @@ public class OrgChannelPlaylistController {
 
     @Autowired 
     private AdcService adcService;
+
+    @Autowired
+    private FndService fndService;
     
     
 	@Autowired
@@ -122,6 +127,15 @@ public class OrgChannelPlaylistController {
 				}
 			}
 		}
+		
+		// 묶음 광고 모드 확인
+		boolean isPackedAdMode = false;
+		if (Util.isValid(channel.getViewTypeCode())) {
+			FndViewType viewType = fndService.getViewType(channel.getViewTypeCode(), channel.getResolution());
+			isPackedAdMode = viewType != null && viewType.isAdPackUsed();
+		}
+		channel.setPackedAdMode(isPackedAdMode);
+
 		
     	model.addAttribute("Channel", channel);
 

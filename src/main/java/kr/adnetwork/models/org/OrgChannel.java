@@ -117,6 +117,14 @@ public class OrgChannel {
 	// 최근 광고 편성
 	@Transient
 	private Date lastAdAppDate;
+	
+	// 우선순위 채널(우선 순위, 해상도 및 게시유형에 대한 최우선순위 여부)
+	@Transient
+	private boolean priorityHigh;
+	
+	// 묶음 광고 모드 확인
+	@Transient
+	private boolean packedAdMode;
 
 	
 	// 다른 개체 연결(S)
@@ -337,6 +345,22 @@ public class OrgChannel {
 
 	public void setLastAdAppDate(Date lastAdAppDate) {
 		this.lastAdAppDate = lastAdAppDate;
+	}
+
+	public boolean isPriorityHigh() {
+		return priorityHigh;
+	}
+
+	public void setPriorityHigh(boolean priorityHigh) {
+		this.priorityHigh = priorityHigh;
+	}
+
+	public boolean isPackedAdMode() {
+		return packedAdMode;
+	}
+
+	public void setPackedAdMode(boolean packedAdMode) {
+		this.packedAdMode = packedAdMode;
 	}
 
 }

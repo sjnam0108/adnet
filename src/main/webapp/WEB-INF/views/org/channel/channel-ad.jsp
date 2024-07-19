@@ -49,29 +49,41 @@
 <!--  Tab -->
 <ul class="nav nav-tabs tabs-alt mb-4 mt-3">
 	<li class="nav-item">
-		<a class="nav-link" href="/org/channel/screen/${Channel.id}">
-			<i class="mr-1 fa-light fa-screen-users"></i>
-			화면
-		</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="/org/channel/syncpack/${Channel.id}">
-			<i class="mr-1 fa-light fa-rectangle-vertical-history"></i>
-			동기화 화면 묶음
-		</a>
-	</li>
-	<li class="nav-item">
 		<a class="nav-link active" href="/org/channel/ad/${Channel.id}">
 			<i class="mr-1 fa-light fa-audio-description"></i>
 			채널 광고
 		</a>
 	</li>
-	<li class="nav-item mr-auto">
+	<li class="nav-item">
 		<a class="nav-link" href="/org/channel/playlist/${Channel.id}">
 			<i class="mr-1 fa-light fa-list-ol"></i>
 			재생목록
 		</a>
 	</li>
+
+<c:choose>
+<c:when test="${Channel.packedAdMode}">
+
+	<li class="nav-item mr-auto">
+		<a class="nav-link" href="/org/channel/syncpack/${Channel.id}">
+			<i class="mr-1 fa-light fa-rectangle-vertical-history"></i>
+			동기화 화면 묶음
+		</a>
+	</li>
+
+</c:when>
+<c:otherwise>
+
+	<li class="nav-item mr-auto">
+		<a class="nav-link" href="/org/channel/screen/${Channel.id}">
+			<i class="mr-1 fa-light fa-screen-users"></i>
+			화면
+		</a>
+	</li>
+
+</c:otherwise>
+</c:choose>
+
 
 <c:if test="${fn:length(currChannels) > 0}" >
 

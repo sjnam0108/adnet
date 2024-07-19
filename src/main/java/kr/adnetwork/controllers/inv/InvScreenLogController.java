@@ -169,4 +169,33 @@ public class InvScreenLogController {
     	
     	return list;
     }
+
+    
+    /**
+	 * 삭제 액션
+	 */
+    @RequestMapping(value = "/destroy", method = RequestMethod.POST)
+    public @ResponseBody String destroy(@RequestBody Map<String, Object> model) {
+    	@SuppressWarnings("unchecked")
+		ArrayList<Object> objs = (ArrayList<Object>) model.get("items");
+
+    	try {
+    		String typeRootDir = SolUtil.getPhysicalRoot("Log");
+    		
+        	for (Object filename : objs) {
+	    		File file = new File(typeRootDir + "/" + ((String) filename));
+	    		
+	    		logger.info("-- " + file.getAbsolutePath());
+	    		if (file.exists() && file.isFile()) {
+		    		logger.info("-- " + file.getAbsolutePath() + " Del");
+	    			file.delete();
+	    		}
+        	}
+    	} catch (Exception e) {
+    		logger.error("destroy", e);
+    		throw new ServerOperationForbiddenException("DeleteError");
+    	}
+
+        return "Ok";
+    }
 }

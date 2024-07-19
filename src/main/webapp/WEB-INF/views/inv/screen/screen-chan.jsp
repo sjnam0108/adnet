@@ -93,6 +93,12 @@
 				"<span class='fa-regular fa-list-ol fa-fw'></span><span class='pl-2'>재생목록</span>" +
 			"# } #";
 
+	String nameTemplate =
+			"# if (channel.priorityHigh) { #" +
+				"<span title='우선순위 채널' class='pr-1'><span class='fa-light fa-gear text-blue'></span></span>" +
+			"# } #" +
+			"<span>#= channel.name #</span>";
+
 	String lastAdAppDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastAdAppDate");
 	String lastAdReqDateTemplate = kr.adnetwork.utils.Util.getSmartDate("lastAdReqDate");
 %>
@@ -120,7 +126,7 @@
 	<kendo:grid-columns>
 		<kendo:grid-column title="우선순위" field="channel.priority" width="130" template="#= kendo.format('{0:n0}', channel.priority) #" />
 		<kendo:grid-column title="채널ID" field="channel.shortName" width="200" template="<%= shortNameTemplate %>" sticky="true" />
-		<kendo:grid-column title="채널 이름" field="channel.name" width="200" filterable="false" sortable="false" />
+		<kendo:grid-column title="채널 이름" field="channel.name" width="200" template="<%= nameTemplate %>" filterable="false" sortable="false" />
 		<kendo:grid-column title="해상도" field="channel.resolution" width="120" filterable="false" sortable="false"
 				template="#= channel.resolution.replace('x', ' x ') #"  />
 		<kendo:grid-column title="게시유형" field="channel.viewTypeCode" width="120" filterable="false" sortable="false" />

@@ -31,9 +31,11 @@ import kr.adnetwork.models.DataSourceResult;
 import kr.adnetwork.models.Message;
 import kr.adnetwork.models.MessageManager;
 import kr.adnetwork.models.ModelManager;
+import kr.adnetwork.models.fnd.FndViewType;
 import kr.adnetwork.models.inv.InvScreen;
 import kr.adnetwork.models.org.OrgChanSub;
 import kr.adnetwork.models.org.OrgChannel;
+import kr.adnetwork.models.service.FndService;
 import kr.adnetwork.models.service.InvService;
 import kr.adnetwork.models.service.OrgService;
 import kr.adnetwork.utils.Util;
@@ -44,7 +46,7 @@ import kr.adnetwork.viewmodels.inv.InvSimpleScreenItem;
  * 광고 채널 컨트롤러(화면)
  */
 @Controller("org-channel-screen-controller")
-@RequestMapping(value="")
+@RequestMapping(value="/org/channel/screen")
 public class OrgChannelScreenController {
 
 	private static final Logger logger = LoggerFactory.getLogger(OrgChannelScreenController.class);
@@ -55,6 +57,9 @@ public class OrgChannelScreenController {
 
     @Autowired 
     private OrgService orgService;
+
+    @Autowired
+    private FndService fndService;
     
     
 	@Autowired
@@ -70,8 +75,7 @@ public class OrgChannelScreenController {
 	/**
 	 * 광고 채널(화면) 페이지
 	 */
-    @RequestMapping(value = {"/org/channel/{channelId}", "/org/channel/{channelId}/", 
-    		"/org/channel/screen/{channelId}", "/org/channel/screen/{channelId}/"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/{channelId}", "/{channelId}/"}, method = RequestMethod.GET)
     public String index(HttpServletRequest request, HttpServletResponse response, HttpSession session,
     		@PathVariable Map<String, String> pathMap, @RequestParam Map<String,String> paramMap,
     		Model model, Locale locale) {
@@ -114,6 +118,15 @@ public class OrgChannelScreenController {
 			}
 		}
 		
+		// 묶음 광고 모드 확인
+		boolean isPackedAdMode = false;
+		if (Util.isValid(channel.getViewTypeCode())) {
+			FndViewType viewType = fndService.getViewType(channel.getViewTypeCode(), channel.getResolution());
+			isPackedAdMode = viewType != null && viewType.isAdPackUsed();
+		}
+		channel.setPackedAdMode(isPackedAdMode);
+
+		
     	model.addAttribute("Channel", channel);
 
     	
@@ -124,7 +137,7 @@ public class OrgChannelScreenController {
 	/**
 	 * 읽기 액션
 	 */
-    @RequestMapping(value = "/org/channel/screen/read", method = RequestMethod.POST)
+    @RequestMapping(value = "/read", method = RequestMethod.POST)
     public @ResponseBody List<InvSimpleScreenItem> read(@RequestBody DataSourceRequest request, HttpSession session) {
     	try {
         	
@@ -168,7 +181,7 @@ public class OrgChannelScreenController {
 	/**
 	 * 추가 액션 - 화면ID로
 	 */
-    @RequestMapping(value = "/org/channel/screen/createWithShortNames", method = RequestMethod.POST)
+    @RequestMapping(value = "/createWithShortNames", method = RequestMethod.POST)
     public @ResponseBody String createWithShortNames(@RequestBody Map<String, Object> model, Locale locale, HttpSession session) {
     	
     	OrgChannel channel = orgService.getChannel((int)model.get("id"));
@@ -213,7 +226,7 @@ public class OrgChannelScreenController {
 	/**
 	 * 추가 액션 - 화면명으로
 	 */
-    @RequestMapping(value = "/org/channel/screen/createWithNames", method = RequestMethod.POST)
+    @RequestMapping(value = "/createWithNames", method = RequestMethod.POST)
     public @ResponseBody String createWithNames(@RequestBody Map<String, Object> model, Locale locale, HttpSession session) {
     	
     	OrgChannel channel = orgService.getChannel((int)model.get("id"));
@@ -259,7 +272,7 @@ public class OrgChannelScreenController {
     /**
 	 * 삭제 액션
 	 */
-    @RequestMapping(value = "/org/channel/screen/destroy", method = RequestMethod.POST)
+    @RequestMapping(value = "/destroy", method = RequestMethod.POST)
     public @ResponseBody String destroy(@RequestBody Map<String, Object> model) {
     	@SuppressWarnings("unchecked")
 		ArrayList<Object> objs = (ArrayList<Object>) model.get("items");
