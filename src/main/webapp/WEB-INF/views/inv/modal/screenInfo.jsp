@@ -61,7 +61,7 @@
 		<div>
 			<div class="d-flex mb-2">
 				<div class="chart-container mr-auto">
-					<div id="summary-chart-control" data-role="chart" class="k-chart" style="position: relative; width: 250px; height: 250px; top: 25px; left: 25px;"></div>
+					<div id="summary-chart-control" style="width: 250px; height: 250px; top: 25px; left: 25px;"></div>
 					<div style="width: 1px; height: 50px"></div>
 				</div>
 				<div class="d-none d-sm-block pl-2">
@@ -780,16 +780,8 @@ function clickGroup(group) {
 	}
 	
 	piePrevGroup = group;
-	
-	// $("#summary-chart-control").data("kendoChart").refresh();
 
-	var chart = $("#summary-chart-control").data("kendoChart");
-	chart.setOptions({tooltip: {visible: true, template: "#= category #"}});
-	chart.refresh()
-
-	// var chart = $("#summary-chart-control").data("kendoChart");
-	// chart.redraw();
-	// console.log("redraw")
+	$("#summary-chart-control").data("kendoChart").refresh();
 }
 
 
@@ -995,7 +987,9 @@ function createPieChart(currDate) {
             visible: false,
         },
         chartArea: {
-            background: ""
+            background: "",
+			height: 250,
+			width: 250,
         },
         seriesDefaults: {
             type: "donut",
