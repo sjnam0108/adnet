@@ -187,7 +187,7 @@ $(document).ready(function() {
 
 <div class="mb-4">
 <kendo:grid name="grid" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
-    <kendo:grid-selectable mode="raw"/>
+    <kendo:grid-selectable mode="row"/>
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" previousNext="false" numeric="false" pageSize="10000" info="false" />

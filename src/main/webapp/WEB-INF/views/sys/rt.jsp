@@ -89,7 +89,7 @@
 <div class="mb-4">
 <kendo:grid name="grid-log" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
     <kendo:grid-toolbarTemplate>
@@ -207,7 +207,7 @@ $(document).ready(function() {
 <div class="mb-4">
 <kendo:grid name="grid-unit" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="raw"/>
+    <kendo:grid-selectable mode="row"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
     <kendo:grid-toolbarTemplate>

@@ -81,7 +81,7 @@
 
 <div class="mb-4">
 <kendo:grid name="grid-hourly" pageable="true" filterable="false" sortable="false" scrollable="true" resizable="true">
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
     <kendo:grid-toolbarTemplate>
@@ -145,7 +145,7 @@
 
 <div class="mb-4">
 <kendo:grid name="grid-minutely" pageable="true" filterable="false" sortable="false" scrollable="true" resizable="true">
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
     <kendo:grid-toolbarTemplate>

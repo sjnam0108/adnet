@@ -358,7 +358,7 @@
 	</h6>
 </div>
 <kendo:grid name="grid-ad" pageable="true" scrollable="true" filterable="false" sortable="false" resizable="true">
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-pageable refresh="false" previousNext="false" numeric="false" pageSize="10000" info="false" />
 	<kendo:grid-excel fileName="리포트(광고별).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
@@ -489,7 +489,7 @@
 </div>
 <kendo:grid name="grid-daily" pageable="true" scrollable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-pageable refresh="false" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-excel fileName="리포트(일자별).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
@@ -904,7 +904,7 @@ function createChart() {
 </div>
 <kendo:grid name="grid-week-daily" pageable="true" scrollable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-pageable refresh="false" previousNext="false" numeric="false" pageSize="10000" info="false" />
 	<kendo:grid-excel fileName="리포트(요일별).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
@@ -992,7 +992,7 @@ function createChart() {
 </div>
 <kendo:grid name="grid-screen-daily" pageable="true" scrollable="true" filterable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-excel fileName="리포트(개별화면일자별).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />

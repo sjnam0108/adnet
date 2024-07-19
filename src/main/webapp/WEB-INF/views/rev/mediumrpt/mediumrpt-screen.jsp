@@ -190,7 +190,7 @@ function navigateToDate(date) {
 </div>
 <kendo:grid name="ovw-grid" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-excel fileName="매체리포트(화면요약).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
@@ -260,7 +260,7 @@ function navigateToDate(date) {
 </div>
 <kendo:grid name="total-grid" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-excel fileName="매체리포트(화면성공).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
@@ -351,7 +351,7 @@ function navigateToDate(date) {
 </div>
 <kendo:grid name="fail-grid" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-excel fileName="매체리포트(화면실패).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
@@ -441,7 +441,7 @@ function navigateToDate(date) {
 </div>
 <kendo:grid name="fallback-grid" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-excel fileName="매체리포트(화면대체광고).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
@@ -531,7 +531,7 @@ function navigateToDate(date) {
 </div>
 <kendo:grid name="no-ad-grid" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-excel fileName="매체리포트(화면광고없음).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />

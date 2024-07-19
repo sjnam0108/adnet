@@ -87,7 +87,7 @@
 
 <div class="mb-4">
 <kendo:grid name="grid" pageable="true" filterable="true" scrollable="true" reorderable="true" resizable="true">
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
 	<kendo:grid-excel fileName="${pageTitle}.xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />

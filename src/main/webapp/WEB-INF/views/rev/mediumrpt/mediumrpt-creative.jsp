@@ -280,7 +280,7 @@ function dispBadgeValues(values) {
 </div>
 <div id="grid-overview-container" class="mb-4" style="display: none;">
 <kendo:grid name="grid-overview" pageable="true" scrollable="true" filterable="false" sortable="false" resizable="true">
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-excel fileName="매체리포트(광고소재검색요약).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
@@ -535,7 +535,7 @@ function searchForm() {
 	</h6>
 </div>
 <kendo:grid name="grid-data" pageable="true" scrollable="true" filterable="false" sortable="false" resizable="true">
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-excel fileName="매체리포트(광고소재).xlsx" allPages="true" proxyURL="/proxySave"/>
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />

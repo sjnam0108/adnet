@@ -257,7 +257,7 @@
 <div class="mb-4">
 <kendo:grid name="grid" pageable="true" filterable="true" scrollable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-excel fileName="리포트(진행중).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-toolbarTemplate>
@@ -346,7 +346,7 @@
 <div class="mb-4">
 <kendo:grid name="grid-camp" pageable="true" filterable="true" scrollable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-excel fileName="리포트(캠페인).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-toolbarTemplate>
@@ -437,7 +437,7 @@
 <div class="mb-4">
 <kendo:grid name="grid-ad" pageable="true" filterable="true" scrollable="true" resizable="true">
 	<kendo:grid-sortable mode="mixed" showIndexes="true"/>
-    <kendo:grid-selectable mode="multiple, raw"/>
+    <kendo:grid-selectable mode="multiple, row"/>
 	<kendo:grid-excel fileName="리포트(광고).xlsx" allPages="true" proxyURL="/proxySave"/>
 	<kendo:grid-pageable refresh="true" buttonCount="5" pageSize="10" pageSizes="${pageSizesNormal}" />
 	<kendo:grid-toolbarTemplate>
