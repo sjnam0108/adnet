@@ -865,6 +865,10 @@ public class StartupHouseKeeper implements ApplicationListener<ContextRefreshedE
 		// File API용 광고 소재 파일 리스트
 		//
 		for(KnlMedium medium : mediumList) {
+			// 디버깅용 로그(1/4)
+			//logger.info("---------");
+			//logger.info("medium: {}, {}", medium.getShortName(), medium.getId());
+			// - 디버깅용 로그
 			currScrIds = new ArrayList<Integer>();
 			resultScrIds = null;
 			
@@ -933,6 +937,9 @@ public class StartupHouseKeeper implements ApplicationListener<ContextRefreshedE
 						GlobalInfo.FileCandiCreatFileVerKey.put("S" + id, "v" + seq);
 					}
 					taskList2.add(seq);
+					// 디버깅용 로그(2/4)
+					//logger.info("S - R: {}, cnt: {}, ACFile cnt: {}", reso, ids.size(), list.size());
+					// - 디버깅용 로그
 				}
 				
 				
@@ -1002,10 +1009,16 @@ public class StartupHouseKeeper implements ApplicationListener<ContextRefreshedE
 					GlobalInfo.FileCandiCreatFileMap.put("v" + seq, list);
 					GlobalInfo.FileCandiCreatFileVerKey.put("VTS" + medium.getId() + "R" + reso, "v" + seq);
 					taskList2.add(seq);
+					// 디버깅용 로그(3/4)
+					//logger.info("{} - R: {}, ACFile cnt: {}", ("VTS" + medium.getId() + "R" + reso), reso, list.size());
+					// - 디버깅용 로그
 				}
 
 			}
 		}
+		// 디버깅용 로그(4/4)
+		//logger.info("---------");
+		// - 디버깅용 로그
 		
 		// 파일 API가 서비스 가능하도록 활성화
 		GlobalInfo.FileApiReady = true;

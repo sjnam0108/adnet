@@ -103,7 +103,12 @@ public class AdController {
     	InvScreen screen = null;
     	KnlMediumCompactItem mediumItem = null;
     	
-    	if (Util.isNotValid(apiKey) || Util.isNotValid(displayID)) {
+    	if (!GlobalInfo.FileApiReady) {
+    		
+    		statusCode = -7;
+    		message = "RetryAgain";
+    		localMessage = "잠시 후 다시 시도해 주시기 바랍니다.";
+    	} else if (Util.isNotValid(apiKey) || Util.isNotValid(displayID)) {
     		
     		statusCode = -3;
     		message = "WrongParams";

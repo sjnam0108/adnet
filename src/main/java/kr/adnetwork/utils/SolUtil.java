@@ -48,6 +48,7 @@ import kr.adnetwork.models.inv.InvSyncPackItem;
 import kr.adnetwork.models.knl.KnlAccount;
 import kr.adnetwork.models.knl.KnlMedium;
 import kr.adnetwork.models.knl.KnlUser;
+import kr.adnetwork.models.org.OrgChannel;
 import kr.adnetwork.models.rev.RevChanAd;
 import kr.adnetwork.models.rev.RevDailyAchv;
 import kr.adnetwork.models.rev.RevHourlyPlay;
@@ -4204,5 +4205,21 @@ public class SolUtil {
 		return sendAlimTalk(server + "/alimtalk/send/adnet-active-screen-end", reqParams.toString());
     	
     }
-    
+	
+	
+    /**
+	 * 전달된 동기화 화면 묶음의 유효한 게시 유형 획득
+	 *
+	 *   - 동기화 화면 묶음과 채널의 관계가 설정에 의해 가변적임
+	 */
+	public static String getCurrSyncPackViewTypeBySyncPackId(int syncPackId) {
+		
+		OrgChannel channel = sOrgService.getChannel(SolUtil.getFirstPriorityChannelByTypeObjId("P", syncPackId));
+		if (channel != null && Util.isValid(channel.getViewTypeCode())) {
+			return channel.getViewTypeCode();
+		}
+		
+		return "";
+	}
+ 
 }

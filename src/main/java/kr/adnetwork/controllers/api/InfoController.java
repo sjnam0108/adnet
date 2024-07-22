@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +32,7 @@ import net.sf.json.JSONObject;
 @RequestMapping(value="")
 public class InfoController {
 	
-	//private static final Logger logger = LoggerFactory.getLogger(InfoController.class);
+	private static final Logger logger = LoggerFactory.getLogger(InfoController.class);
 
 
 	//
@@ -156,6 +158,8 @@ public class InfoController {
     		JSONObject scrObj = new JSONObject();
     		scrObj.put("display_id", screen.getShortName());
     		scrObj.put("lane_id", laneId);
+
+        	logger.info("[API] info: " + screen.getName() + " / " + screen.getShortName() + " - " + laneId);
     		
     		
     		boolean hasTester = false;

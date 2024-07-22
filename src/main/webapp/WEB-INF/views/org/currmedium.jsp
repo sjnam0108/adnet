@@ -519,7 +519,7 @@
 						<div class="form-group mb-0">
 							<label class="form-label">
 								광고의 화면당 하루 노출한도
-								<span class="small text-muted pl-3">개별 광고당 하루동안 노출될 수 있는 최대 횟수 한도를 설정합니다. 동일 이름의 <span class="text-dark">광고 속성</span>이 우선 적용됩니다.</span>
+								<span class="small text-muted pl-3">개별 화면당 하루동안 노출될 수 있는 최대 횟수 한도를 설정합니다. 동일 이름의 <span class="text-dark">광고 속성</span>이 우선 적용됩니다.</span>
 							</label>
 							<div class="form-row px-1">
 								<div class="col">

@@ -164,7 +164,7 @@ public class InvSyncPackScreenController {
 
     	ArrayList<String> errList = new ArrayList<String>();
     	for(String shortName : scrList) {
-    		//invService.getScreenBy
+
     		InvScreen screen = invService.getScreen(syncPack.getMedium(), shortName);
     		
     		if (screen == null) {
