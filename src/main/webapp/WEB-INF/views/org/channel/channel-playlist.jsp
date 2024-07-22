@@ -332,7 +332,7 @@ $(document).ready(function() {
 			<div class="modal-header move-cursor">
 				<h5 class="modal-title">
 					재생목록
-					<span class="font-weight-light pl-1"><span name="subtitle"></span>
+					<span class="font-weight-light pl-1"><span name="subtitle"></span></span>
 				</h5>
 				<button type="button" class="close" data-dismiss="modal">×</button>
 			</div>
