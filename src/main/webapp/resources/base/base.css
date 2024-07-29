@@ -625,3 +625,19 @@ div[name="siteName-con"] > span {
     visibility: visible;
     opacity: 1;
 }
+
+/* 인벤 타겟팅 and or 버튼 수정 */
+.k-grid-container .toggle-handle.btn.btn-default {
+    border: none;
+    opacity: 0;
+}
+.k-grid-container .toggle-handle.btn.btn-default:hover {
+    opacity: 0;
+}
+
+.k-grid-container .btn.btn-info.toggle-on {
+    padding: 7px 18px !important;
+}
+.k-grid-container .btn.btn-success.active.toggle-off {
+    padding: 7px 18px !important;
+}

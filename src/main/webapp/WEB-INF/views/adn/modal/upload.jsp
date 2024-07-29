@@ -25,7 +25,8 @@
 <style>
 
 #root-div {
-	height: 400px; display: none;
+	min-height: 400px;
+	display: none;
 }
 
 .k-upload-files {

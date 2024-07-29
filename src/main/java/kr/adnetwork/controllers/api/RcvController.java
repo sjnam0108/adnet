@@ -440,14 +440,12 @@ public class RcvController {
     		}
     		
     		if (rtScreen != null && Util.isValid(ver)) {
-    			if (ver.startsWith("keeper ")) {
+    			if (ver.startsWith("keep.")) {
         			if (Util.isNotValid(rtScreen.getKeeperVer()) ||
             				(Util.isValid(rtScreen.getKeeperVer()) && !rtScreen.getKeeperVer().equals(ver))) {
 
-        				if (ver.length() > 7) {
-            				rtScreen.setKeeperVer(ver.substring(7));
-            				invService.saveOrUpdate(rtScreen);
-        				}
+        				rtScreen.setKeeperVer(ver);
+        				invService.saveOrUpdate(rtScreen);
         			}
     			} else {
         			if (Util.isNotValid(rtScreen.getPlayerVer()) ||

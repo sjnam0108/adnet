@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.adnetwork.exceptions.ServerOperationForbiddenException;
 import kr.adnetwork.info.StringInfo;
 import kr.adnetwork.models.AdnMessageManager;
+import kr.adnetwork.models.CustomComparator;
 import kr.adnetwork.models.DataSourceRequest;
 import kr.adnetwork.models.DataSourceRequest.FilterDescriptor;
 import kr.adnetwork.models.DataSourceResult;
@@ -33,6 +34,7 @@ import kr.adnetwork.models.Message;
 import kr.adnetwork.models.MessageManager;
 import kr.adnetwork.models.ModelManager;
 import kr.adnetwork.models.fnd.FndRegion;
+import kr.adnetwork.models.fnd.FndViewType;
 import kr.adnetwork.models.inv.InvScreen;
 import kr.adnetwork.models.inv.InvSite;
 import kr.adnetwork.models.knl.KnlMedium;
@@ -119,7 +121,7 @@ public class InvScreenController {
     	
     	model.addAttribute("bizHour", medium.getBizHour());
     	
-    	
+		model.addAttribute("ViewTypes", getViewTypeDropDownList(Util.getSessionMediumId(session)));
 
     	
         return "inv/screen";
@@ -250,6 +252,11 @@ public class InvScreenController {
     	KnlMedium medium = knlService.getMedium(Util.getSessionMediumId(session));
     	
     	Integer floorCpm = (Integer)model.get("cpm");
+
+    	// 선택된 자료가 없을 경우 viewTypes = null
+    	@SuppressWarnings("unchecked")
+		ArrayList<Object> viewTypes = (ArrayList<Object>) model.get("viewTypes");
+    	
     	
     	// 파라미터 검증
     	if (medium == null || Util.isNotValid(shortName) || Util.isNotValid(name) || effectiveStartDate == null ||
@@ -257,6 +264,14 @@ public class InvScreenController {
     			floorCpm == null) {
     		throw new ServerOperationForbiddenException(StringInfo.CMN_WRONG_PARAM_ERROR);
         }
+    	
+    	
+    	String viewType = "";
+    	if (viewTypes != null) {
+        	for (Object res : viewTypes) {
+        		viewType += (Util.isValid(viewType) ? "|" : "") + ((String)res);
+        	}
+    	}
     	
     	InvSite site = invService.getSite(medium, siteShortName);
     	if (site == null || !site.getName().equals(siteName)) {
@@ -294,6 +309,7 @@ public class InvScreenController {
     	target.setMinDurSecs(minDurSecs);
     	target.setMaxDurSecs(maxDurSecs);
     	
+    	target.setViewTypeCodes(viewType);
     	target.setAdServerAvailable(adServerAvailable);
     	
     	target.setFloorCpm(floorCpm.intValue());
@@ -329,6 +345,10 @@ public class InvScreenController {
     	KnlMedium medium = knlService.getMedium(Util.getSessionMediumId(session));
     	
     	Integer floorCpm = (Integer)model.get("cpm");
+
+    	// 선택된 자료가 없을 경우 viewTypes = null
+    	@SuppressWarnings("unchecked")
+		ArrayList<Object> viewTypes = (ArrayList<Object>) model.get("viewTypes");
     	
     	// 파라미터 검증
     	if (medium == null || Util.isNotValid(shortName) || Util.isNotValid(name) || effectiveStartDate == null ||
@@ -336,6 +356,14 @@ public class InvScreenController {
     			floorCpm == null) {
     		throw new ServerOperationForbiddenException(StringInfo.CMN_WRONG_PARAM_ERROR);
         }
+    	
+    	
+    	String viewType = "";
+    	if (viewTypes != null) {
+        	for (Object res : viewTypes) {
+        		viewType += (Util.isValid(viewType) ? "|" : "") + ((String)res);
+        	}
+    	}
     	
     	InvSite site = invService.getSite(medium, siteShortName);
     	if (site == null || !site.getName().equals(siteName)) {
@@ -390,6 +418,7 @@ public class InvScreenController {
         	target.setVideoAllowed(videoAllowed);
         	target.setImageAllowed(imageAllowed);
         	
+        	target.setViewTypeCodes(viewType);
         	target.setAdServerAvailable(adServerAvailable);
         	
         	target.setFloorCpm(floorCpm.intValue());
@@ -549,5 +578,34 @@ public class InvScreenController {
     	}
     	
         return "Ok";
+    }
+    
+    
+	/**
+	 * 추가 다운로드 게시 유형 정보 획득
+	 */
+    private List<DropDownListItem> getViewTypeDropDownList(int mediumId) {
+    	
+    	ArrayList<DropDownListItem> retList = new ArrayList<DropDownListItem>();
+    	
+    	
+    	List<FndViewType> viewTypeList = fndService.getViewTypeList();
+    	
+    	List<String> viewTypes = SolUtil.getViewTypeListByMediumId(mediumId);
+    	for(String s : viewTypes) {
+    		String text = "";
+    		for(FndViewType viewType : viewTypeList) {
+    			if (viewType.getCode().equals(s) && !viewType.isAdPackUsed()) {
+    				text = s;
+    				break;
+    			}
+    		}
+    		if (Util.isValid(text)) {
+        		retList.add(new DropDownListItem(text, text));
+    		}
+    	}
+    	Collections.sort(retList, CustomComparator.DropDownListItemTextComparator);
+    	
+    	return retList;
     }
 }

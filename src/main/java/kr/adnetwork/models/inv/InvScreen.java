@@ -141,6 +141,10 @@ public class InvScreen {
 	@Column(name = "API_SYNC_DATE")
 	private Date apiSyncDate;
 	
+	// 추가 다운로드 게시 유형들
+	@Column(name = "VIEW_TYPE_CODES", nullable = false, length = 50)
+	private String viewTypeCodes = "";
+	
 	// 운영자 메모
 	@Column(name = "MEMO", length = 300)
 	private String memo;
@@ -603,6 +607,14 @@ public class InvScreen {
 
 	public void setSyncPackName(String syncPackName) {
 		this.syncPackName = syncPackName;
+	}
+
+	public String getViewTypeCodes() {
+		return viewTypeCodes;
+	}
+
+	public void setViewTypeCodes(String viewTypeCodes) {
+		this.viewTypeCodes = viewTypeCodes;
 	}
 
 }

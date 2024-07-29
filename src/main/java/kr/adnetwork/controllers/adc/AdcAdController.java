@@ -672,8 +672,8 @@ public class AdcAdController {
     		AdcAd ad = adcService.getAd((int)id);
     		if (ad != null) {
     			// 승인 처리는 준비(D), 승인대기(P), 거절(J), 보관(V)만 가능
-    			if (ad.getStatus().equals("D") || ad.getStatus().equals("P") || ad.getStatus().equals("J") || 
-    					ad.getStatus().equals("V")) {
+    			// 보관(V)에 대한 승인은 제외(2024/07/27)
+    			if (ad.getStatus().equals("D") || ad.getStatus().equals("P") || ad.getStatus().equals("J")) {
     				
     				String oStatus = ad.getStatus();
     				

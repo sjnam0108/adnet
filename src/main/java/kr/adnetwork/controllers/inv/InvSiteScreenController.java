@@ -1,6 +1,7 @@
 package kr.adnetwork.controllers.inv;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -23,14 +24,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.adnetwork.exceptions.ServerOperationForbiddenException;
 import kr.adnetwork.models.AdnMessageManager;
+import kr.adnetwork.models.CustomComparator;
 import kr.adnetwork.models.DataSourceRequest;
 import kr.adnetwork.models.DataSourceResult;
 import kr.adnetwork.models.Message;
 import kr.adnetwork.models.MessageManager;
 import kr.adnetwork.models.ModelManager;
+import kr.adnetwork.models.fnd.FndViewType;
 import kr.adnetwork.models.inv.InvScreen;
 import kr.adnetwork.models.inv.InvSite;
 import kr.adnetwork.models.knl.KnlMedium;
+import kr.adnetwork.models.service.FndService;
 import kr.adnetwork.models.service.InvService;
 import kr.adnetwork.models.service.KnlService;
 import kr.adnetwork.utils.SolUtil;
@@ -50,7 +54,10 @@ public class InvSiteScreenController {
     @Autowired 
     private InvService invService;
 
-    @Autowired 
+    @Autowired
+    private FndService fndService;
+
+    @Autowired
     private KnlService knlService;
 
     
@@ -118,6 +125,8 @@ public class InvSiteScreenController {
     	
     	model.addAttribute("bizHour", medium.getBizHour());
     	
+		model.addAttribute("ViewTypes", getViewTypeDropDownList(Util.getSessionMediumId(session)));
+    	
     	
         return "inv/site/site-screen";
     }
@@ -164,5 +173,34 @@ public class InvSiteScreenController {
 		//Collections.sort(retList, CustomComparator.DropDownListItemTextComparator);
 		
 		return retList;
+    }
+    
+    
+	/**
+	 * 추가 다운로드 게시 유형 정보 획득
+	 */
+    private List<DropDownListItem> getViewTypeDropDownList(int mediumId) {
+    	
+    	ArrayList<DropDownListItem> retList = new ArrayList<DropDownListItem>();
+    	
+    	
+    	List<FndViewType> viewTypeList = fndService.getViewTypeList();
+    	
+    	List<String> viewTypes = SolUtil.getViewTypeListByMediumId(mediumId);
+    	for(String s : viewTypes) {
+    		String text = "";
+    		for(FndViewType viewType : viewTypeList) {
+    			if (viewType.getCode().equals(s) && !viewType.isAdPackUsed()) {
+    				text = s;
+    				break;
+    			}
+    		}
+    		if (Util.isValid(text)) {
+        		retList.add(new DropDownListItem(text, text));
+    		}
+    	}
+    	Collections.sort(retList, CustomComparator.DropDownListItemTextComparator);
+    	
+    	return retList;
     }
 }

@@ -257,10 +257,10 @@
 	</c:forEach>
 
 					</div>
+				</div>
 
 </c:if>
 
-				</div>
     			<div class="btn-group">
 					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
 						<span class="fa-light fa-lg fa-signs-post"></span>

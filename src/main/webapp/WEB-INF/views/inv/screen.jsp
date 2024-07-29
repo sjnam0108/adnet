@@ -143,8 +143,6 @@
 				template="#=videoAllowed ? \"<span class='fa-light fa-check'>\" : \"\"#" />
 		<kendo:grid-column title="이미지 허용" field="imageAllowed" width="150"
 				template="#=imageAllowed ? \"<span class='fa-light fa-check'>\" : \"\"#" />
-		<kendo:grid-column title="광고서버에 이용" field="adServerAvailable" width="180"
-				template="#=adServerAvailable ? \"<span class='fa-light fa-check'>\" : \"\"#" />
 		<kendo:grid-column title="유효시작일" field="effectiveStartDate" width="150" template="<%= effStartDateTemplate %>" />
 		<kendo:grid-column title="유효종료일" field="effectiveEndDate" width="150" template="<%= effEndDateTemplate %>" />
 		<kendo:grid-column title="최근 동기화" field="apiSyncDate" width="150" template="<%= apiSyncDateTemplate %>" />
@@ -152,6 +150,8 @@
 		<kendo:grid-column title="재생시간(초)" field="defaultDurSecs" width="150" />
 		<kendo:grid-column title="범위 재생시간 허용" field="rangeDurAllowed" width="180"
 				template="#=rangeDurAllowed ? \"<span class='fa-light fa-check'>\" : \"\"#" />
+		<kendo:grid-column title="추가게시유형" field="viewTypes" width="120" filterable="false" sortable="false"
+				template="#= viewTypeCodes.replace('|', ', ') #"  />
 	</kendo:grid-columns>
 	<kendo:grid-filterable>
 		<kendo:grid-filterable-messages selectedItemsFormat="{0} 항목 선택됨"/>
@@ -187,7 +187,6 @@
 					<kendo:dataSource-schema-model-field name="rangeDurAllowed" type="boolean" />
 					<kendo:dataSource-schema-model-field name="videoAllowed" type="boolean" />
 					<kendo:dataSource-schema-model-field name="imageAllowed" type="boolean" />
-					<kendo:dataSource-schema-model-field name="adServerAvailable" type="boolean" />
 				</kendo:dataSource-schema-model-fields>
 			</kendo:dataSource-schema-model>
 		</kendo:dataSource-schema>
@@ -410,8 +409,8 @@ $(document).ready(function() {
 						<label class="form-label">
 							개별설정 적용
 						</label>
-						<span data-toggle="tooltip" data-placement="right" title="매체의 설정과 다른 값을 적용할 경우 활성화 하십시오.">
-							<span class="fa-regular fa-circle-info text-info"></span>
+						<span class="adnet-default-tooltip" data-tooltip="매체의 설정과 다른 값을 적용할 경우 활성화 하십시오.">
+							<span class="fa-light fa-circle-info text-info"></span>
 						</span>
 						<div class="pt-1">
 							<label class="switcher switcher-lg">
@@ -485,22 +484,16 @@ $(document).ready(function() {
 				<div class="form-row">
 					<div class="form-group col-4">
 						<label class="form-label">
-							화면 이용 범위
+							추가 다운로드
 						</label>
-						<div class="pt-1">
-							<label class="switcher switcher-lg mr-0">
-								<input type="checkbox" class="switcher-input" name="adServerAvailable" checked>
-								<span class="switcher-indicator">
-									<span class="switcher-yes">
-										<span class="fa-solid fa-check"></span>
-									</span>
-									<span class="switcher-no">
-										<span class="fa-solid fa-xmark"></span>
-									</span>
-								</span>
-							</label>
-							<span class="switcher-label">광고 서버</span>
-						</div>
+						<span class="adnet-default-tooltip" data-tooltip="추가적으로 다운로드되어야 하는 게시 유형을 선택하십시오.">
+							<span class="fa-light fa-circle-info text-info"></span>
+						</span>
+						<select name="viewTypes" class="selectpicker bg-white" data-style="btn-default" data-none-selected-text="" data-size="7" multiple>
+<c:forEach var="item" items="${ViewTypes}">
+							<option value="${item.value}">${item.text}</option>
+</c:forEach>
+						</select>
 					</div>
 					<div class="form-group col-4">
 						<label class="form-label">
@@ -942,6 +935,9 @@ function initForm1(subtitle) {
 	$("#form-1 select[name='resolution']").selectpicker('render');
 	$("#form-1 select[name='venueType']").selectpicker('render');
 	
+	$("#form-1 select[name='viewTypes']").selectpicker('render');
+	bootstrapSelectVal($("#form-1 select[name='viewTypes']"), "");
+
 	$("#form-1 input[name='effectiveStartDate']").kendoDatePicker({
 		format: "yyyy-MM-dd",
 		parseFormats: [
@@ -1194,7 +1190,9 @@ function saveForm1() {
         		rangeDurAllowed: $("#form-1 input[name='rangeDurAllowed']").is(':checked'),
         		minDurSecs: Number($("#form-1 input[name='minDurSecs']").val()),
         		maxDurSecs: Number($("#form-1 input[name='maxDurSecs']").val()),
-        		adServerAvailable: $("#form-1 input[name='adServerAvailable']").is(':checked'),
+    			viewTypes: $("#form-1 select[name='viewTypes']").val(),
+        		//adServerAvailable: $("#form-1 input[name='adServerAvailable']").is(':checked'),
+        		adServerAvailable: true,
         		videoAllowed: $("#form-1 input[name='videoAllowed']").is(':checked'),
         		imageAllowed: $("#form-1 input[name='imageAllowed']").is(':checked'),
         		memo: $.trim($("#form-1 textarea[name='memo']").val()),
@@ -1246,7 +1244,7 @@ function edit(id) {
 	
 	$("#form-1 input[name='activeStatus']").prop("checked", dataItem.activeStatus);
 	
-	$("#form-1 input[name='adServerAvailable']").prop("checked", dataItem.adServerAvailable);
+	//$("#form-1 input[name='adServerAvailable']").prop("checked", dataItem.adServerAvailable);
 	
 	$("#form-1 input[name='videoAllowed']").prop("checked", dataItem.videoAllowed);
 	$("#form-1 input[name='imageAllowed']").prop("checked", dataItem.imageAllowed);
@@ -1256,6 +1254,10 @@ function edit(id) {
 
 	$("#form-1 input[name='effectiveStartDate']").data("kendoDatePicker").value(dataItem.effectiveStartDate);
 	$("#form-1 input[name='effectiveEndDate']").data("kendoDatePicker").value(dataItem.effectiveEndDate);
+
+	// 추가 다운로드 게시유형 값에 대해 select 에 맞추어 변경
+	var viewTypes = "[ \"" + dataItem.viewTypeCodes.replaceAll("|", "\", \"") + "\" ]";
+	bootstrapSelectVal($("#form-1 select[name='viewTypes']"), eval(viewTypes));
 
 	$("#form-1 textarea[name='memo']").text(dataItem.memo);
 	
