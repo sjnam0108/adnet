@@ -156,7 +156,7 @@ public class OrgChannelDaoImpl implements OrgChannelDao {
 		//		FROM org_channels c, org_chan_subs cs
 		//      WHERE c.channel_id = cs.channel_id
 		//      AND cs.type = :type AND cs.obj_id = :objId
-		//      ORDER BY c.priority
+		//      ORDER BY c.priority, c.short_name
 		//
 		String sql = "SELECT c.channel_id, c.name, c.active_status, c.view_type_code, " +
 					"c.priority, c.short_name " +

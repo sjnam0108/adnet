@@ -22,7 +22,6 @@ import kr.adnetwork.models.adc.AdcCreatFile;
 import kr.adnetwork.models.inv.InvRTScreen;
 import kr.adnetwork.models.inv.InvScreen;
 import kr.adnetwork.models.inv.InvSyncPackItem;
-import kr.adnetwork.models.service.FndService;
 import kr.adnetwork.models.service.InvService;
 import kr.adnetwork.utils.SolUtil;
 import kr.adnetwork.utils.Util;
@@ -49,10 +48,7 @@ public class FileController {
 	
     @Autowired 
     private InvService invService;
-
-    @Autowired
-    private FndService fndService;
-
+	
     
     /**
 	 * 광고 파일 목록 API
@@ -303,109 +299,104 @@ public class FileController {
 				//
 				ArrayList<AdcCreatFile> vtList = new ArrayList<AdcCreatFile>();
 				
+				key = GlobalInfo.FileCandiCreatFileVerKey.get("VTS" + screen.getMedium().getId() + "R" + screen.getResolution());
+	    		if (Util.isValid(key)) {
+	    			vtList = GlobalInfo.FileCandiCreatFileMap.get(key);
+	    		}
+				
 	    		// 현재 화면에 설정된 추가 다운로드 대상의 게시유형
 	    		List<String> downViewCodes = Util.tokenizeValidStr(screen.getViewTypeCodes());
 	    		if (downViewCodes.size() > 0) {
-	    			for(String viewCode : downViewCodes) {
-	    				
-	    				key = GlobalInfo.FileCandiCreatFileVerKey.get("VTS" + screen.getMedium().getId() + "R" + fndService.getViewTypeResoByCode(viewCode));
-	    	    		if (Util.isValid(key)) {
-	    	    			vtList = GlobalInfo.FileCandiCreatFileMap.get(key);
-	    	    		}
 
-						for(AdcCreatFile creatFile : vtList) {
-							
-							if (Util.isNotValid(creatFile.getCreative().getViewTypeCode())) {
+					for(AdcCreatFile creatFile : vtList) {
+						
+						if (Util.isNotValid(creatFile.getCreative().getViewTypeCode())) {
+							continue;
+						}
+						
+						if (!downViewCodes.contains(creatFile.getCreative().getViewTypeCode())) {
+							continue;
+						}
+						
+						
+						// 동기화 화면 묶음의 구성원이 아니기 때문에 의미없음
+						// (묶음 광고 && 게시 유형일 경우 해당 레인 광고로 제한 확인)
+						
+						// 인벤 타겟팅 확인
+						//
+						//   key가 없다는 것은 해당 소재 타겟팅이 없음을 의미
+						//   list.size() > 0: 타겟팅에 포함되는 화면 수(꼭 현재 화면이 포함된다는 보장 없음)
+						//   list.size() == 0: 타겟팅은 되었으나, 그 대상 화면 수가 0
+						//
+						key = GlobalInfo.TgtScreenIdVerKey.get("C" + creatFile.getCreative().getId());
+						if (Util.isValid(key)) {
+							List<Integer> idList = GlobalInfo.TgtScreenIdMap.get(key);
+							if (!idList.contains(screen.getId())) {
 								continue;
 							}
-							
-							if (!downViewCodes.contains(creatFile.getCreative().getViewTypeCode())) {
-								continue;
-							}
-							
-							
-							// 동기화 화면 묶음의 구성원이 아니기 때문에 의미없음
-							// (묶음 광고 && 게시 유형일 경우 해당 레인 광고로 제한 확인)
-							
-							// 인벤 타겟팅 확인
-							//
-							//   key가 없다는 것은 해당 소재 타겟팅이 없음을 의미
-							//   list.size() > 0: 타겟팅에 포함되는 화면 수(꼭 현재 화면이 포함된다는 보장 없음)
-							//   list.size() == 0: 타겟팅은 되었으나, 그 대상 화면 수가 0
-							//
-							key = GlobalInfo.TgtScreenIdVerKey.get("C" + creatFile.getCreative().getId());
-							if (Util.isValid(key)) {
-								List<Integer> idList = GlobalInfo.TgtScreenIdMap.get(key);
-								if (!idList.contains(screen.getId())) {
+						} else {
+							// 소재에 대한 인벤 타겟팅이 없으므로 "통과!!"
+						}
+						
+						
+						// 광고 소재 시간 타겟팅 확인
+						//
+						//   시간 타겟팅은 기반이 시간인데, 파일 API는 일자 기반이기 때문에 타겟팅 확인치 않고 모두 포함
+						//
+						
+
+						//
+						// creatFile 자료는 매체 전체에서 동일한 값으로 존재해야 하는 만큼 화면마다 달라질 수 있는 값 설정은
+						// 잘못된 결과를 얻을 수 있게 된다. 광고의 재생시간 직접 지정은 ok. 화면의 기본 재생 시간 지정은 no.
+						//
+						// -> creatFile로부터 별도의 모델 클래스를 생성한 후, fileObject 생성하도록 변경
+						//
+						AdcJsonFileObject jsonFileObject = new AdcJsonFileObject(creatFile);
+						
+						
+						// 광고의 노출 시간
+						//   1) 광고 설정값(5초 이상인 경우): 이미지 유형 포함 -> 광고 소재에서는 해당되지 않음
+						//   2) 재생 시간 미설정(이미지 유형)이라면, 화면의 기본 재생 시간, 매체의 기본 재생 시간 순으로 설정
+						//   3) 광고 소재의 재생 시간
+						int adDurMillis = 0;
+						if (creatFile.getMediaType().equals("I")) {
+							adDurMillis = (screen.isDurationOverridden() ?
+									screen.getDefaultDurSecs().intValue() : screen.getMedium().getDefaultDurSecs()) * 1000;
+						} else {
+							adDurMillis = creatFile.getSrcDurSecs() > 5 ? (int) Math.round(creatFile.getSrcDurSecs() * 1000) : 5000;
+						}
+						
+						if (adDurMillis < 5000) {
+							continue;
+						} else {
+							int adDurSecs = (int)Math.round(adDurMillis / 1000);
+							if (screen.isDurationOverridden()) {
+								if (screen.getRangeDurAllowed() == true) {
+									if (screen.getMinDurSecs().intValue() <= adDurSecs && adDurSecs <= screen.getMaxDurSecs().intValue()) {
+										// go ahead
+									} else {
+										continue;
+									}
+								} else if (screen.getDefaultDurSecs().intValue() != adDurSecs) {
 									continue;
 								}
 							} else {
-								// 소재에 대한 인벤 타겟팅이 없으므로 "통과!!"
-							}
-							
-							
-							// 광고 소재 시간 타겟팅 확인
-							//
-							//   시간 타겟팅은 기반이 시간인데, 파일 API는 일자 기반이기 때문에 타겟팅 확인치 않고 모두 포함
-							//
-							
-
-							//
-							// creatFile 자료는 매체 전체에서 동일한 값으로 존재해야 하는 만큼 화면마다 달라질 수 있는 값 설정은
-							// 잘못된 결과를 얻을 수 있게 된다. 광고의 재생시간 직접 지정은 ok. 화면의 기본 재생 시간 지정은 no.
-							//
-							// -> creatFile로부터 별도의 모델 클래스를 생성한 후, fileObject 생성하도록 변경
-							//
-							AdcJsonFileObject jsonFileObject = new AdcJsonFileObject(creatFile);
-							
-							
-							// 광고의 노출 시간
-							//   1) 광고 설정값(5초 이상인 경우): 이미지 유형 포함 -> 광고 소재에서는 해당되지 않음
-							//   2) 재생 시간 미설정(이미지 유형)이라면, 화면의 기본 재생 시간, 매체의 기본 재생 시간 순으로 설정
-							//   3) 광고 소재의 재생 시간
-							int adDurMillis = 0;
-							if (creatFile.getMediaType().equals("I")) {
-								adDurMillis = (screen.isDurationOverridden() ?
-										screen.getDefaultDurSecs().intValue() : screen.getMedium().getDefaultDurSecs()) * 1000;
-							} else {
-								adDurMillis = creatFile.getSrcDurSecs() > 5 ? (int) Math.round(creatFile.getSrcDurSecs() * 1000) : 5000;
-							}
-							
-							if (adDurMillis < 5000) {
-								continue;
-							} else {
-								int adDurSecs = (int)Math.round(adDurMillis / 1000);
-								if (screen.isDurationOverridden()) {
-									if (screen.getRangeDurAllowed() == true) {
-										if (screen.getMinDurSecs().intValue() <= adDurSecs && adDurSecs <= screen.getMaxDurSecs().intValue()) {
-											// go ahead
-										} else {
-											continue;
-										}
-									} else if (screen.getDefaultDurSecs().intValue() != adDurSecs) {
+								if (screen.getMedium().isRangeDurAllowed()) {
+									if (screen.getMedium().getMinDurSecs() <= adDurSecs && adDurSecs <= screen.getMedium().getMaxDurSecs()) {
+										// go ahead
+									} else {
 										continue;
 									}
-								} else {
-									if (screen.getMedium().isRangeDurAllowed()) {
-										if (screen.getMedium().getMinDurSecs() <= adDurSecs && adDurSecs <= screen.getMedium().getMaxDurSecs()) {
-											// go ahead
-										} else {
-											continue;
-										}
-									} else if (screen.getMedium().getDefaultDurSecs() != adDurSecs) {
-										continue;
-									}
+								} else if (screen.getMedium().getDefaultDurSecs() != adDurSecs) {
+									continue;
 								}
 							}
-							
-							jsonFileObject.setDurMillis(adDurMillis);
-							
-							files.add(getFileObject(jsonFileObject, creatFile.getCreative().getViewTypeCode()));
 						}
-	    			}
-	    		}
-				
-	    		if (downViewCodes.size() > 0) {
+						
+						jsonFileObject.setDurMillis(adDurMillis);
+						
+						files.add(getFileObject(jsonFileObject, creatFile.getCreative().getViewTypeCode()));
+					}
 	    		}
 				
 				// - 동기화 화면 묶음의 구성원 아님

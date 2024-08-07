@@ -4065,8 +4065,13 @@ public class SolUtil {
 			
 			if (activeStatus) {
 				if (type.equals("P")) {
+					// "동기화 화면 묶음"의 경우
 					return channelId;
 				} else if (type.equals("S")) {
+					// "화면"의 경우
+					// 1. 채널의 게시유형과 일치할 경우만 전달
+					// 2. 채널에 게시유형이 없는데, 임의의 게시유형이 전달된다거나,
+					//    채널에 게시유형이 있는데, 일치하는 게시유형이 전달되지 못한 경우는 올바른 채널을 받지 못함
 					if (Util.isNotValid(viewTypeCode) && Util.isNotValid(chanViewTypeCode)) {
 						// 둘다 지정안됨
 						return channelId;

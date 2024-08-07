@@ -133,7 +133,7 @@ public class UpdateController {
 	    	try {
 	    		
 	    		//
-	    		// ver 예: lite_2.1.5 or sync_1.0.2_QB2 or lite.egs_2.1.67
+	    		// ver 예: lite_2.1.5 or sync_1.0.2_QB2 or lite.egs_2.1.67 or keep.qb2_2.0.10
 	    		//
 	    		List<String> tokens = Util.tokenizeValidStr(ver, "_");
 	    		if (tokens.size() == 2 || tokens.size() == 3) {
@@ -142,8 +142,8 @@ public class UpdateController {
 	    				plat = tokens.get(2);
 	    			}
 	    			
-	    			if (prodKeyword.equals("lite") || prodKeyword.equals("sync") || 
-	    					prodKeyword.startsWith("lite.") || prodKeyword.startsWith("sync.")) {
+	    			if (prodKeyword.equals("lite") || prodKeyword.equals("sync") ||
+	    					prodKeyword.startsWith("lite.") || prodKeyword.startsWith("sync.") || prodKeyword.startsWith("keep.")) {
 	    				
 	    				List<String> strs = Util.tokenizeValidStr(tokens.get(1), ".");
 	    				if (strs.size() == 3) {
