@@ -105,10 +105,6 @@
 							<input type="checkbox" class="custom-control-input" name="scopeMedium" >
 							<span class="custom-control-label">매체 관리</span>
 						</label>
-						<label class="custom-control custom-checkbox custom-control-inline">
-							<input type="checkbox" class="custom-control-input" name="scopeAd" >
-							<span class="custom-control-label">광고 제공</span>
-						</label>
 					</div>
 				</div>
 			</div>
@@ -268,7 +264,6 @@ $(document).ready(function() {
         	if (!url) {
         		$("#propForm input[name='scopeKernel']").prop("checked", false);
         		$("#propForm input[name='scopeMedium']").prop("checked", false);
-        		$("#propForm input[name='scopeAd']").prop("checked", false);
         	}
         	
         	var data = {
@@ -278,7 +273,6 @@ $(document).ready(function() {
         			icon: $("#propForm input[name='icon']").val(),
         			scopeKernel: $("#propForm input[name='scopeKernel']").is(":checked"),
         			scopeMedium: $("#propForm input[name='scopeMedium']").is(":checked"),
-        			scopeAd: $("#propForm input[name='scopeAd']").is(":checked"),
         			oper: $("#oper").val(),
         	};
         	
@@ -380,7 +374,6 @@ $(document).ready(function() {
 		
 		$("#propForm input[name='scopeKernel']").prop('disabled', false);
 		$("#propForm input[name='scopeMedium']").prop('disabled', false);
-		$("#propForm input[name='scopeAd']").prop('disabled', false);
 			
 		$("#unlock-btn").hide();
 		$("#save-btn").show();
@@ -407,7 +400,6 @@ function add() {
 	$("#propForm input[name='icon']").val("");
 	$("#propForm input[name='scopeKernel']").prop("checked", false);
 	$("#propForm input[name='scopeMedium']").prop("checked", false);
-	$("#propForm input[name='scopeAd']").prop("checked", false);
 
 	$("#oper").val("Add");
 		
@@ -417,7 +409,6 @@ function add() {
 	
 	$("#propForm input[name='scopeKernel']").prop('disabled', false);
 	$("#propForm input[name='scopeMedium']").prop('disabled', false);
-	$("#propForm input[name='scopeAd']").prop('disabled', false);
 
 	$("#unlock-btn").hide();
 	$("#save-btn").show();
@@ -441,14 +432,12 @@ function selectNode(node) {
 
 	$("#propForm input[name='scopeKernel']").prop('disabled', true);
 	$("#propForm input[name='scopeMedium']").prop('disabled', true);
-	$("#propForm input[name='scopeAd']").prop('disabled', true);
 	
 	$("#propForm input[name='ukid']").val(dataItem["custom1"]);
 	$("#propForm input[name='url']").val(dataItem["custom2"]);
 	$("#propForm input[name='icon']").val(dataItem["custom3"]);
 	$("#propForm input[name='scopeKernel']").prop("checked", dataItem["custom5"] == "Y");
 	$("#propForm input[name='scopeMedium']").prop("checked", dataItem["custom6"] == "Y");
-	$("#propForm input[name='scopeAd']").prop("checked", dataItem["custom7"] == "Y");
 	
 	$("#id").val(dataItem["id"]);
 	$("#oper").val("Update");

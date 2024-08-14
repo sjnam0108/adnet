@@ -44,10 +44,6 @@ public class KnlAccount {
 	@Column(name = "SCOPE_MEDIUM", nullable = false)
 	private boolean scopeMedium; 
 
-	// 광고 제공
-	@Column(name = "SCOPE_AD", nullable = false)
-	private boolean scopeAd; 
-
 	
 	// 유효시작일
 	@Column(name = "EFFECTIVE_START_DATE", nullable = false)
@@ -210,14 +206,6 @@ public class KnlAccount {
 
 	public void setScopeMedium(boolean scopeMedium) {
 		this.scopeMedium = scopeMedium;
-	}
-
-	public boolean isScopeAd() {
-		return scopeAd;
-	}
-
-	public void setScopeAd(boolean scopeAd) {
-		this.scopeAd = scopeAd;
 	}
 
 	public String getDestMedia() {

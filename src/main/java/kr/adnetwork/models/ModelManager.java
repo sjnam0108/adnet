@@ -398,14 +398,12 @@ public class ModelManager {
     			KnlUser user = knlService.getUser(loginUser.getId());
     			boolean scopeKernel = user.getAccount().isScopeKernel();
     			boolean scopeMedium = user.getAccount().isScopeMedium();
-    			boolean scopeAd = user.getAccount().isScopeAd();
 
     			for (KnlMenu menu : menuList) {
     				if (Util.isNotValid(menu.getUrl())) {
     					continue;
     				}
-    				if ((menu.isScopeKernelAvailable() && scopeKernel) || (menu.isScopeMediumAvailable() && scopeMedium) 
-    						|| (menu.isScopeAdAvailable() && scopeAd)) {
+    				if ((menu.isScopeKernelAvailable() && scopeKernel) || (menu.isScopeMediumAvailable() && scopeMedium)) {
     					if (!allowedMenuKeys.contains(menu.getUkid())) {
     						
     		    			// 사용자의 역할에 따른 페이지 제한
@@ -469,7 +467,6 @@ public class ModelManager {
     		item.setCustom2(menu.getUrl());
     		item.setCustom5(menu.isScopeKernelAvailable() ? "Y" : "N");
     		item.setCustom6(menu.isScopeMediumAvailable() ? "Y" : "N");
-    		item.setCustom7(menu.isScopeAdAvailable() ? "Y" : "N");
     		item.setChildrenCount(menu.getSubMenus().size());
     		
     		item.setIcon(getIconName(menu.getIconType()));

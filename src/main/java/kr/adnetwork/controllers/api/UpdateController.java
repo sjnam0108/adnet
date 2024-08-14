@@ -130,20 +130,24 @@ public class UpdateController {
     		String plat = "";
     		int verNumber = 0;
     		
+    		String hash = "";
+    		long fileLength = 0l;
+    		
 	    	try {
 	    		
 	    		//
 	    		// ver 예: lite_2.1.5 or sync_1.0.2_QB2 or lite.egs_2.1.67 or keep.qb2_2.0.10
 	    		//
 	    		List<String> tokens = Util.tokenizeValidStr(ver, "_");
-	    		if (tokens.size() == 2 || tokens.size() == 3) {
+	    		if (tokens.size() == 2) {
 	    			prodKeyword = tokens.get(0);
-	    			if (tokens.size() == 3) {
-	    				plat = tokens.get(2);
+	    			List<String> prods = Util.tokenizeValidStr(prodKeyword, ".");
+	    			if (prods.size() == 2) {
+	    				prodKeyword = prods.get(0);
+	    				plat = prods.get(1);
 	    			}
 	    			
-	    			if (prodKeyword.equals("lite") || prodKeyword.equals("sync") ||
-	    					prodKeyword.startsWith("lite.") || prodKeyword.startsWith("sync.") || prodKeyword.startsWith("keep.")) {
+	    			if (prodKeyword.equals("lite") || prodKeyword.equals("sync") || prodKeyword.equals("keep")) {
 	    				
 	    				List<String> strs = Util.tokenizeValidStr(tokens.get(1), ".");
 	    				if (strs.size() == 3) {
@@ -162,6 +166,8 @@ public class UpdateController {
 	    			FndSetupFile setupFile = fndService.getLastVerSetupFile(prodKeyword, verNumber, plat);
 	    			if (setupFile != null) {
 	    				url = setupFile.getHttpFilename();
+	    				fileLength = setupFile.getFileLength();
+	    				hash = setupFile.getHash();
 	    			}
 	    		}
 			
@@ -171,6 +177,8 @@ public class UpdateController {
     		
     		
     		obj.put("url", url);
+    		obj.put("file_size", fileLength);
+    		obj.put("hash", hash);
     	}
 		
 		Util.toJson(response, obj);

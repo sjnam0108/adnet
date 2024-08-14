@@ -106,7 +106,10 @@ public class KnlMenuController {
     		
     		item.setCustom5(menu.isScopeKernelAvailable() ? "Y" : "N");
     		item.setCustom6(menu.isScopeMediumAvailable() ? "Y" : "N");
-    		item.setCustom7(menu.isScopeAdAvailable() ? "Y" : "N");
+    		
+    		// 7번을 비움(TBD)
+    		item.setCustom7("");
+    		
     		item.setChildrenCount(menu.getSubMenus().size());
     		
     		list.add(item);
@@ -157,13 +160,12 @@ public class KnlMenuController {
         		target.setIconType(iconType);
         		target.setScopeKernelAvailable(form.isScopeKernel());
         		target.setScopeMediumAvailable(form.isScopeMedium());
-        		target.setScopeAdAvailable(form.isScopeAd());
         		
         		target.touchWho(session);
             	
         		knlService.saveAndReorderMenu(target, target, session);
         	} else {
-        		target = new KnlMenu(ukid, url, iconType, 1000, form.isScopeKernel(), form.isScopeMedium(), form.isScopeAd(), session);
+        		target = new KnlMenu(ukid, url, iconType, 1000, form.isScopeKernel(), form.isScopeMedium(), session);
         		
         		KnlMenu parent = knlService.getMenu(id);
         		
@@ -194,7 +196,7 @@ public class KnlMenuController {
 		item.setCustom4("");
 		item.setCustom5(target.isScopeKernelAvailable() ? "Y" : "N");
 		item.setCustom6(target.isScopeMediumAvailable() ? "Y" : "N");
-		item.setCustom7(target.isScopeAdAvailable() ? "Y" : "N");
+		item.setCustom7("");
 		item.setChildrenCount(target.getSubMenus().size());
     	
     	return item;

@@ -1,5 +1,6 @@
 package kr.adnetwork.controllers.api;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,8 @@ import kr.adnetwork.models.sys.SysOpt;
 import kr.adnetwork.utils.SolUtil;
 import kr.adnetwork.utils.Util;
 import kr.adnetwork.viewmodels.knl.KnlMediumCompactItem;
+import kr.adnetwork.viewmodels.rev.RevObjEventTimeItem;
+import kr.adnetwork.viewmodels.rev.RevScrWorkTimeItem;
 import net.sf.json.JSONObject;
 
 /**
@@ -56,6 +59,8 @@ public class InfoController {
     	String displayID = Util.parseString(pathMap.get("displayID"));
     
     	String apiKey = Util.parseString(paramMap.get("apikey"));
+    	String test = Util.parseString(paramMap.get("test"));
+    	boolean testMode = Util.isValid(test) && test.toLowerCase().equals("y");
     	
     	
     	int statusCode = 0;
@@ -106,8 +111,9 @@ public class InfoController {
     		}
 
     		// rcvController에서 버전 전송 시 자동으로 처리되기 때문에 여기서는 사용 안함
-    		/*
-    		// 화면만 확정되면 바로 요청일시 저장
+    		// 아래와 같이 변경됨
+    		// rcvController인 경우 무선 접근 시 정상 호출을 하지 못하는 상황이 발생되고 있어,
+    		//   여기에서도 함께 저장함
     		if (!testMode) {
 
     	    	Date now = new Date();
@@ -118,7 +124,6 @@ public class InfoController {
         		// 상태 라인 처리 위해 공용리스트에 추가
         		GlobalInfo.ScrWorkTimeItemList.add(new RevScrWorkTimeItem(screen.getId(), now));
     		}
-    		*/
     	}
     	
 		obj.put("code", statusCode);

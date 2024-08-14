@@ -175,3 +175,62 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).ready(function() {
+    setTimeout(function() {
+        var tooltipElements = $(".adnet-default-tooltip");
+
+        tooltipElements.each(function(index) {
+            // 각 요소에 고유한 아이디 부여 및 개별 툴팁 생성
+            var uniqueId = 'tooltip-' + index;
+            var arrowId = uniqueId + '-arrow';
+            $(this).attr('data-tooltip-id', uniqueId);
+
+            const tooltipText = $(this).attr('data-tooltip');
+            if (!tooltipText) return;
+
+            // 툴팁 div 생성 및 설정
+            let tooltipElement = document.createElement('div');
+            tooltipElement.id = uniqueId;
+            tooltipElement.className = 'tooltip';
+            tooltipElement.innerHTML = tooltipText;
+
+            // 화살표 역할을 하는 div 생성 및 설정
+            let tooltipAfterElement = document.createElement('div');
+            tooltipAfterElement.id = arrowId;
+            tooltipAfterElement.className = 'tooltip-arrow';
+
+            // 툴팁과 화살표 요소를 body에 추가
+            document.body.appendChild(tooltipElement);
+            document.body.appendChild(tooltipAfterElement);
+
+            const rect = this.getBoundingClientRect();
+            const tooltipRect = tooltipElement.getBoundingClientRect();
+
+            // 툴팁 위치 설정
+            tooltipElement.style.position = 'absolute';
+            tooltipElement.style.top = `${rect.top - (tooltipRect.height + 10)}px`;
+            tooltipElement.style.left = `${rect.left + (rect.width / 2) - (tooltipRect.width / 2)}px`;
+
+            // 화살표 위치 설정
+            tooltipAfterElement.style.top = `${rect.top - (tooltipAfterElement.getBoundingClientRect().height)}px`;
+            tooltipAfterElement.style.left = `${rect.left + (rect.width / 2)}px`;
+
+            // 초기 상태에서는 show 클래스 없이 생성
+            tooltipElement.classList.remove('show');
+
+            // 이벤트 리스너 등록
+            $(this).on('mouseenter', function(e) {
+                e.stopPropagation();
+                $('#' + uniqueId).addClass('show');
+                $('#' + arrowId).addClass('show');
+            });
+
+            $(this).on('mouseleave', function(e) {
+                e.stopPropagation();
+                $('#' + uniqueId).removeClass('show');
+                $('#' + arrowId).removeClass('show');
+            });
+        });
+    }, 500); // 1초 후 실행
+});

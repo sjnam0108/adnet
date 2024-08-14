@@ -764,6 +764,9 @@ function refreshSyncPackStat() {
 						<a class="dropdown-item" href="javascript:void(0)" id="cmd-log-btn">
 							<i class="fa-light fa-file-lines fa-fw"></i><span class="pl-2">로그 업로드</span>
 						</a>
+						<a class="dropdown-item" href="javascript:void(0)" id="cmd-keeper-btn">
+							<i class="fa-light fa-eyes fa-fw"></i><span class="pl-2">키퍼 업데이트</span>
+						</a>
 						<a class="dropdown-item" href="javascript:void(0)" id="cmd-update-btn">
 							<i class="fa-light fa-sparkles fa-fw"></i><span class="pl-2">플레이어 업데이트</span>
 						</a>
@@ -945,6 +948,12 @@ $(document).ready(function() {
 		requestCommandAction("Update");
 	});
 
+	$("#cmd-keeper-btn").click(function(e) {
+		e.preventDefault();
+
+		requestCommandAction("Keeper");
+	});
+
 	$("#cmd-restart-btn").click(function(e) {
 		e.preventDefault();
 		
@@ -1040,6 +1049,8 @@ function getFriendlyCmdName(cmd) {
 			return "플레이어 재시작";
 		} else if (cmd == "Log") {
 			return "로그 업로드";
+		} else if (cmd == "Keeper") {
+			return "키퍼 업데이트";
 		}
 	}
 	

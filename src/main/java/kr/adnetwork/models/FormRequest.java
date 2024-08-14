@@ -10,7 +10,6 @@ public class FormRequest {
 	private String icon;
 	private boolean scopeKernel;
 	private boolean scopeMedium;
-	private boolean scopeAd;
 	
 	// for Password Update
 	private String currentPassword;
@@ -97,13 +96,5 @@ public class FormRequest {
 
 	public void setScopeMedium(boolean scopeMedium) {
 		this.scopeMedium = scopeMedium;
-	}
-
-	public boolean isScopeAd() {
-		return scopeAd;
-	}
-
-	public void setScopeAd(boolean scopeAd) {
-		this.scopeAd = scopeAd;
 	}
 }

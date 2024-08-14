@@ -23,7 +23,7 @@
 
 <!-- Opening tags -->
 
-<common:mediumPageOpening />
+<common:pageOpening />
 
 
 <!-- Page title -->

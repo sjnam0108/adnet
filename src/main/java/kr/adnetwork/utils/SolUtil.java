@@ -341,14 +341,11 @@ public class SolUtil {
 			
 			// 연결된 계정의 관리 영역 확인
 			//   - "커널 관리 가능" -> 유효한 모든 광고 제공 계정
-			//   - "광고 제공 가능" -> 연결된 현재 계정만
 			if (user.getAccount().isScopeKernel()) {
 				List<KnlAccount> accountList = sKnlService.getValidAccountList();
 				for(KnlAccount account : accountList) {
 					list.add(new KnlAccountItem(account.getId(), account.getName()));
 				}
-			} else if (user.getAccount().isScopeAd()) {
-				list.add(new KnlAccountItem(user.getAccount().getId(), user.getAccount().getName()));
 			}
 			
 			if (list.size() > 0) {

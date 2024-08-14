@@ -49,6 +49,7 @@
 <script src="/resources/vendor/lib/smartwizard/smartwizard.js"></script>
 <script src="/resources/vendor/lib/autosize/autosize.js"></script>
 <script src="/resources/vendor/lib/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+<script src="/resources/vendor/lib/clipboard/clipboard.js"></script>
 
 
 <!-- Java(optional)  -->
@@ -59,8 +60,16 @@
 				"<button type='button' onclick='edit(#= id #)' class='btn icon-btn btn-sm btn-outline-success borderless'>" + 
 				"<span class='fa-solid fa-pencil-alt'></span></button>" +
 				"<span class='pl-1'></span>" +
-				"<button type='button' onclick='download(#= id #)' class='btn icon-btn btn-sm btn-outline-secondary borderless'>" + 
-				"<span class='fa-solid fa-download'></span></button>" +
+				"<span class='adnet-default-tooltip' data-tooltip='파일 다운로드'>" +
+					"<button type='button' onclick='download(#= id #)' class='btn icon-btn btn-sm btn-outline-secondary borderless'>" +
+					"<span class='fa-solid fa-download'></span></button>" +
+				"</span>" +
+				"<span class='pl-1'></span>" +
+				"<span class='adnet-default-tooltip' data-tooltip='웹링크를 클립보드로 복사'>" +
+					"<button type='button' onclick='copyToClipboard(#= id #)' class='btn icon-btn btn-sm btn-outline-secondary borderless clipboard-btn' " +
+						" data-clipboard-action='copy' data-clipboard-text='#= httpFilename #'>" +
+					"<span class='fa-solid fa-copy'></span></button>" +
+				"</span>" +
 			"</div>";
 			
 	String noRecordsTemplate =
@@ -99,12 +108,12 @@
 
    	<kendo:grid-noRecords template="<%= noRecordsTemplate %>" />
 	<kendo:grid-columns>
-		<kendo:grid-column title="수정..." width="80" filterable="false" sortable="false" template="<%= editTemplate %>" />
-		<kendo:grid-column title="제품" field="prodKeyword" width="100" filterable="false" sortable="false" />
-		<kendo:grid-column title="버전" field="version" width="100" filterable="false" sortable="false" />
+		<kendo:grid-column title="수정..." width="100" filterable="false" sortable="false" template="<%= editTemplate %>" />
+		<kendo:grid-column title="제품" field="prodKeyword" width="100" filterable="false" sortable="false" sticky="true" />
+		<kendo:grid-column title="버전" field="version" width="100" filterable="false" sortable="false" sticky="true" />
+		<kendo:grid-column title="분기" field="platKeyword" width="100" filterable="false" sortable="false" />
 		<kendo:grid-column title="파일명" field="filename" width="300" />
 		<kendo:grid-column title="파일크기" field="fileLength" width="100" filterable="false" template="<%= lengthTemplate %>" />
-		<kendo:grid-column title="플랫폼" field="platKeyword" width="100" filterable="false" sortable="false" />
 		<kendo:grid-column title="대분류" field="majorCat" width="150" filterable="false" sortable="false" />
 		<kendo:grid-column title="서비스중" field="activeStatus" width="100"
 				template="#= activeStatus ? \"<span class='fa-light fa-check'>\" : \"\"#" />
@@ -293,9 +302,9 @@ $(document).ready(function() {
 									</div>
 									<div class="col-sm-4">
 										<label class="form-label">
-											버전
+											분기
 										</label>
-										<input name="version" type="text" class="form-control" readonly="readonly">
+										<input name="platKeyword" type="text" class="form-control" readonly="readonly">
 									</div>
 								</div>
 								<div class="form-row mb-3">
@@ -307,9 +316,9 @@ $(document).ready(function() {
 									</div>
 									<div class="col-sm-4">
 										<label class="form-label">
-											플랫폼
+											버전
 										</label>
-										<input name="platKeyword" type="text" class="form-control" readonly="readonly">
+										<input name="version" type="text" class="form-control" readonly="readonly">
 									</div>
 								</div>
 								<div class="form-row">
@@ -415,7 +424,7 @@ $(document).ready(function() {
 					</div>
 					<div class="form-group col-sm-4">
 						<label class="form-label">
-							플랫폼
+							분기
 						</label>
 						<input name="platKeyword" type="text" class="form-control" readonly="readonly">
 					</div>
@@ -529,6 +538,19 @@ div.k-dropzone.k-dropzone-hovered em, div.k-dropzone em { color: #2e2e2e; }
 
 
 <!--  Scripts -->
+
+<script>
+$(document).ready(function() {
+
+	if (Clipboard.isSupported()) {
+		new Clipboard('.clipboard-btn');
+	} else {
+		$('.clipboard-btn').prop('disabled', true);
+	}
+
+});
+</script>
+
 
 <script>
 
@@ -758,6 +780,12 @@ function download(id) {
 	var dataItem = $("#grid").data("kendoGrid").dataSource.get(id);
 	
 	location.href = dataItem.httpFilename;
+}
+
+
+function copyToClipboard() {
+
+	showOperationSuccessMsg();
 }
 
 </script>

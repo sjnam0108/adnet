@@ -90,8 +90,6 @@
 				template="#=scopeKernel ? \"<span class='fa-light fa-check'>\" : \"\"#" />
 		<kendo:grid-column title="매체 관리" field="scopeMedium" width="150"
 				template="#=scopeMedium ? \"<span class='fa-light fa-check'>\" : \"\"#" />
-		<kendo:grid-column title="광고 제공" field="scopeAd" width="150"
-				template="#=scopeAd ? \"<span class='fa-light fa-check'>\" : \"\"#" />
 		<kendo:grid-column title="대상 매체" field="destMedia" width="300" template="#= dispBadgeValues(destMedia) #" />
 		<kendo:grid-column title="유효시작일" field="effectiveStartDate" template="<%= effStartDateTemplate %>" width="150" />
 		<kendo:grid-column title="유효종료일" field="effectiveEndDate" template="<%= effEndDateTemplate %>" width="150" />
@@ -115,7 +113,6 @@
 				<kendo:dataSource-schema-model-fields>
 					<kendo:dataSource-schema-model-field name="scopeKernel" type="boolean" />
 					<kendo:dataSource-schema-model-field name="scopeMedium" type="boolean" />
-					<kendo:dataSource-schema-model-field name="scopeAd" type="boolean" />
 					<kendo:dataSource-schema-model-field name="effectiveStartDate" type="date" />
 					<kendo:dataSource-schema-model-field name="effectiveEndDate" type="date" />
 				</kendo:dataSource-schema-model-fields>
@@ -253,15 +250,6 @@ $(document).ready(function() {
 							</span>
 							<span class="switcher-label">매체</span>
 						</label>
-						<span class="pl-2"></span>
-						<label class="switcher switcher-secondary">
-							<input type="checkbox" class="switcher-input check-switch-status" name="scopeAd">
-							<span class="switcher-indicator">
-								<span class="switcher-yes"></span>
-								<span class="switcher-no"></span>
-							</span>
-							<span class="switcher-label">광고</span>
-						</label>
 					</div>
 				</div>
 				<div class="form-group col">
@@ -308,8 +296,7 @@ function checkSaveValidation() {
 	
 	var ret = false;
 	if ($("#form-1 input[name='scopeKernel']").is(':checked') ||
-			$("#form-1 input[name='scopeMedium']").is(':checked') ||
-			$("#form-1 input[name='scopeAd']").is(':checked')) {
+			$("#form-1 input[name='scopeMedium']").is(':checked')) {
 		ret = true;
 	}
 	
@@ -429,7 +416,6 @@ function saveForm1() {
     		effectiveEndDate: $("#form-1 input[name='effectiveEndDate']").data("kendoDatePicker").value(),
     		scopeKernel: $("#form-1 input[name='scopeKernel']").is(':checked'),
     		scopeMedium: $("#form-1 input[name='scopeMedium']").is(':checked'),
-    		scopeAd: $("#form-1 input[name='scopeAd']").is(':checked'),
     		destMedia: $("#form-1 select[name='destMedia']").data("kendoMultiSelect").value(),
     		memo: $.trim($("#form-1 textarea[name='memo']").val()),
     	};
@@ -470,7 +456,6 @@ function edit(id) {
 	
 	$("#form-1 input[name='scopeKernel']").prop("checked", dataItem.scopeKernel);
 	$("#form-1 input[name='scopeMedium']").prop("checked", dataItem.scopeMedium);
-	$("#form-1 input[name='scopeAd']").prop("checked", dataItem.scopeAd);
 	
 	$("#form-1 select[name='destMedia']").data("kendoMultiSelect").value(dataItem.destMedia.split("|"));
 	

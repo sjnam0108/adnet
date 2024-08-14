@@ -107,11 +107,13 @@
 								<span class="d-flex align-items-center">
 									<span style="font-size: 120%;" id="api-key-span">${apiKey}</span>
 									<span class="px-1"></span>
-									<button type='button' onclick='copyToClipboard()' title="클립보드로 복사"
-											class='btn icon-btn btn-xs btn-outline-secondary borderless clipboard-btn' 
-											data-clipboard-action="copy" data-clipboard-target="#api-key-span"> 
-										<span class='fas fa-copy'></span>
-									</button>
+									<span class="adnet-default-tooltip" data-tooltip="클립보드로 복사">
+										<button type='button' onclick='copyToClipboard()'
+												class='btn icon-btn btn-xs btn-outline-secondary borderless clipboard-btn'
+												data-clipboard-action="copy" data-clipboard-target="#api-key-span">
+											<span class='fas fa-copy'></span>
+										</button>
+									</span>
 								</span>
 							</div>
 						</div>

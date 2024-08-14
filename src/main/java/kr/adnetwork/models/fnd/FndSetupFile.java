@@ -32,12 +32,16 @@ public class FndSetupFile {
 	//
 	//   > 설치 파일의 이름 구조
 	//
-	//   {제품 대분류}_{제품 keyword}_{version}[_{추가 설명 문자열}][.{플랫폼 keyword}].{파일확장명}
+	//   {제품 대분류}_{제품 keyword}[.{분기 keyword}]_{version}[_{추가 설명 문자열}].{파일확장명}
 	//
 	//   - {제품 대분류}
 	//     AdNetPlayer: 고정, 대소문자구분
 	//   - {제품 keyword}: 현재까지 3가지 가능
 	//     lite / sync / keeper
+	//   - {분기 keyword}
+	//     제품에 따른 세부 분기를 지정. 포함 시 반드시 '.'로 시작해야 함. alpha numeric 만 허용
+	//     서명 앱의 경우는 플랫폼 키워드가 될 수도 있고 - 예) keep.qb2
+	//     커스텀 앱의 분기 문자열이 될 수도 있음 - 예) lite.egs
 	//   - {version}
 	//     버전은 반드시 {major_ver}.{minor_ver}.{build_ver}의 형태를 취해야 한다.
 	//     {major_ver}의 범위: 0 <= 숫자 <= 99
@@ -56,28 +60,23 @@ public class FndSetupFile {
 	//   - {추가 설명 문자열}
 	//     필요에 따라 추가되는 설명 문자열. 포함되는 것은 옵션이며, 포함 시 반드시 '_'로 시작해야 함
 	//     설명 문자열로 '_' 혹은 '.'도 포함 가능함
-	//   - {플랫폼 keyword}
-	//     KR / QB / QB2
-	//     플랫폼 keyword는 루팅 권한을 가지도록 플랫폼 키로 서명된 앱의 플랫폼 구분 문자열이며, 포함 시 반드시 '.'로 시작해야 함
-	//     alpha numeric 만 허용
-	//     현재까지 3개가 허용되었으며, 나머지도 필요시 명명 가능.
-	//     플랫폼 keyword는 keeper만 가능한 상황.
 	//   - {파일확장명}: 현재까지 2가지 가능
 	//     apk / exe
 	//     각각 Android용 및 Window용
 	//   ex)
 	//     AdNetPlayer_lite_2.1.2.apk
-	//     AdNetPlayer_keeper_1.0.2.QB.apk
-	//     AdNetPlayer_sync_2.10.112.QB2.apk  <- sync 제품은 현재까지 루팅 필요가 없기 때문에 QB2의 키워드는 운영정책적으로는 불가능, 기술적으로는 가능
+	//     AdNetPlayer_keep.qb_1.0.2.apk
+	//     AdNetPlayer_sync.qb2_2.10.112.apk  <- sync 제품은 현재까지 루팅 필요가 없기 때문에 qb2의 키워드는 운영정책적으로는 불가능, 기술적으로는 가능
 	//     AdNetPlayer_lite_2.1.2_신한은행용.apk
 	//
 	//   {추가 설명 문자열}의 다양한 이용이 가능하기 때문에 설치 파일의 이름은 다음의 방법으로 파싱
 	//   1) 파일명에서 {파일확장명} 분리. 선행 '.' 제거
-	//      잔여 형태: {제품 대분류}_{제품 keyword}_{version}[_{추가 설명 문자열}][.{플랫폼 keyword}]
+	//      잔여 형태: {제품 대분류}_{제품 keyword}[.{분기 keyword}]_{version}[_{추가 설명 문자열}]
 	//   2) 나머지 문자열을 '_'로 구분(tokenizing), 최소 3개 그룹 이상이어야 함
-	//      1st 그룹을 {제품 대분류}, 2nd 그룹을 {제품 keyword}로 인식
-	//      3rd 그룹은 버전 정보만 있거나, 버전 정보에 {추가 설명 문자열}, {플랫폼 keyword}가 옵션 정보로 포함될 수 있음
-	//      잔여 형태: {version}[_{추가 설명 문자열}][.{플랫폼 keyword}]
+	//      1st 그룹을 {제품 대분류},
+	//      2nd 그룹은 {제품 keyword}만 있거나, 제품 keyword에 {분기 keyword}가 옵션 정보로 포함될 수 있음
+	//      3rd 그룹은 버전 정보만 있거나, 버전 정보에 {추가 설명 문자열}이 옵션 정보로 포함될 수 있음
+	//      잔여 형태: {version}[_{추가 설명 문자열}]
 	//   3) 나머지 문자열을 '.'로 구분(tokenizing), 최소 1개 이상 그룹 존재
 	//      1개 그룹 - 플랫폼 keyword 포함 안됨
 	//      2개 그룹이상 - 마지막 위치 그룹(2개 그룹이면 2nd, 5개 그룹이면 5th)을 {플랫폼 keyword}로 인식
@@ -129,6 +128,13 @@ public class FndSetupFile {
 	// 플랫폼 keyword
 	@Column(name = "PLAT_KEYWORD", nullable = false, length = 10)
 	private String platKeyword = "";
+	
+	// 파일 해쉬 문자열
+	//
+	//  sha-256: 64byte
+	//
+	@Column(name = "HASH", nullable = false, length = 64)
+	private String hash = "";
 	
 	
 	// WHO 컬럼들(S)
@@ -346,6 +352,14 @@ public class FndSetupFile {
 
 	public void setVerNumber(int verNumber) {
 		this.verNumber = verNumber;
+	}
+
+	public String getHash() {
+		return hash;
+	}
+
+	public void setHash(String hash) {
+		this.hash = hash;
 	}
 
 }

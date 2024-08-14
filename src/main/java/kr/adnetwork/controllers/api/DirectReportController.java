@@ -442,7 +442,7 @@ public class DirectReportController {
 			boolean hasCommand = false;
 			InvRTScreen rtScreen = invService.getRTScreenByScreenId(screen.getId());
 			if (rtScreen != null) {
-				hasCommand = Util.isValid(rtScreen.getNextCmd());
+				hasCommand = Util.isValid(rtScreen.getNextCmd()) && !rtScreen.isCmdFailed();
 			}
 			obj.put("command", hasCommand);
 			// / 명령 포함 여부

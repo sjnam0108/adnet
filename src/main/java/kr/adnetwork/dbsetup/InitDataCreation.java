@@ -207,13 +207,13 @@ public class InitDataCreation {
 		//
 		//  Top menu
 		//
-		KnlMenu revKMenu = new KnlMenu("Review", "", "gauge-high", 100, true, true, false, null);
-		KnlMenu adcKMenu = new KnlMenu("Ad", "", "paintbrush-pencil", 200, true, true, false, null);
-		KnlMenu invKMenu = new KnlMenu("Inventory", "", "objects-column", 300, true, true, false, null);
-		KnlMenu orgKMenu = new KnlMenu("Organization", "", "building", 400, true, true, false, null);
-		KnlMenu fndKMenu = new KnlMenu("Foundation", "", "kaaba", 700, true, false, false, null);
-		KnlMenu knlKMenu = new KnlMenu("Kernel", "", "atom-simple", 800, true, false, false, null);
-		KnlMenu sysKMenu = new KnlMenu("System", "", "chart-network", 900, true, false, false, null);
+		KnlMenu revKMenu = new KnlMenu("Review", "", "gauge-high", 100, true, true, null);
+		KnlMenu adcKMenu = new KnlMenu("Ad", "", "paintbrush-pencil", 200, true, true, null);
+		KnlMenu invKMenu = new KnlMenu("Inventory", "", "objects-column", 300, true, true, null);
+		KnlMenu orgKMenu = new KnlMenu("Organization", "", "building", 400, true, true, null);
+		KnlMenu fndKMenu = new KnlMenu("Foundation", "", "kaaba", 700, true, false, null);
+		KnlMenu knlKMenu = new KnlMenu("Kernel", "", "atom-simple", 800, true, false, null);
+		KnlMenu sysKMenu = new KnlMenu("System", "", "chart-network", 900, true, false, null);
 		
 		session.save(revKMenu);
 		session.save(adcKMenu);
@@ -227,11 +227,11 @@ public class InitDataCreation {
 		//
 		//  Review menu
 		//
-		KnlMenu pendApprKMenu = new KnlMenu("RevPendAppr", "/rev/pendappr", "hourglass-clock", 10, true, true, false, null);
-		KnlMenu campRptKMenu = new KnlMenu("RevCampRpt", "/rev/camprpt", "file-invoice", 20, true, true, false, null);
-		KnlMenu mediumRptKMenu = new KnlMenu("RevMediumRpt", "/rev/mediumrpt", "file-invoice", 30, true, true, false, null);
-		KnlMenu monitoringKMenu = new KnlMenu("RevMonitoring", "/rev/monitoring", "monitor-waveform", 40, true, true, false, null);
-		KnlMenu geofenceKMenu = new KnlMenu("RevGeofence", "/rev/geofence", "globe-stand", 60, true, true, false, null);
+		KnlMenu pendApprKMenu = new KnlMenu("RevPendAppr", "/rev/pendappr", "hourglass-clock", 10, true, true, null);
+		KnlMenu campRptKMenu = new KnlMenu("RevCampRpt", "/rev/camprpt", "file-invoice", 20, true, true, null);
+		KnlMenu mediumRptKMenu = new KnlMenu("RevMediumRpt", "/rev/mediumrpt", "file-invoice", 30, true, true, null);
+		KnlMenu monitoringKMenu = new KnlMenu("RevMonitoring", "/rev/monitoring", "monitor-waveform", 40, true, true, null);
+		KnlMenu geofenceKMenu = new KnlMenu("RevGeofence", "/rev/geofence", "globe-stand", 60, true, true, null);
 		
 		pendApprKMenu.setParent(revKMenu);
 		campRptKMenu.setParent(revKMenu);
@@ -249,11 +249,11 @@ public class InitDataCreation {
 		//
 		//  Ad menu
 		//
-		KnlMenu campaignKMenu = new KnlMenu("AdcCampaign", "/adc/campaign", "briefcase", 10, true, true, false, null);
-		KnlMenu adKMenu = new KnlMenu("AdcAd", "/adc/ad", "audio-description", 20, true, true, false, null);
-		KnlMenu creativeKMenu = new KnlMenu("AdcCreative", "/adc/creative", "clapperboard-play", 30, true, true, false, null);
-		KnlMenu channelKMenu = new KnlMenu("OrgChannel", "/org/channel", "tower-cell", 40, true, true, false, null);
-		KnlMenu galleryKMenu = new KnlMenu("AdcGallery", "/adc/gallery", "photo-film", 50, true, true, false, null);
+		KnlMenu campaignKMenu = new KnlMenu("AdcCampaign", "/adc/campaign", "briefcase", 10, true, true, null);
+		KnlMenu adKMenu = new KnlMenu("AdcAd", "/adc/ad", "audio-description", 20, true, true, null);
+		KnlMenu creativeKMenu = new KnlMenu("AdcCreative", "/adc/creative", "clapperboard-play", 30, true, true, null);
+		KnlMenu channelKMenu = new KnlMenu("OrgChannel", "/org/channel", "tower-cell", 40, true, true, null);
+		KnlMenu galleryKMenu = new KnlMenu("AdcGallery", "/adc/gallery", "photo-film", 50, true, true, null);
 		
 		campaignKMenu.setParent(adcKMenu);
 		adKMenu.setParent(adcKMenu);
@@ -271,10 +271,10 @@ public class InitDataCreation {
 		//
 		//  Inventory menu
 		//
-		KnlMenu siteKMenu = new KnlMenu("InvSite", "/inv/site", "map-pin", 10, true, true, false, null);
-		KnlMenu screenKMenu = new KnlMenu("InvScreen", "/inv/screen", "screen-users", 20, true, true, false, null);
-		KnlMenu scrPackKMenu = new KnlMenu("InvScrPack", "/inv/scrpack", "box-taped", 30, true, true, false, null);
-		KnlMenu syncPackKMenu = new KnlMenu("InvSyncPack", "/inv/syncpack", "rectangle-vertical-history", 40, true, true, false, null);
+		KnlMenu siteKMenu = new KnlMenu("InvSite", "/inv/site", "map-pin", 10, true, true, null);
+		KnlMenu screenKMenu = new KnlMenu("InvScreen", "/inv/screen", "screen-users", 20, true, true, null);
+		KnlMenu scrPackKMenu = new KnlMenu("InvScrPack", "/inv/scrpack", "box-taped", 30, true, true, null);
+		KnlMenu syncPackKMenu = new KnlMenu("InvSyncPack", "/inv/syncpack", "rectangle-vertical-history", 40, true, true, null);
 		
 		siteKMenu.setParent(invKMenu);
 		screenKMenu.setParent(invKMenu);
@@ -290,13 +290,13 @@ public class InitDataCreation {
 		//
 		//  Organization menu
 		//
-		KnlMenu currMediumKMenu = new KnlMenu("OrgCurrMedium", "/org/currmedium", "earth-asia", 10, true, true, false, null);
-		KnlMenu mediumOptKMenu = new KnlMenu("OrgMediumOpt", "/org/mediumopt", "square-list", 20, true, true, false, null);
-		KnlMenu alimTalkKMenu = new KnlMenu("OrgAlimTalk", "/org/alimtalk", "envelope-open-text", 30, true, true, false, null);
-		KnlMenu radRegionKMenu = new KnlMenu("OrgRadRegion", "/org/radregion", "circle-dot", 50, true, true, false, null);
-		KnlMenu batchInvKMenu = new KnlMenu("BatchInv", "/org/batchinv", "upload", 60, true, true, false, null);
-		KnlMenu invenRequestKMenu = new KnlMenu("RevInvenRequest", "/org/invenrequest", "plug", 70, true, true, false, null);
-		KnlMenu userKMenu = new KnlMenu("OrgUser", "/org/user", "users", 80, true, true, false, null);
+		KnlMenu currMediumKMenu = new KnlMenu("OrgCurrMedium", "/org/currmedium", "earth-asia", 10, true, true, null);
+		KnlMenu mediumOptKMenu = new KnlMenu("OrgMediumOpt", "/org/mediumopt", "square-list", 20, true, true, null);
+		KnlMenu alimTalkKMenu = new KnlMenu("OrgAlimTalk", "/org/alimtalk", "envelope-open-text", 30, true, true, null);
+		KnlMenu radRegionKMenu = new KnlMenu("OrgRadRegion", "/org/radregion", "circle-dot", 50, true, true, null);
+		KnlMenu batchInvKMenu = new KnlMenu("BatchInv", "/org/batchinv", "upload", 60, true, true, null);
+		KnlMenu invenRequestKMenu = new KnlMenu("RevInvenRequest", "/org/invenrequest", "plug", 70, true, true, null);
+		KnlMenu userKMenu = new KnlMenu("OrgUser", "/org/user", "users", 80, true, true, null);
 		
 		currMediumKMenu.setParent(orgKMenu);
 		mediumOptKMenu.setParent(orgKMenu);
@@ -318,13 +318,13 @@ public class InitDataCreation {
 		//
 		//  Foundation menu
 		//
-		KnlMenu privKMenu = new KnlMenu("FndPriv", "/fnd/priv", "cog", 10, true, false, false, null);
-		KnlMenu userPrivKMenu = new KnlMenu("FndUserPriv", "/fnd/userpriv", "user-cog", 20, true, false, false, null);
-		KnlMenu regionKMenu = new KnlMenu("FndRegion", "/fnd/region", "mountain-city", 30, true, false, false, null);
-		KnlMenu ctntFolderKMenu = new KnlMenu("FndCtntFolder", "/fnd/ctntfolder", "folder", 40, true, false, false, null);
-		KnlMenu viewTypeKMenu = new KnlMenu("FndViewType", "/fnd/viewtype", "sidebar", 50, true, false, false, null);
-		KnlMenu setupFileKMenu = new KnlMenu("FndSetupFile", "/fnd/setupfile", "file-zipper", 60, true, false, false, null);
-		KnlMenu loginLogKMenu = new KnlMenu("FndLoginLog", "/fnd/loginlog", "sign-in-alt", 70, true, false, false, null);
+		KnlMenu privKMenu = new KnlMenu("FndPriv", "/fnd/priv", "cog", 10, true, false, null);
+		KnlMenu userPrivKMenu = new KnlMenu("FndUserPriv", "/fnd/userpriv", "user-cog", 20, true, false, null);
+		KnlMenu regionKMenu = new KnlMenu("FndRegion", "/fnd/region", "mountain-city", 30, true, false, null);
+		KnlMenu ctntFolderKMenu = new KnlMenu("FndCtntFolder", "/fnd/ctntfolder", "folder", 40, true, false, null);
+		KnlMenu viewTypeKMenu = new KnlMenu("FndViewType", "/fnd/viewtype", "sidebar", 50, true, false, null);
+		KnlMenu setupFileKMenu = new KnlMenu("FndSetupFile", "/fnd/setupfile", "file-zipper", 60, true, false, null);
+		KnlMenu loginLogKMenu = new KnlMenu("FndLoginLog", "/fnd/loginlog", "sign-in-alt", 70, true, false, null);
 		
 		privKMenu.setParent(fndKMenu);
 		userPrivKMenu.setParent(fndKMenu);
@@ -346,10 +346,10 @@ public class InitDataCreation {
 		//
 		//  Kernel menu
 		//
-		KnlMenu mediumKMenu = new KnlMenu("KnlMedium", "/knl/medium", "earth-asia", 10, true, false, false, null);
-		KnlMenu accountKMenu = new KnlMenu("KnlAccount", "/knl/account", "building-circle-check", 20, true, false, false, null);
-		KnlMenu managerKMenu = new KnlMenu("KnlManager", "/knl/manager", "user-gear", 30, true, false, false, null);
-		KnlMenu menuKMenu = new KnlMenu("KnlMenu", "/knl/menu", "plate-utensils", 40, true, false, false, null);
+		KnlMenu mediumKMenu = new KnlMenu("KnlMedium", "/knl/medium", "earth-asia", 10, true, false, null);
+		KnlMenu accountKMenu = new KnlMenu("KnlAccount", "/knl/account", "building-circle-check", 20, true, false, null);
+		KnlMenu managerKMenu = new KnlMenu("KnlManager", "/knl/manager", "user-gear", 30, true, false, null);
+		KnlMenu menuKMenu = new KnlMenu("KnlMenu", "/knl/menu", "plate-utensils", 40, true, false, null);
 		
 		mediumKMenu.setParent(knlKMenu);
 		accountKMenu.setParent(knlKMenu);
@@ -365,9 +365,9 @@ public class InitDataCreation {
 		//
 		//  System menu
 		//
-		KnlMenu respTimeKMenu = new KnlMenu("SysRespTime", "/sys/rt", "stopwatch", 10, true, false, false, null);
-		KnlMenu adSelKMenu = new KnlMenu("SysAdSel", "/sys/adsel", "mug-hot", 20, true, false, false, null);
-		KnlMenu dbObjKMenu = new KnlMenu("SysDbObj", "/sys/dbobj", "database", 30, true, false, false, null);
+		KnlMenu respTimeKMenu = new KnlMenu("SysRespTime", "/sys/rt", "stopwatch", 10, true, false, null);
+		KnlMenu adSelKMenu = new KnlMenu("SysAdSel", "/sys/adsel", "mug-hot", 20, true, false, null);
+		KnlMenu dbObjKMenu = new KnlMenu("SysDbObj", "/sys/dbobj", "database", 30, true, false, null);
 		
 		respTimeKMenu.setParent(sysKMenu);
 		adSelKMenu.setParent(sysKMenu);

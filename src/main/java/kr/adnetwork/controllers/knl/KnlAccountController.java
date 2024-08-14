@@ -123,7 +123,6 @@ public class KnlAccountController {
     	
     	boolean scopeKernel = (Boolean)model.get("scopeKernel");
     	boolean scopeMedium = (Boolean)model.get("scopeMedium");
-    	boolean scopeAd = (Boolean)model.get("scopeAd");
     	
     	String media = "";
 		for(Object obj : destMedia) {
@@ -139,7 +138,6 @@ public class KnlAccountController {
     	
     	target.setScopeKernel(scopeKernel);
     	target.setScopeMedium(scopeMedium);
-    	target.setScopeAd(scopeAd);
     	
     	target.setDestMedia(media);
     	
@@ -172,7 +170,6 @@ public class KnlAccountController {
     	
     	boolean scopeKernel = (Boolean)model.get("scopeKernel");
     	boolean scopeMedium = (Boolean)model.get("scopeMedium");
-    	boolean scopeAd = (Boolean)model.get("scopeAd");
     	
     	String media = "";
 		for(Object obj : destMedia) {
@@ -193,7 +190,6 @@ public class KnlAccountController {
         	
         	target.setScopeKernel(scopeKernel);
         	target.setScopeMedium(scopeMedium);
-        	target.setScopeAd(scopeAd);
         	
         	target.setDestMedia(media);
 

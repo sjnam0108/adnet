@@ -45,6 +45,7 @@ public class InvRTScreen {
 	//   Update				플레이어 업데이트		X(실패 시에만 UpdateError를 따로 등록)
 	//   Restart            플레이어 재시작			Restart
 	//   Log				로그 업로드				X
+	//   Keeper				키퍼 업데이트			X(실패 시에만 UpdateError를 따로 등록)
 	//   ------------------	-----------------------	-----------------------
 	//
 	@Column(name = "NEXT_CMD", nullable = false, length = 30)

@@ -55,10 +55,6 @@ public class KnlMenu {
 	// 매체 관리 범위 이용가능
 	@Column(name = "SCOPE_MEDIUM_AVAIL", nullable = false)
 	private boolean scopeMediumAvailable = false;
-	
-	// 광고 제공 범위 이용가능
-	@Column(name = "SCOPE_AD_AVAIL", nullable = false)
-	private boolean scopeAdAvailable = false;
 
 
 	// WHO 컬럼들(S)
@@ -96,8 +92,7 @@ public class KnlMenu {
 	public KnlMenu() {}
 	
 	public KnlMenu(String ukid, String url, String iconType, int siblingSeq, 
-			boolean scopeKernelAvailable, boolean scopeMediumAvailable, boolean scopeAdAvailable,
-			HttpSession session) {
+			boolean scopeKernelAvailable, boolean scopeMediumAvailable, HttpSession session) {
 		
 		this.ukid = ukid;
 		this.url = url;
@@ -105,7 +100,6 @@ public class KnlMenu {
 		this.siblingSeq = siblingSeq;
 		this.scopeKernelAvailable = scopeKernelAvailable;
 		this.scopeMediumAvailable = scopeMediumAvailable;
-		this.scopeAdAvailable = scopeAdAvailable;
 		
 		touchWhoC(session);
 	}
@@ -177,14 +171,6 @@ public class KnlMenu {
 
 	public void setScopeMediumAvailable(boolean scopeMediumAvailable) {
 		this.scopeMediumAvailable = scopeMediumAvailable;
-	}
-
-	public boolean isScopeAdAvailable() {
-		return scopeAdAvailable;
-	}
-
-	public void setScopeAdAvailable(boolean scopeAdAvailable) {
-		this.scopeAdAvailable = scopeAdAvailable;
 	}
 
 	public Date getWhoCreationDate() {

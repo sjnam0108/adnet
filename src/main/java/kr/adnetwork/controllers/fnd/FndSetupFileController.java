@@ -94,8 +94,6 @@ public class FndSetupFileController {
     	model.addAttribute("uploadModel", uploadModel);
 
     	
-
-    	
         return "fnd/setupfile";
     }
     
@@ -118,6 +116,7 @@ public class FndSetupFileController {
     			setupFile.setVersion(nameObj.getVersion());
     			setupFile.setPlatKeyword(nameObj.getPlatKeyword());
     		}
+
     		
     		return result;
     	} catch (Exception e) {
@@ -172,6 +171,9 @@ public class FndSetupFileController {
         	
         	// 파일 이동
         	upFile.renameTo(new File(finalPathFile));
+        	
+        	// 해쉬값 설정
+        	target.setHash(Util.getFileHashSha256(finalPathFile));
         	
         	fndService.saveOrUpdate(target);
         } catch (DataIntegrityViolationException dive) {

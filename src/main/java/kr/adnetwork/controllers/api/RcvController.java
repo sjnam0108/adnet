@@ -395,6 +395,8 @@ public class RcvController {
     			if (Util.isValid(desc)) {
     				details = desc;
     			}
+    		// 재생목록 오류는 이제 사용하지 않음. 여기서의 재생목록은 채널의 재생목록과는 다름
+    		/*
     		} else if (event.equals("PlaylistError")) {
     			reportType = "W";
     			category = "G";
@@ -403,6 +405,7 @@ public class RcvController {
     			if (Util.isValid(desc)) {
     				details = desc;
     			}
+    		*/
     		}
     		
     		if (isRightEvent) {
