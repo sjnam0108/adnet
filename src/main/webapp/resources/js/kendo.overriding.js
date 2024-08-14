@@ -177,7 +177,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function() {
-    setTimeout(function() {
+    function initializeTooltips() {
         var tooltipElements = $(".adnet-default-tooltip");
 
         tooltipElements.each(function(index) {
@@ -213,7 +213,7 @@ $(document).ready(function() {
             tooltipElement.style.left = `${rect.left + (rect.width / 2) - (tooltipRect.width / 2)}px`;
 
             // 화살표 위치 설정
-            tooltipAfterElement.style.top = `${rect.top - (tooltipAfterElement.getBoundingClientRect().height)}px`;
+            tooltipAfterElement.style.top = `${rect.top - tooltipAfterElement.getBoundingClientRect().height}px`;
             tooltipAfterElement.style.left = `${rect.left + (rect.width / 2)}px`;
 
             // 초기 상태에서는 show 클래스 없이 생성
@@ -232,5 +232,13 @@ $(document).ready(function() {
                 $('#' + arrowId).removeClass('show');
             });
         });
-    }, 500); // 1초 후 실행
+    }
+
+    // 페이지 로드 시 툴팁 초기화
+    setTimeout(initializeTooltips, 500);
+
+    // 모든 AJAX 요청이 완료될 때마다 툴팁 초기화
+    $(document).ajaxComplete(function() {
+        setTimeout(initializeTooltips, 300);
+    });
 });
