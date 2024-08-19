@@ -182,7 +182,7 @@ $(document).ready(function() {
 
         tooltipElements.each(function(index) {
             // 각 요소에 고유한 아이디 부여 및 개별 툴팁 생성
-            var uniqueId = 'tooltip-' + index;
+            var uniqueId = 'adnet-tooltip-' + index;
             var arrowId = uniqueId + '-arrow';
             $(this).attr('data-tooltip-id', uniqueId);
 
@@ -192,13 +192,13 @@ $(document).ready(function() {
             // 툴팁 div 생성 및 설정
             let tooltipElement = document.createElement('div');
             tooltipElement.id = uniqueId;
-            tooltipElement.className = 'tooltip';
+            tooltipElement.className = 'adnet-tooltip';
             tooltipElement.innerHTML = tooltipText;
 
             // 화살표 역할을 하는 div 생성 및 설정
             let tooltipAfterElement = document.createElement('div');
             tooltipAfterElement.id = arrowId;
-            tooltipAfterElement.className = 'tooltip-arrow';
+            tooltipAfterElement.className = 'adnet-tooltip-arrow';
 
             // 툴팁과 화살표 요소를 body에 추가
             document.body.appendChild(tooltipElement);

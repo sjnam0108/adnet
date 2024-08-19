@@ -561,75 +561,6 @@ div[name="siteName-con"] > span {
 
 
 /*!*  adnet-default-tooltip  *!*/
-/*.adnet-default-tooltip {*/
-/*    position: relative;*/
-/*    display: inline-block;*/
-/*    cursor: pointer;*/
-/*    z-index: 1;*/
-/*}*/
-
-/*.adnet-default-tooltip::before,*/
-/*.adnet-default-tooltip::after {*/
-/*    !*position: absolute;*!*/
-/*    position: absolute;*/
-/*    visibility: hidden;*/
-/*    opacity: 0;*/
-/*    transition: opacity 0.2s;*/
-/*    z-index: 1070;*/
-/*}*/
-
-/*.adnet-default-tooltip::before {*/
-/*    content: attr(data-tooltip);*/
-/*    !*bottom: 150%; !* 툴팁과 화살표가 같이 움직이도록 조정 *!*!*/
-/*    !*bottom: 110%; !* 툴팁이 보이도록 값 조정 *!*!*/
-/*    bottom: 105%; !* 툴팁이 보이도록 값 조정 *!*/
-/*    left: 50%;*/
-/*    transform: translateX(-50%);*/
-
-/*    background-color: #46494d;*/
-/*    border-color: #46494d;*/
-/*    color: #fff;*/
-/*    text-align: center;*/
-/*    border-radius: .25rem;*/
-/*    padding: .25rem .5rem;*/
-/*    font-family: "Roboto", "Noto Sans", "Noto Sans CJK KR", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;*/
-/*    font-style: normal;*/
-/*    font-weight: 400;*/
-/*    line-height: 1.47;*/
-/*    text-shadow: none;*/
-/*    text-transform: none;*/
-/*    letter-spacing: normal;*/
-/*    word-break: normal;*/
-/*    word-spacing: normal;*/
-/*    white-space: nowrap;*/
-/*    line-break: auto;*/
-/*    font-size: .75rem;*/
-/*    word-wrap: break-word;*/
-
-/*    z-index: 1070;*/
-/*    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);*/
-/*}*/
-
-/*.adnet-default-tooltip::after {*/
-/*    content: "";*/
-/*    bottom: 60%;*/
-/*    left: 50%;*/
-/*    transform: translateX(-50%);*/
-/*    border-width: 0.375rem;*/
-/*    border-style: solid;*/
-/*    border-color: #46494d transparent transparent transparent;*/
-/*    z-index: 1070;*/
-/*    !*width: .8rem;*!*/
-/*    !*height: .4rem;*!*/
-/*}*/
-
-/*.adnet-default-tooltip:hover::before,*/
-/*.adnet-default-tooltip:hover::after {*/
-/*    visibility: visible;*/
-/*    opacity: 1;*/
-/*}*/
-
-/*  test   */
 .adnet-default-tooltip {
     position: relative;
     display: inline-block;
@@ -637,7 +568,7 @@ div[name="siteName-con"] > span {
     z-index: 1;
 }
 
-.tooltip {
+.adnet-tooltip {
     position: absolute;
     visibility: hidden;
     opacity: 0;
@@ -655,12 +586,12 @@ div[name="siteName-con"] > span {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
 }
 
-.tooltip.show {
+.adnet-tooltip.show {
     visibility: visible;
     opacity: 1;
 }
 
-.tooltip-arrow {
+.adnet-tooltip-arrow {
     content: "";
     margin: 0;
     position: absolute;
@@ -674,7 +605,7 @@ div[name="siteName-con"] > span {
     opacity: 0;
     transition: opacity 0.2s;
 }
-.tooltip-arrow.show {
+.adnet-tooltip-arrow.show {
     visibility: visible;
     opacity: 1;
 }
